@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-jakarta: var(--font-jakarta);
+
+  --color-primary: #A36EBA;
+  --color-secondary: #F4864D;
+  --color-tertiary: #FFACFF;
+  --color-navigation: #999FAE;
+  --color-title: #1D2538;
+  --color-paragraph: #273150;
+  --color-button-text: #FFFFFF;
+  --color-background: #FCFFF0;
+
+  --breakpoint-small-smartphone: 480px;
+  --breakpoint-large-smartphone: 640px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-small-laptop: 1024px;
+  --breakpoint-desktop: 1280px;
+  --breakpoint-large-monitor: 1536px;
+  --breakpoint-ultrawide: 1920px;
+  --breakpoint-4k-monitor: 2560px;
+}
