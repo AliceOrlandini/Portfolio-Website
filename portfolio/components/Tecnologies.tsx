@@ -7,7 +7,7 @@ import InfiniteLogoSlider from '@/components/ui/infinite-logo-slider';
 
 export default function Tecnologies() {
   return (
-    <>
+    <section>
       <div className="my-10">
         <h1 className="font-jakarta text-center font-bold text-4xl">Tecnologie con cui lavoro</h1>
       </div>
@@ -43,6 +43,6 @@ export default function Tecnologies() {
           </a>
         </InfiniteLogoSlider>
       </div>
-    </>
+    </section>
   );
 }
