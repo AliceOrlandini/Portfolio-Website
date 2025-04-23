@@ -1,32 +1,6 @@
 import Image from 'next/image';
-import Ellipse   from '@/public/assets/ellipse.png';
-import Step1Img  from '@/public/assets/how_it_works_1.png';
-import Step2Img  from '@/public/assets/how_it_works_2.png';
-import Step3Img  from '@/public/assets/how_it_works_3.png';
-
-const STEPS = [
-  {
-    id: 1,
-    title: 'Progettazione',
-    copy:
-      'Zombie ipsum reversus ab viral inferno, nam Rick Grimes malum cerebro. De carne lumbering animata.',
-    img: Step1Img
-  },
-  {
-    id: 2,
-    title: 'Sviluppo',
-    copy:
-      'Craven omni memoria patriae zombieland clairvius narcisse religions sunt diri undead historiarum.',
-    img: Step2Img
-  },
-  {
-    id: 3,
-    title: 'Consegna',
-    copy:
-      'Sicut spargit virus ad impetum, qui supersumus flesh eating.',
-    img: Step3Img
-  },
-];
+import Ellipse from '@/public/assets/ellipse.png';
+import { HOW_IT_WORKS_ITEMS } from '@/lib/constants';
 
 export default function HowItWorks() {
   return (
@@ -39,9 +13,9 @@ export default function HowItWorks() {
       />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-y-20 md:grid-cols-3 md:gap-x-8">
-          {STEPS.map(({ id, title, copy, img }, idx) => (
+          {HOW_IT_WORKS_ITEMS.map(({ title, copy, img }, idx) => (
             <article
-              key={id}
+              key={idx}
               className="flex flex-col items-center text-center"
             >
               <Image
@@ -56,7 +30,7 @@ export default function HowItWorks() {
               <div className="relative mb-6 inline-flex items-center justify-center">
                 <span className="absolute inline-flex h-12 w-12 rounded-full ring-2 ring-orange-300 ring-offset-2 ring-offset-white" />
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-semibold text-white">
-                  {id}
+                  {idx + 1}
                 </span>
               </div>
 
