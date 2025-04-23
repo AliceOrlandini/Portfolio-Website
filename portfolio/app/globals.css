@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-jakarta: var(--font-jakarta);
+  --font-raleway: var(--font-raleway);
 
   --color-primary: #A36EBA;
   --color-secondary: #F4864D;

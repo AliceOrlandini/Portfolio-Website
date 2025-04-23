@@ -30,7 +30,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative isolate overflow-hidden font-jakarta py-24 sm:py-32">
+    <section className="relative isolate overflow-hidden font-raleway py-24 sm:py-32">
       <Image
         src={Ellipse}
         alt=""

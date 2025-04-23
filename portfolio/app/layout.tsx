@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const jakarta = Plus_Jakarta_Sans({
+const raleway = Raleway({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-raleway",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="it-IT">
       <body
-        className={`${jakarta.variable} antialiased bg-background`}
+        className={`${raleway.variable} antialiased bg-background`}
       >
         <Navbar />
         {children}
