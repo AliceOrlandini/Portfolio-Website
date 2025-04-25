@@ -21,10 +21,9 @@ export default function HowItWorks() {
               <Image
                 src={img}
                 alt={title}
-                className={`mb-6 w-44 md:w-52 lg:w-56 ${
-                  idx === 1 ? 'md:-mt-28 lg:-mt-32 w-64 lg:w-72' : ''
+                className={`mb-6 w-[250px] ${
+                  idx === 1 ? '-mt-36 w-[350px]' : ''
                 }`}
-                sizes='(max-width: 768px) 11rem, 14rem'
               />
 
               <div className="relative mb-6 inline-flex items-center justify-center">

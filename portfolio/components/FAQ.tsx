@@ -17,7 +17,7 @@ export default function FAQ() {
             <h1 className="text-title text-5xl font-bold">Frequently Asked Questions</h1>
             <p className="text-paragraph font-semibold mt-7">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis cumque labore repudiandae dolore doloribus facilis, laudantium voluptatibus. Est mollitia tenetur totam quis debitis similique praesentium eos in ducimus. Repudiandae, ex.</p>
           </div>
-          <Image src={FAQImage} alt="FAQ" className="grid-cols-6 mx-auto"/>
+          <Image src={FAQImage} alt="FAQ" className="grid-cols-6 mx-auto w-[300px]"/>
         </div>
         <Accordion type="single" collapsible className="text-white font-raleway mt-10">
           {FAQ_ITEMS.map(({ question, answer }, idx) => (
