@@ -1,4 +1,4 @@
-import { Gauge, Compass, Smartphone, User } from 'lucide-react';
+import { Gauge, Compass, Smartphone, BadgeEuro } from 'lucide-react';
 import Step1Img from '@/public/assets/how_it_works_1.png';
 import Step2Img from '@/public/assets/how_it_works_2.png';
 import Step3Img from '@/public/assets/how_it_works_3.png';
@@ -16,22 +16,22 @@ export const FEATURES_ITEMS = [
   {
     icon: <Gauge className="text-tertiary mb-3" />,
     title: "Siti Veloci e Performanti",
-    copy: "Realizzo siti web ottimizzati per garantire tempi di caricamento rapidissimi, offrendo agli utenti un'esperienza di navigazione fluida."
+    copy: "La velocità di caricamento è fondamentale per chi visita il tuo sito, infatti, un sito lento fa perdere visitatori (il 53% degli utenti abbandona un sito se impiega più di 3 secondi a caricarsi). Grazie a tecnologie moderne, realizzo siti web super veloci e ottimizzati, con tempi di risposta rapidissimi."
   },
   {
     icon: <Compass className="text-tertiary mb-3" />,
-    title: "SEO Ottimizzato",
-    copy: "Progetto ogni sito seguendo le migliori pratiche SEO, per aiutarti a posizionarti meglio su Google e farti trovare facilmente dai tuoi potenziali clienti a Lucca e non solo."
+    title: "SEO già Inclusa",
+    copy: "Un sito bello ma difficile da trovare non serve a nessuno! Con me, la SEO è già inclusa nella realizzazione del tuo sito: scelgo con cura titoli, testi e struttura tecnica per favorire il miglior posizionamento possibile. Se vuoi un sito internet che non sia solo online, ma anche trovato facilmente su Google, ti aiuto a raggiungere questo obiettivo fin dall'inizio."
   },
   {
     icon: <Smartphone className="text-tertiary mb-3" />,
     title: "Design Responsive",
-    copy: "I tuoi clienti navigano da smartphone, tablet e computer: per questo creo siti che si adattano perfettamente a qualsiasi dispositivo, mantenendo sempre una grafica curata e funzionale."
+    copy: "Oggi più del 70% delle visite ai siti web avviene da smartphone o tablet. Ogni sito che realizzo è completamente responsive: significa che si adatta perfettamente a qualsiasi schermo, garantendo un'esperienza utente fluida e professionale."
   },
   {
-    icon: <User className="text-tertiary mb-3" />,
-    title: "Gestione Facile e Autonoma",
-    copy: "Sviluppo siti che puoi aggiornare in autonomia, senza bisogno di conoscenze tecniche, per mantenere sempre i tuoi contenuti freschi e aggiornati."
+    icon: <BadgeEuro className="text-tertiary mb-3" />,
+    title: "Prezzi Trasparenti",
+    copy: "Con me hai subito un'idea chiara di quanto spenderai: sul mio sito trovi prezzi indicativi per siti vetrina (a una o più pagine) e siti dinamici, senza costi nascosti. In più, ti aiuto a ridurre i costi fissi annuali, garantendoti alte prestazioni."
   }
 ];
 
@@ -58,47 +58,47 @@ export const HOW_IT_WORKS_ITEMS = [
 
 export const PRICING_ITEMS = [
   {
-    title: "Vetrina",
-    subtitle: "Ideale per chi desidera una presenza online semplice ma efficace.",
+    title: "Vetrina 1 Pagina",
+    subtitle: "Una pagina essenziale ma d’impatto, perfetta per presentare chi sei e cosa fai in modo semplice e professionale.",
     icon: VetrinaIcon,
-    price: "€600",
+    price: "€300",
     features: [
-      "Sito web vetrina",
-      "Fino a 5 pagine",
-      "Contatti e mappa",
-      "Form di contatto",
-      "Ottimizzazione SEO",
-      "Assistenza 24/7",
+      "Design personalizzato e adattabile a tutti i dispositivi",
+      "Sito composto da più sezioni in una sola pagina (ad esempio: Chi sono, Servizi, Contatti)",
+      "Ottimizzazione SEO di base",
+      "Inserimento dei testi e immagini che fornisci (o posso aiutarti se vuoi una mano!)",
+      "Messa online del sito inclusa: ti carico il sito su un tuo dominio o su uno nuovo",
+      "Informazioni di contatto con mappa",
+      "Privacy Policy e Cookie Policy creata e gestita da me",
     ],
     link: "/vetrina"
   },
   {
-    title: "Professionale",
-    subtitle: "Perfetto per aziende e professionisti che vogliono un sito completo e personalizzato.​", 
+    title: "Vetrina Multi-Pagina",
+    subtitle: "Più pagine per raccontare meglio i tuoi servizi, progetti o prodotti, con una navigazione semplice e chiara.", 
     icon: ProfessionalIcon,
-    price: "€1200",
+    price: "€900",
     features: [
-      "Sito web professionale",
-      "Fino a 10 pagine",
-      "Contatti e mappa",
-      "Form di contatto",
-      "Ottimizzazione SEO",
-      "Assistenza 24/7",
+      "Design personalizzato e adattabile a tutti i dispositivi",
+      "Fino a 5 pagine complete (ad esempio: Home, Chi sono, Servizi, Galleria, Contatti)",
+      "SEO curata per ogni pagina",
+      "Inserimento dei testi e immagini che fornisci (o posso aiutarti se vuoi una mano!)",
+      "Messa online del sito inclusa: ti carico il sito su un tuo dominio o su uno nuovo",
+      "Form di contatto su misura",
+      "Privacy Policy e Cookie Policy creata e gestita da me",
     ],
     link: "/professionale"
   },
   {
-    title: "E-commerce",
-    subtitle: "Pensato per chi desidera vendere online con un negozio su misura.",
+    title: "Dinamico",
+    subtitle: "Un sito che puoi aggiornare in autonomia: ad esempio aggiungendo news, articoli… tutto sotto il tuo controllo.",
     icon: EcommerceIcon,
     price: "€2000",
     features: [
-      "Sito web e-commerce",
-      "Fino a 20 pagine",
-      "Contatti e mappa",
-      "Form di contatto",
-      "Ottimizzazione SEO",
-      "Assistenza 24/7",
+      "Tutto ciò che è incluso nel sito multi-pagina",
+      "Pannello per modificare o aggiungere i contenuti",
+      "SEO più avanzata per struttura e contenuti aggiornabili",
+      "Supporto post-pubblicazione per eventuali dubbi o modifiche",
     ],
     link: "/ecommerce"
   }
@@ -106,27 +106,31 @@ export const PRICING_ITEMS = [
 
 export const FAQ_ITEMS = [
   {
-    question: "Is it accessible?",
-    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+    question: "Quanto costa un sito web a Lucca?",
+    answer: "Dipende dal tipo di sito! I miei prezzi partono da 300€ per un sito vetrina di una pagina e arrivano fino a 2000€ per un sito dinamico autogestibile. Trovi tutto nella sezione prezzi, così hai un'idea chiara fin da subito.",
   },
   {
-    question: "How does it work?",
-    answer: "It uses a combination of React and Tailwind CSS.",
+    question: "In quanto tempo sarà pronto il mio sito?",
+    answer: "Di solito un sito vetrina semplice è pronto in 1-2 settimane. Per un sito dinamico ci possono volere 1-2 mesi, anche in base a quanto velocemente ricevo i testi e le immagini. Cerco sempre di essere veloce ma precisa!",
   },
   {
-    question: "Can I customize it?",
-    answer: "Yes. You can customize it using Tailwind CSS classes.",
+    question: "Offri anche siti web per ristoranti, medici o liberi professionisti?",
+    answer: "Sì! Creo siti web personalizzati per ristoranti, studi medici, artigiani, negozi, freelance e tante altre attività locali in provincia di Lucca, Capannori, Altopascio e Pisa.",
   },
   {
-    question: "Is it responsive?",
-    answer: "Yes. It is designed to be responsive and mobile-friendly.",
+    question: "Il sito sarà visibile su Google?",
+    answer: "Sì! Ogni sito che realizzo è ottimizzato per la SEO, quindi ha una struttura, titoli e contenuti pensati per farti trovare sui motori di ricerca. Se ti affidi a me anche per i testi, possiamo spingere ancora di più sul posizionamento!",
   },
   {
-    question: "What browsers does it support?",
-    answer: "It supports all modern browsers.",
+    question: "Posso aggiornare il sito da solo dopo la consegna?",
+    answer: "Certo ma solo se scegli un sito dinamico, avrai un pannello di controllo semplice da usare. Altrimenti, per i siti vetrina, posso aiutarti a fare le modifiche che desideri tramite appositi interventi di manutenzione. In ogni caso, sono sempre disponibile per supporto e domande.",
   },
   {
-    question: "Is it free to use?",
-    answer: "Yes. It is open-source and free to use.",
+    question: "Chi si occupa di mettere il sito online?",
+    answer: "Me ne occupo io! Quando il sito è pronto, lo carico io stessa su un dominio tuo (o nuovo, se non ce l’hai). La messa online è inclusa nel servizio.",
   },
+  {
+    question: "Posso vedere qualche esempio di sito realizzato?",
+    answer: "Sì, certo! Contattami e ti mostrerò alcuni dei miei lavori.",
+  }
 ];
