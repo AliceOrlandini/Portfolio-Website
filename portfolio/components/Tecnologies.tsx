@@ -8,7 +8,7 @@ import InfiniteLogoSlider from '@/components/ui/infinite-logo-slider';
 
 export default function Tecnologies() {
   return (
-    <section className="mb-52">
+    <section>
       <div>
         <h1 className="font-raleway text-center font-bold text-2xl mx-5 desktop:mx-0 desktop:text-4xl">Tecnologie con cui lavoro</h1>
       </div>

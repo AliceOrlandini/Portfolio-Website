@@ -23,11 +23,11 @@ export default function RootLayout({
   return (
     <html lang="it-IT">
       <body
-        className={`${raleway.variable} antialiased bg-background`}
+        className={`${raleway.variable} antialiased bg-background overflow-x-hidden`}
       >
         <Navbar />
         {children}
-        {/*<Footer />*/}
+        <Footer />
       </body>
     </html>
   );
