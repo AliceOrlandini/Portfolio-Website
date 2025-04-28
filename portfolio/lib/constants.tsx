@@ -14,8 +14,7 @@ import ArubaLogo from "@/public/assets/aruba_logo.png";
 
 export const NAVBAR_ITEMS = [
   { title: "Home", href: "/" },
-  { title: "Tecnologie", href: "/tecnologie" },
-  { title: "Prezzi", href: "/prezzi" },
+  { title: "Prezzi", href: "/prezzi" }
 ];
 
 export const TECNOLOGIES_ITEMS = [
@@ -105,7 +104,7 @@ export const PRICING_ITEMS = [
       "Informazioni di contatto con mappa",
       "Privacy Policy e Cookie Policy creata e gestita da me",
     ],
-    link: "/vetrina"
+    link: "/prezzi#vetrina-1-pagina"
   },
   {
     title: "Vetrina Multi-Pagina",
@@ -121,7 +120,7 @@ export const PRICING_ITEMS = [
       "Form di contatto su misura",
       "Privacy Policy e Cookie Policy creata e gestita da me",
     ],
-    link: "/professionale"
+    link: "/prezzi#multi-pagina"
   },
   {
     title: "Dinamico",
@@ -134,7 +133,7 @@ export const PRICING_ITEMS = [
       "SEO più avanzata per struttura e contenuti aggiornabili",
       "Supporto post-pubblicazione per eventuali dubbi o modifiche",
     ],
-    link: "/ecommerce"
+    link: "/prezzi#dinamico"
   }
 ];
 
@@ -148,7 +147,7 @@ export const FIXED_PRICING_ITEMS = [
       "In particolare: 12€ per il dominio e 33€ per tenerlo online tutto l'anno",
       "Il sito si carica lentamente, soprattutto se è molto visitato",
       "Se un giorno tante persone visitano il tuo sito, rischia di rallentare o bloccarsi",
-      "Non puoi migliorare la velocità senza cambiare contratto o spendere di più",
+      "Non puoi migliorare la velocità senza cambiare contratto e spendere di più",
     ]
   },
   {
@@ -157,7 +156,7 @@ export const FIXED_PRICING_ITEMS = [
     icon: FirebaseLogo,
     price: "12€ + consumo",
     features: [
-      "In particolare: 12€ per il dominio, mentre l\'hosting è gratis se hai pochi visitatori (sotto i 100 al giorno)",
+      "In particolare: 12€ per il dominio, mentre l\'hosting è gratis se hai pochi visitatori, sotto i 100 al giorno. Superata questa soglia, bisogna comprare le visite. Per comprare 2000 visite, il costo è di 0.13€.",
       "Il sito si carica molto velocemente, ovunque nel mondo essendo su server Google",
       "Anche se arrivano tante persone improvvisamente, il sito resta veloce senza nessun intervento manuale",
       "Paghi solo per quello che usi: se hai pochi visitatori, spendi poco o niente. Se improvvisamente hai tanti visitatori paghi solo quel picco di consumo",
@@ -172,15 +171,15 @@ export const FAQ_ITEMS = [
   },
   {
     question: "In quanto tempo sarà pronto il mio sito?",
-    answer: "Di solito un sito vetrina semplice è pronto in 1-2 settimane. Per un sito dinamico ci possono volere 1-2 mesi, anche in base a quanto velocemente ricevo i testi e le immagini. Cerco sempre di essere veloce ma precisa!",
+    answer: "Di solito un sito vetrina semplice è pronto in 2-3 settimane. Per un sito dinamico ci possono volere 1-2 mesi, anche in base a quanto velocemente ricevo i testi e le immagini. Cerco sempre di essere veloce ma precisa!",
   },
   {
-    question: "Offri anche siti web per ristoranti, medici o liberi professionisti?",
-    answer: "Sì! Creo siti web personalizzati per ristoranti, studi medici, artigiani, negozi, freelance e tante altre attività locali in provincia di Lucca, Capannori, Altopascio e Pisa.",
+    question: "Offri anche siti web per ristoranti, professioni sanitarie, o liberi professionisti?",
+    answer: "Sì! Creo siti web personalizzati per ristoranti, studi professioni sanitarie, artigiani, negozi, freelance e tante altre attività locali in provincia di Lucca, Capannori, Altopascio e Pisa.",
   },
   {
     question: "Il sito sarà visibile su Google?",
-    answer: "Sì! Ogni sito che realizzo è ottimizzato per la SEO, quindi ha una struttura, titoli e contenuti pensati per farti trovare sui motori di ricerca. Se ti affidi a me anche per i testi, possiamo spingere ancora di più sul posizionamento!",
+    answer: "Sì! Ogni sito che realizzo è ottimizzato per la SEO, il che significa che ha una struttura, titoli e contenuti pensati per farti trovare sui motori di ricerca. Se ti affidi a me anche per i testi, possiamo spingere ancora di più sul posizionamento!",
   },
   {
     question: "Posso aggiornare il sito da solo dopo la consegna?",

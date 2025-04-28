@@ -77,8 +77,8 @@ export default function Navbar() {
                 <Link href={href}>{title}</Link>
               </li>
             ))}
-            <li>
-              <button className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">Contattami</button>
+            <li className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+              <Link href="/contatti">Contattami</Link>
             </li>
           </ul>
         </div>
@@ -113,8 +113,8 @@ export default function Navbar() {
                   <Link href={href} onClick={closeMenu}>{title}</Link>
                 </li>
               ))}
-              <li>
-                <button className="bg-primary text-white py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">Contattami</button>
+              <li className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+                <Link href="/contatti" onClick={closeMenu}>Contattami</Link>
               </li>
             </ul>
           </nav>
@@ -144,8 +144,8 @@ export default function Navbar() {
                   <Link href={href}>{title}</Link>
                 </li>
               ))}
-              <li>
-                <button className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">Contattami</button>
+              <li className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+                <Link href="/contatti">Contattami</Link>
               </li>
             </ul>
           </div>
@@ -188,8 +188,8 @@ export default function Navbar() {
                     <Link href={href} onClick={closeMenu}>{title}</Link>
                   </li>
                 ))}
-                <li>
-                  <button className="bg-primary text-white py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">Contattami</button>
+                <li className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+                  <Link href="/contatti" onClick={closeMenu}>Contattami</Link>
                 </li>
               </ul>
             </nav>

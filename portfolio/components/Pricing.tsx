@@ -58,7 +58,7 @@ export default function Pricing() {
           >
             <div>
               <div className="grid grid-cols-12 gap-4 mb-6">
-                <div className="col-span-4 tablet:col-span-12 desktop:col-span-4 flex flex-col items-center justify-center">
+                <div className="col-span-4 tablet:col-span-12 desktop:col-span-4 flex flex-col">
                   <Image src={icon} alt={title} className="w-32 h-auto mb-4" />
                   <h3 className="text-2xl desktop:text-3xl text-secondary font-bold mb-4">
                     {price}

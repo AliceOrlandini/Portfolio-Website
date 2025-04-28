@@ -2,7 +2,7 @@ import Image from "next/image";
 import Logo from "@/public/assets/logo.png";
 import { NAVBAR_ITEMS } from "@/lib/constants";
 import Link from "next/link";
-import { Mail, FacebookIcon, InstagramIcon, LinkedinIcon, ChevronRight } from "lucide-react"
+import { Mail, LinkedinIcon, GithubIcon, ChevronRight } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -34,10 +34,9 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h2 className="text-title font-bold text-lg desktop:text-2xl">Contatti</h2>
             <div className="flex gap-4">
-              <Mail className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
-              <LinkedinIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
-              <FacebookIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
-              <InstagramIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
+              <a href="mailto:orlandinialice13@gmail.com"><Mail className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
+              <a href="https://www.linkedin.com/in/aliceorlandini/" target="_blank"><LinkedinIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
+              <a href="https://github.com/aliceorlandini" target="_blank"><GithubIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
             </div>
           </div>
         </div>
