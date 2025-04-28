@@ -2,7 +2,7 @@ import Image from "next/image";
 import Logo from "@/public/assets/logo.png";
 import { NAVBAR_ITEMS } from "@/lib/constants";
 import Link from "next/link";
-import { Mail, FacebookIcon, InstagramIcon, LinkedinIcon } from "lucide-react"
+import { Mail, FacebookIcon, InstagramIcon, LinkedinIcon, ChevronRight } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -18,12 +18,13 @@ export default function Footer() {
             <p className="text-paragraph font-medium text-sm desktop:text-base">Creazione Siti Web a Lucca, Capannori, Pisa, Altopascio</p>
           </div>
         </div>
-        <div className="col-span-12 tablet:col-span-4 w-fit tablet:mx-auto tablet:text-center">
+        <div className="col-span-12 tablet:col-span-4 w-fit tablet:mx-auto">
           <nav>
             <ul className="flex flex-col gap-4 font-semibold text-paragraph text-base desktop:text-lg">
               {NAVBAR_ITEMS.map(({title, href}, idx) => (
-                <li key={idx} className="hover:cursor-pointer hover:scale-110 hover:text-primary transition-transform duration-300">
+                <li key={idx} className="hover:cursor-pointer group hover:scale-110 hover:text-primary transition-transform duration-300">
                   <Link href={href}>{title}</Link>
+                  <ChevronRight className="inline-block ml-2 text-paragraph group-hover:text-primary" />
                 </li>
               ))}
             </ul>
@@ -33,10 +34,10 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h2 className="text-title font-bold text-lg desktop:text-2xl">Contatti</h2>
             <div className="flex gap-4">
-              <Mail className="text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
-              <LinkedinIcon className="text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
-              <FacebookIcon className="text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
-              <InstagramIcon className="text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
+              <Mail className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
+              <LinkedinIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
+              <FacebookIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
+              <InstagramIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/>
             </div>
           </div>
         </div>

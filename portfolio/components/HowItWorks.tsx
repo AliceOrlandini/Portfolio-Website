@@ -34,7 +34,7 @@ export default function HowItWorks() {
               </div>
 
               <h3 className="font-semibold text-2xl text-title">{title}</h3>
-              <p className="mt-3 max-w-xs text-paragraph tablet:max-w-md">{copy}</p>
+              <p className="mt-3 max-w-xs text-paragraph font-medium tablet:max-w-md">{copy}</p>
             </article>
           ))}
         </div>

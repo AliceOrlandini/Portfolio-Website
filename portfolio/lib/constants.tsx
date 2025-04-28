@@ -1,15 +1,49 @@
 import { Gauge, Compass, Smartphone, BadgeEuro } from 'lucide-react';
+import NextLogo from "@/public/assets/next_logo.png";
+import TailwindCSSLogo from "@/public/assets/tailwindcss_logo.png";
+import SupabaseLogo from "@/public/assets/supabase_logo.png";
+import BunnyCDNLogo from "@/public/assets/bunny_cdn_logo.png";
+import FirebaseLogo from "@/public/assets/firebase_logo.png";
 import Step1Img from '@/public/assets/how_it_works_1.png';
 import Step2Img from '@/public/assets/how_it_works_2.png';
 import Step3Img from '@/public/assets/how_it_works_3.png';
 import VetrinaIcon from "@/public/assets/vetrina.png"
 import ProfessionalIcon from "@/public/assets/professional.png"
 import EcommerceIcon from "@/public/assets/ecommerce.png"
+import ArubaLogo from "@/public/assets/aruba_logo.png";
 
 export const NAVBAR_ITEMS = [
   { title: "Home", href: "/" },
   { title: "Tecnologie", href: "/tecnologie" },
   { title: "Prezzi", href: "/prezzi" },
+];
+
+export const TECNOLOGIES_ITEMS = [
+  {
+    title: "Next.js",
+    icon: NextLogo,
+    link: "https://nextjs.org/",
+  },
+  {
+    title: "Tailwind CSS",
+    icon: TailwindCSSLogo,
+    link: "https://tailwindcss.com/",
+  },
+  {
+    title: "Supabase",
+    icon: SupabaseLogo,
+    link: "https://supabase.com/",
+  },
+  {
+    title: "Bunny CDN",
+    icon: BunnyCDNLogo,
+    link: "https://bunny.net/",
+  },
+  {
+    title: "Firebase",
+    icon: FirebaseLogo,
+    link: "https://firebase.com/",
+  }
 ];
 
 export const FEATURES_ITEMS = [
@@ -39,19 +73,19 @@ export const HOW_IT_WORKS_ITEMS = [
   {
     title: 'Progettazione',
     copy:
-      'Zombie ipsum reversus ab viral inferno, nam Rick Grimes malum cerebro. De carne lumbering animata.',
+      'Progettiamo insieme il sito decidendo sezioni, colori e toni dei testi. In seguito, creo un prototipo con un programma di grafica per mostrarti come sarà il sito e sul quale puoi dirmi tutte le modifiche che desideri apportare.',
     img: Step1Img
   },
   {
     title: 'Sviluppo',
     copy:
-      'Craven omni memoria patriae zombieland clairvius narcisse religions sunt diri undead historiarum.',
+      'Una volta approvato il prototipo, inizio a sviluppare il sito web. I tempi di realizzazione dipendono dal tipo di sito che hai scelto.',
     img: Step2Img
   },
   {
     title: 'Consegna',
     copy:
-      'Sicut spargit virus ad impetum, qui supersumus flesh eating.',
+      'Infine, ti invio un\'anteprima del sito e potrai decidere di apportare le ultime modifiche di perfezionamento. A questo punto il tuo sito sarà ufficialmente online!',
     img: Step3Img
   },
 ];
@@ -101,6 +135,33 @@ export const PRICING_ITEMS = [
       "Supporto post-pubblicazione per eventuali dubbi o modifiche",
     ],
     link: "/ecommerce"
+  }
+];
+
+export const FIXED_PRICING_ITEMS = [
+  {
+    title: "Costo fisso",
+    subtitle: "Con Aruba paghi sempre la stessa cifra, ma le prestazioni restano limitate.",
+    icon: ArubaLogo,
+    price: "45€",
+    features: [
+      "In particolare: 12€ per il dominio e 33€ per tenerlo online tutto l'anno",
+      "Il sito si carica lentamente, soprattutto se è molto visitato",
+      "Se un giorno tante persone visitano il tuo sito, rischia di rallentare o bloccarsi",
+      "Non puoi migliorare la velocità senza cambiare contratto o spendere di più",
+    ]
+  },
+  {
+    title: "Costo Variabile",
+    subtitle: "Con Firebase, la formula si chiama \"Pay As You Go\", ovvero inizi non pagando niente e spendi solo se il tuo sito diventa molto visitato.",
+    icon: FirebaseLogo,
+    price: "12€ + consumo",
+    features: [
+      "In particolare: 12€ per il dominio, mentre l\'hosting è gratis se hai pochi visitatori (sotto i 100 al giorno)",
+      "Il sito si carica molto velocemente, ovunque nel mondo essendo su server Google",
+      "Anche se arrivano tante persone improvvisamente, il sito resta veloce senza nessun intervento manuale",
+      "Paghi solo per quello che usi: se hai pochi visitatori, spendi poco o niente. Se improvvisamente hai tanti visitatori paghi solo quel picco di consumo",
+    ]
   }
 ];
 
