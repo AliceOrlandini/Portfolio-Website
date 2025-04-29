@@ -60,10 +60,12 @@ export default function FormContacts() {
         duration: 10000
       });
     } catch(error) {
-      console.error("[ERROR] ", error);
-      toast.error("Errore durante l'invio del messaggio. Riprovare più tardi", {
-        duration: 10000
-      });
+      if (error instanceof Error) {
+        console.error("[ERROR] ", error.message);
+        toast.error(`Errore durante l'invio del messaggio. ${error.message}`, {
+          duration: 10000
+        });
+      }
     } finally {
       setIsLoading(false);
       form.reset();
@@ -148,7 +150,7 @@ export default function FormContacts() {
                     className="text-white"
                   />
                   <Label htmlFor="terms" className="flex items-center flex-wrap gap-1">
-                    Ho preso visione dell&#39;informativa
+                    Ho preso visione della
                     <Link
                       href="/privacy"
                       target="_blank"
@@ -165,9 +167,9 @@ export default function FormContacts() {
         />
         <button
           type="submit"
-          className="w-full bg-primary font-semibold py-4 px-7 text-white rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300"
+          className="w-full flex flex-row items-center justify-center bg-primary font-semibold py-4 px-7 text-white rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300"
         >
-          Invia {isLoading ? <Spinner /> : ""}
+          {isLoading ? <Spinner /> : "Invia"}
         </button>
       </form>
     </Form>

@@ -2,7 +2,7 @@ export const Spinner = () => {
 
   return (
     <svg
-      className={`animate-spin size-1.5 text-white`}
+      className={`animate-spin size-5 text-white`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

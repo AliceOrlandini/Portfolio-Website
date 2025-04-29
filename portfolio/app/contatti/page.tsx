@@ -8,8 +8,8 @@ export default function ContactsPage() {
       <div className="mx-0 tablet:mx-5 desktop:mx-auto size-fit mb-20 font-raleway flex flex-col bg-primary py-10 px-5 tablet:px-10 shadow-lg tablet:rounded-xl tablet:flex-row">
         <div className="m-auto size-fit text-white">
           <div className="space-y-5">
-            <h1 className="text-3xl tablet:text-4xl font-bold">Teniamoci in Contatto</h1>
-            <p className="text-base tablet:text-lg font-medium">
+            <h1 className="text-3xl tablet:text-4xl font-bold tablet:p-2">Teniamoci in Contatto</h1>
+            <p className="text-base tablet:text-lg tablet:p-2 font-medium">
               Riempi il modulo di lato e ti ricontatterò in meno di 24 ore!
             </p>
             <Image src={ContactMeImage} alt="Contattami" className="w-3/4 max-w-xl mx-auto" />

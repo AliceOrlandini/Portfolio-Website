@@ -92,7 +92,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <Toaster />
+        <Toaster toastOptions={{ className: 'font-raleway', }}/>
         <JsonLd data={{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
