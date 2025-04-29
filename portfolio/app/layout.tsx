@@ -17,10 +17,15 @@ export const metadata: Metadata = {
   title: "Alice Orlandini",
   description: "Creazione Siti Web a Lucca, Capannori, Pisa, Altopascio per attività locali, professionisti e aziende.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/icon1.png', sizes: '96x96', type: 'image/png' },
+      { url: '/icon0.svg', type: 'image/svg+xml' },
+    ],
     shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
+  manifest: "/manifest.json",
   robots: {
     index: true,
     follow: true,

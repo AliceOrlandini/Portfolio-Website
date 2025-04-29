@@ -91,7 +91,7 @@ export default function Navbar() {
             src={Logo}
             alt="Logo Alice Orlandini"
             priority
-            className="-z-10 size-8" />
+            className="z-10 size-8" />
           <h1 className="font-bold mx-2 -z-10 text-xl tablet:text-2xl my-auto text-title">Alice Orlandini</h1>
           <button onClick={openMenu} className="ml-auto">
             <Image 
@@ -103,7 +103,7 @@ export default function Navbar() {
           </button>
         </div>
         <div 
-          className={`-z-10 absolute inset-x-0 top-0 bg-background p-5 font-raleway transform transition-all duration-300 ease-in-out ${
+          className={`-z-10 mt-8 absolute inset-x-0 top-0 bg-background p-5 font-raleway transform transition-all duration-300 ease-in-out ${
             isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
           }`}>
           <nav className="absolute -z-10 inset-x-0 top-0 bg-background p-5 font-raleway text-paragraph font-semibold">
