@@ -27,16 +27,20 @@ export default function Footer() {
                   <ChevronRight className="inline-block ml-2 text-paragraph group-hover:text-primary" />
                 </li>
               ))}
+              <li className="hover:cursor-pointer group hover:scale-110 hover:text-primary transition-transform duration-300">
+                <Link href="/contatti">Contatti</Link>
+                <ChevronRight className="inline-block ml-2 text-paragraph group-hover:text-primary" />
+              </li>
             </ul>
           </nav>
         </div>
         <div className="col-span-12 tablet:col-span-4 w-fit tablet:mx-auto">
           <div className="flex flex-col gap-4">
-            <h2 className="text-title font-bold text-lg desktop:text-2xl">Contatti</h2>
+            <h2 className="text-title font-bold text-lg desktop:text-2xl">Altri Contatti</h2>
             <div className="flex gap-4">
-              <a href="mailto:orlandinialice13@gmail.com"><Mail className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
-              <a href="https://www.linkedin.com/in/aliceorlandini/" target="_blank"><LinkedinIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
-              <a href="https://github.com/aliceorlandini" target="_blank"><GithubIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
+              <a aria-label="mail" href="mailto:orlandinialice13@gmail.com"><Mail className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
+              <a aria-label="linkedin" href="https://www.linkedin.com/in/aliceorlandini/" target="_blank"><LinkedinIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
+              <a aria-label="github" href="https://github.com/aliceorlandini" target="_blank"><GithubIcon className="text-paragraph hover:text-primary hover:cursor-pointer hover:scale-110 transition-transform duration-300"/></a>
             </div>
           </div>
         </div>

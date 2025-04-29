@@ -1,0 +1,3 @@
+User-Agent: *
+Allow: /
+Sitemap: https://aliceorlandini.it/sitemap.xml

@@ -27,13 +27,13 @@ export default function HowItWorks() {
               />
 
               <div className="relative mb-6 inline-flex items-center justify-center">
-                <span className="absolute inline-flex h-12 w-12 rounded-full ring-2 ring-orange-300 ring-offset-2 ring-offset-white" />
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-semibold text-white">
+                <span className="absolute inline-flex h-12 w-12 rounded-full ring-2 ring-secondary/70 ring-offset-2 ring-offset-white" />
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg font-semibold text-white">
                   {idx + 1}
                 </span>
               </div>
 
-              <h3 className="font-semibold text-2xl text-title">{title}</h3>
+              <h2 className="font-semibold text-2xl text-title">{title}</h2>
               <p className="mt-3 max-w-xs text-paragraph font-medium tablet:max-w-md">{copy}</p>
             </article>
           ))}

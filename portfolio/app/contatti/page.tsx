@@ -12,7 +12,7 @@ export default function ContactsPage() {
             <p className="text-base tablet:text-lg font-medium">
               Riempi il modulo di lato e ti ricontatterò in meno di 24 ore!
             </p>
-            <Image src={ContactMeImage} alt="Contattami" className="w-3/4 mx-auto" />
+            <Image src={ContactMeImage} alt="Contattami" className="w-3/4 max-w-xl mx-auto" />
           </div>
         </div>
         <div className="mt-10 h-full bg-white rounded-xl p-10 desktop:mt-0 desktop:w-1/2">

@@ -2,7 +2,9 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { useState } from "react";
 import { contactFormSchema } from "@/lib/schemas";
+import { Spinner } from "@/components/ui/spinner";
 
 import {
 	Form,
@@ -18,8 +20,11 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import Link from "next/link";
+import { sendMail } from "@/lib/api";
 
 export default function FormContacts() {
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
@@ -27,44 +32,42 @@ export default function FormContacts() {
       name: "",
       surname: "",
       email: "",
-      text: "",
+      message: "",
       terms: false,
     },
   });
 
-  function onSubmit(values: z.infer<typeof contactFormSchema>) {
-    const { name, surname, email, text } = values;
+  async function onSubmit(values: z.infer<typeof contactFormSchema>) {
+    setIsLoading(true);
+
+    const { name, surname, email, message } = values;
 
     const data = {
-      name,
-      surname,
-      email,
-      text,
+      client: {
+        email: "orlandinialice13@gmail.com"
+      },
+      user: {
+        name: name,
+        surname: surname,
+        email: email,
+        message: message,
+      }
     };
 
-    /*fetch("/api/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-    .then((response) => {
-      if (response.ok) {
-        toast.success("Messaggio inviato con successo!");
-        form.reset();
-      } else {
-        toast.error("Errore durante l'invio del messaggio.");
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      toast.error("Errore durante l'invio del messaggio.");
-    });*/
-    toast.success("Messaggio inviato con successo!", {
-      duration: 10000,
-    });
-    form.reset();
+    try {
+      await sendMail(data);
+      toast.success("Messaggio inviato con successo!", {
+        duration: 10000
+      });
+    } catch(error) {
+      console.error("[ERROR] ", error);
+      toast.error("Errore durante l'invio del messaggio. Riprovare più tardi", {
+        duration: 10000
+      });
+    } finally {
+      setIsLoading(false);
+      form.reset();
+    }
   }
 
   return (
@@ -117,7 +120,7 @@ export default function FormContacts() {
         />
         <FormField
           control={form.control}
-          name="text"
+          name="message"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-sm tablet:text-base">
@@ -164,7 +167,7 @@ export default function FormContacts() {
           type="submit"
           className="w-full bg-primary font-semibold py-4 px-7 text-white rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300"
         >
-          Invia
+          Invia {isLoading ? <Spinner /> : ""}
         </button>
       </form>
     </Form>

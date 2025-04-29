@@ -15,7 +15,7 @@ export const contactFormSchema = z.object({
     .nonempty({ message: 'Questo campo è obbligatorio' })
 		.min(1, { message: 'Questo campo è obbligatorio' })
 		.email('Mail non valida'),
-	text: z
+	message: z
 		.string()
     .nonempty({ message: 'Questo campo è obbligatorio' })
 		.min(1, { message: 'Questo campo è obbligatorio' })

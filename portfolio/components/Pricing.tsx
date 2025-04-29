@@ -22,10 +22,10 @@ export default function Pricing() {
               <div className="grid grid-cols-12 gap-4 mb-6">
                 <div className="col-span-4 tablet:col-span-12 desktop:col-span-4 flex flex-col items-center justify-center">
                   <Image src={icon} alt={title} className="w-16 h-16 mb-4" />
-                  <h3 className="text-2xl desktop:text-3xl text-secondary font-bold mb-4">
+                  <span className="text-2xl desktop:text-3xl text-secondary font-bold mb-4">
                     <span className="text-base font-normal">fino a <br className="tablet:hidden desktop:fixed"/></span>
                     {price}
-                  </h3>
+                  </span>
                 </div>
                 <div className="col-span-8 tablet:col-span-12 desktop:col-span-8">
                   <h2 className="text-xl desktop:text-3xl text-title font-bold mb-2 text-left tablet:text-center desktop:text-left">{title}</h2>
@@ -58,14 +58,14 @@ export default function Pricing() {
           >
             <div>
               <div className="grid grid-cols-12 gap-4 mb-6">
-                <div className="col-span-4 tablet:col-span-12 desktop:col-span-4 flex flex-col">
+                <div className="col-span-5 tablet:col-span-12 desktop:col-span-4 flex flex-col tablet:items-center">
                   <Image src={icon} alt={title} className="w-32 h-auto mb-4" />
-                  <h3 className="text-2xl desktop:text-3xl text-secondary font-bold mb-4">
+                  <span className="text-2xl desktop:text-3xl text-secondary font-bold mb-4">
                     {price}
                     <span className="text-base font-normal"> /anno<br className="tablet:hidden desktop:fixed"/></span>
-                  </h3>
+                  </span>
                 </div>
-                <div className="col-span-8 tablet:col-span-12 desktop:col-span-8">
+                <div className="col-span-7 tablet:col-span-12 desktop:col-span-8">
                   <h2 className="text-xl desktop:text-3xl text-title font-bold mb-2 text-left tablet:text-center desktop:text-left">{title}</h2>
                   <p className="text-paragraph text-sm desktop:text-base mb-4 text-left tablet:text-center desktop:text-left">{subtitle}</p>
                 </div>
