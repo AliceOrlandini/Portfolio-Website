@@ -15,7 +15,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-4 mt-10">
             <hr className="my-4 w-10 border-t-2 border-primary" />
-            <p className="text-paragraph font-medium text-sm desktop:text-base">Creazione Siti Web a Lucca, Capannori, Pisa, Altopascio</p>
+            <p className="text-paragraph font-medium text-sm desktop:text-base">Blog Personale in cui parlo di tecnologie, esperienze e ripetizioni</p>
           </div>
         </div>
         <div className="col-span-12 tablet:col-span-4 w-fit tablet:mx-auto">

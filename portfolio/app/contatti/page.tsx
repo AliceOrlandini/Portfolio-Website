@@ -9,8 +9,8 @@ export default function ContactsPage() {
         <div className="m-auto size-fit text-white">
           <div className="space-y-5">
             <h1 className="text-3xl tablet:text-4xl font-bold tablet:p-2">Teniamoci in Contatto</h1>
-            <p className="text-base tablet:text-lg tablet:p-2 font-medium">
-              Riempi il modulo di lato e ti ricontatterò in meno di 24 ore!
+            <p className="text-base tablet:text-lg tablet:p-2 font-medium max-w-xl">
+              Per qualsiasi domanda, parere o commento, riempi il modulo e ti ricontatterò in meno di 24 ore! Mi fa sempre piacere ricevere feedback e suggerimenti, quindi non esitare a contattarmi!
             </p>
             <Image src={ContactMeImage} alt="Contattami" className="w-3/4 max-w-xl mx-auto" />
           </div>

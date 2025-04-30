@@ -6,7 +6,7 @@ export default function Tecnologies() {
   return (
     <section>
       <div>
-        <h1 className="font-raleway text-center font-bold text-2xl mx-5 desktop:mx-0 desktop:text-4xl">Tecnologie con cui lavoro</h1>
+        <h1 className="font-raleway text-center font-bold text-2xl mx-5 desktop:mx-0 desktop:text-4xl">Le mie tecnologie preferite</h1>
       </div>
       <div className="flex justify-center items-center space-x-32 my-14 desktop:my-20">
         <InfiniteLogoSlider>
@@ -24,7 +24,6 @@ export default function Tecnologies() {
               />
             </a>
           ))}
-          
         </InfiniteLogoSlider>
       </div>
     </section>

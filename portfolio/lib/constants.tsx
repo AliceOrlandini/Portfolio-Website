@@ -1,4 +1,4 @@
-import { Gauge, Compass, Smartphone, BadgeEuro } from 'lucide-react';
+import { Flower, Compass, GraduationCap, Cpu } from 'lucide-react';
 import NextLogo from "@/public/assets/next_logo.png";
 import TailwindCSSLogo from "@/public/assets/tailwindcss_logo.png";
 import SupabaseLogo from "@/public/assets/supabase_logo.png";
@@ -14,7 +14,7 @@ import ArubaLogo from "@/public/assets/aruba_logo.png";
 
 export const NAVBAR_ITEMS = [
   { title: "Home", href: "/" },
-  { title: "Prezzi", href: "/prezzi" }
+  { title: "Blog", href: "/blog" }
 ];
 
 export const TECNOLOGIES_ITEMS = [
@@ -47,44 +47,44 @@ export const TECNOLOGIES_ITEMS = [
 
 export const FEATURES_ITEMS = [
   {
-    icon: <Gauge className="text-tertiary mb-3" />,
-    title: "Siti Veloci e Performanti",
-    copy: "La velocità di caricamento è fondamentale per chi visita il tuo sito, infatti, un sito lento fa perdere visitatori (il 53% degli utenti abbandona un sito se impiega più di 3 secondi a caricarsi). Grazie a tecnologie moderne, realizzo siti web super veloci e ottimizzati, con tempi di risposta rapidissimi."
+    icon: <Cpu className="text-tertiary mb-3" />,
+    title: "Tecnologie",
+    copy: "In questi articoli mi piacerebbe fare confronti tra le varie tecnologie, ce ne sono tantissime ed è difficile capire per ogni caso d'uso quale sia la migliore. Scrivere questi articoli mi dà l'opportunità di approfondirle e sviluppare occhio critico. Parlerò sia di tecnologie che uso giornalmente, ma anche di quelle che non uso, spiegando le mie motivazioni. Sarei felice se si aprisse un dibattito, è il miglior modo per crescere e imparare di più."
+  },
+  {
+    icon: <GraduationCap className="text-tertiary mb-3" />,
+    title: "Lezioni di Informatica",
+    copy: "Ho iniziato a fare ripetizioni ormai 3 anni fa. Nel corso di questi anni ho avuto esperienze di ogni tipo, da studenti svogliati costretti palesemente dai genitori a fare lezione, a studenti che pur avendo la sufficienza sentivano di aver bisogno di un insegnante migliore. Sono convinta che insegnare sia un atto da non prendere alla leggera perciò ho deciso di condividere ciò che ho imparato nel mio blog."
+  },
+  {
+    icon: <Flower className="text-tertiary mb-3" />,
+    title: "Le mie esperienze",
+    copy: "All'Università, a lavoro, facendo ripetizioni, nella squadra corse. In tutti questi ambienti ho vissuto esperienze che desidero raccontare. Ad esempio, ho svolto tutta la magistrale in Ingegneria Informatica essendo l'unica ragazza del corso, cosa che non si vive tutti i giorni. Oppure, quella volta in cui ho fatto ripetizioni e non sono stata pagata, una vera e propria truffa. Ogni esperienza mi ha aiutata a capire come funziona questo mondo e spero che le mie storie possano aiutare molte altre persone."
   },
   {
     icon: <Compass className="text-tertiary mb-3" />,
-    title: "SEO già Inclusa",
+    title: "Guide e Tutorial",
     copy: "Un sito bello ma difficile da trovare non serve a nessuno! Con me, la SEO è già inclusa nella realizzazione del tuo sito: scelgo con cura titoli, testi e struttura tecnica per favorire il miglior posizionamento possibile. Se vuoi un sito internet che non sia solo online, ma anche trovato facilmente su Google, ti aiuto a raggiungere questo obiettivo fin dall'inizio."
   },
-  {
-    icon: <Smartphone className="text-tertiary mb-3" />,
-    title: "Design Responsive",
-    copy: "Oggi più del 70% delle visite ai siti web avviene da smartphone o tablet. Ogni sito che realizzo è completamente responsive: significa che si adatta perfettamente a qualsiasi schermo, garantendo un'esperienza utente fluida e professionale."
-  },
-  {
-    icon: <BadgeEuro className="text-tertiary mb-3" />,
-    title: "Prezzi Trasparenti",
-    copy: "Con me hai subito un'idea chiara di quanto spenderai: sul mio sito trovi prezzi indicativi per siti vetrina (a una o più pagine) e siti dinamici, senza costi nascosti. In più, ti aiuto a ridurre i costi fissi annuali, garantendoti alte prestazioni."
-  }
 ];
 
 export const HOW_IT_WORKS_ITEMS = [
   {
-    title: 'Progettazione',
+    title: "Riflessiva",
     copy:
-      'Progettiamo insieme il sito decidendo sezioni, colori e toni dei testi. In seguito, creo un prototipo con un programma di grafica per mostrarti come sarà il sito e sul quale puoi dirmi tutte le modifiche che desideri apportare.',
+      "\"Pensate prima di mettere le mani sulla tastiera\". Così disse un professore che ho avuto all'Università. Da quel momento, ho deciso di progettare, studiare e comprendere prima di avventurarmi un un nuovo progetto.",
     img: Step1Img
   },
   {
-    title: 'Sviluppo',
+    title: "Energica",
     copy:
-      'Una volta approvato il prototipo, inizio a sviluppare il sito web. I tempi di realizzazione dipendono dal tipo di sito che hai scelto.',
+      "Quando ho in mente un nuovo progetto non vedo l’ora di iniziarlo. Questa carica mi porta energie fresche tanto che lavorarci diventa un piacere. Non mi stanco mai di studiare, approfondire e scoprire cose nuove.",
     img: Step2Img
   },
   {
-    title: 'Consegna',
+    title: "Collaborativa",
     copy:
-      'Infine, ti invio un\'anteprima del sito e potrai decidere di apportare le ultime modifiche di perfezionamento. A questo punto il tuo sito sarà ufficialmente online!',
+      "Infine, è per me un piacere collaborare con persone che hanno le stesse passioni. Chiedo senza timori consigli a colleghi (e ad amici), e vedo che anche loro si affidano a me per pareri su come approcciare un problema.",
     img: Step3Img
   },
 ];
@@ -142,9 +142,9 @@ export const FIXED_PRICING_ITEMS = [
     title: "Costo fisso",
     subtitle: "Con Aruba paghi sempre la stessa cifra, ma le prestazioni restano limitate.",
     icon: ArubaLogo,
-    price: "45€",
+    price: "48€",
     features: [
-      "In particolare: 12€ per il dominio e 33€ per tenerlo online tutto l'anno",
+      "In particolare: 15€ per il dominio e 33€ per tenerlo online tutto l'anno",
       "Il sito si carica lentamente, soprattutto se è molto visitato",
       "Se un giorno tante persone visitano il tuo sito, rischia di rallentare o bloccarsi",
       "Non puoi migliorare la velocità senza cambiare contratto e spendere di più",
@@ -154,9 +154,9 @@ export const FIXED_PRICING_ITEMS = [
     title: "Costo Variabile",
     subtitle: "Con Firebase, la formula si chiama \"Pay As You Go\", ovvero inizi non pagando niente e spendi solo se il tuo sito diventa molto visitato.",
     icon: FirebaseLogo,
-    price: "12€ + consumo",
+    price: "15€ + consumo",
     features: [
-      "In particolare: 12€ per il dominio, mentre l\'hosting è gratis se hai pochi visitatori, sotto i 100 al giorno. Superata questa soglia, bisogna comprare le visite. Per comprare 2000 visite, il costo è di 0.13€.",
+      "In particolare: 15€ per il dominio, mentre l\'hosting è gratis se hai pochi visitatori, sotto i 100 al giorno. Superata questa soglia, bisogna comprare le visite. Per comprare 2000 visite, il costo è di 0.13€.",
       "Il sito si carica molto velocemente, ovunque nel mondo essendo su server Google",
       "Anche se arrivano tante persone improvvisamente, il sito resta veloce senza nessun intervento manuale",
       "Paghi solo per quello che usi: se hai pochi visitatori, spendi poco o niente. Se improvvisamente hai tanti visitatori paghi solo quel picco di consumo",

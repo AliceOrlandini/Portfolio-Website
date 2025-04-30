@@ -4,7 +4,8 @@ import { HOW_IT_WORKS_ITEMS } from '@/lib/constants';
 
 export default function HowItWorks() {
   return (
-    <section className="relative isolate mt-32 overflow-hidden font-raleway tablet:py-32">
+    <section className="relative isolate pt-24 tablet:pt-52 desktop:pt-72 mt-24 overflow-hidden font-raleway tablet:py-32">
+      <h2 className="absolute text-center inset-x-0 top-0 font-bold text-2xl desktop:text-4xl font-raleway">Com&#39;è il mio carattere?</h2>
       <Image
         src={Ellipse}
         alt="Ellisse decorativa di sfondo"
@@ -34,7 +35,7 @@ export default function HowItWorks() {
               </div>
 
               <h2 className="font-semibold text-2xl text-title">{title}</h2>
-              <p className="mt-3 max-w-xs text-paragraph font-medium tablet:max-w-md">{copy}</p>
+              <p className="mt-3 max-w-xs text-paragraph desktop:text-[17px] font-medium tablet:max-w-md">{copy}</p>
             </article>
           ))}
         </div>
