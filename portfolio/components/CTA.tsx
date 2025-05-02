@@ -14,7 +14,7 @@ export default function CTA() {
           </div>
         </div>
         <div className="col-span-12 desktop:col-span-6">
-          <Image src={ContactMeImage} alt="Contact Me" className="w-full tablet:w-1/2 desktop:w-full tablet:mx-auto desktop:mx-0 h-full object-cover rounded-md" />
+          <Image src={ContactMeImage} alt="Contact Me" className="w-full tablet:w-1/2 desktop:w-full max-w-xl tablet:mx-auto h-full object-cover rounded-md" />
         </div>
       </div>
     </section>

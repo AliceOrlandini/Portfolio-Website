@@ -9,16 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://aliceorlandini.it/contatti',
+      url: 'https://aliceorlandini.it/blog',
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'monthly',
       priority: 0.8,
-    },
-    {
-      url: 'https://aliceorlandini.it/prezzi',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
+    }
   ]
 }
