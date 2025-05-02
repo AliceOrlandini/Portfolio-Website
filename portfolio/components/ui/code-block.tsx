@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { IconCheck, IconCopy } from "@tabler/icons-react";
 
 type CodeBlockProps = {
@@ -54,7 +53,7 @@ export const CodeBlock = ({
     : highlightLines;
 
   return (
-    <div className="relative w-full rounded-lg bg-slate-900 p-4 font-mono text-sm">
+    <div className="relative w-full rounded-lg bg-background p-4 font-mono text-sm">
       <div className="flex flex-col gap-2">
         {tabsExist && (
           <div className="flex  overflow-x-auto">
@@ -75,31 +74,30 @@ export const CodeBlock = ({
         )}
         {!tabsExist && filename && (
           <div className="flex justify-between items-center py-2">
-            <div className="text-xs text-zinc-400">{filename}</div>
+            <div className="text-xs text-zinc-600">{filename}</div>
             <button
               onClick={copyToClipboard}
-              className="flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors font-sans"
+              className="flex items-center gap-1 text-xs text-zinc-400 hover:text-secondary hover:cursor-pointer transition-colors font-sans"
             >
-              {copied ? <IconCheck size={14} /> : <IconCopy size={14} />}
+              {copied ? <IconCheck size={20} /> : <IconCopy size={20} />}
             </button>
           </div>
         )}
       </div>
       <SyntaxHighlighter
         language={activeLanguage}
-        style={atomDark}
         customStyle={{
           margin: 0,
           padding: 0,
           background: "transparent",
-          fontSize: "0.875rem", // text-sm equivalent
+          fontSize: "1rem", // text-sm equivalent
         }}
         wrapLines={true}
         showLineNumbers={true}
         lineProps={(lineNumber) => ({
           style: {
             backgroundColor: activeHighlightLines.includes(lineNumber)
-              ? "rgba(255,255,255,0.1)"
+              ? "rgba(212,211,211,0.3)"
               : "transparent",
             display: "block",
             width: "100%",

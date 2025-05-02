@@ -5,9 +5,12 @@ import Logo from "@/public/assets/logo.png"
 import { NAVBAR_ITEMS } from "@/lib/constants"
 import BurgerMenuIcon from "@/public/assets/svg/burger_menu.svg"
 import XMenuIcon from "@/public/assets/svg/x_symbol.svg"
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname()
+  const navRef = useRef<HTMLElement | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isStickyMenuOpen, setIsStickyMenuOpen] = useState(false);
   const [showDesktopStickyNavbar, setShowDesktopStickyNavbar] = useState(false);
@@ -21,13 +24,13 @@ export default function Navbar() {
     }
   }
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     if(window.scrollY < 500) {
       setIsMenuOpen(false);
     } else {
       setIsStickyMenuOpen(false);
     }
-  }
+  }, [setIsMenuOpen, setIsStickyMenuOpen]);
 
   useEffect(() => {
     if (isMenuOpen || isStickyMenuOpen) {
@@ -52,11 +55,22 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        closeMenu()
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
+
     return () => {
       document.body.classList.remove("overflow-hidden");
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
     };
-  }, [isMenuOpen, isStickyMenuOpen]);
+  }, [isMenuOpen, isStickyMenuOpen, closeMenu]);
 
   return (
     <>
@@ -72,11 +86,13 @@ export default function Navbar() {
         </div>
         <div>
           <ul className="flex gap-14 text-base font-semibold text-navigation items-center">
-            {NAVBAR_ITEMS.map(({ title, href }, idx) => (
-              <li key={idx} className="hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+            {NAVBAR_ITEMS.map(({ title, href }, idx) => {
+              const isActive = pathname.split("/")[1] === href.split("/")[1]
+              return (
+              <li key={idx} className={`${isActive ? "text-primary": ""} hover:cursor-pointer hover:scale-110 transition-transform duration-300`}>
                 <Link href={href}>{title}</Link>
               </li>
-            ))}
+            )})}
             <Link href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
               <span>Contattami</span>
             </Link>
@@ -108,15 +124,19 @@ export default function Navbar() {
           }`}>
           <nav className="absolute -z-10 inset-x-0 top-0 bg-background p-5 font-raleway text-paragraph font-semibold">
             <ul className="w-fit mx-auto text-base tablet:text-lg space-y-5 my-5">
-              {NAVBAR_ITEMS.map(({ title, href }, idx) => (
-                <li key={idx} className="text-center hover:scale-105 hover:cursor-pointer transition-transform duration-200">
-                  <Link href={href} onClick={closeMenu}>{title}</Link>
+              {NAVBAR_ITEMS.map(({ title, href }, idx) => {
+                const isActive = pathname.split("/")[1] === href.split("/")[1]
+                return (
+                <li key={idx} className={`${isActive ? "text-primary": ""} text-center hover:cursor-pointer hover:scale-110 transition-transform duration-300`}>
+                  <Link onClick={closeMenu} href={href}>{title}</Link>
                 </li>
-              ))}
-              <Link href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+              )})}
+            </ul>
+            <div className="flex justify-center">
+              <Link onClick={closeMenu} href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
                 <span>Contattami</span>
               </Link>
-            </ul>
+            </div>
           </nav>
         </div>
       </div>
@@ -139,11 +159,13 @@ export default function Navbar() {
           </div>
           <div className="ml-auto">
             <ul className="flex gap-14 text-base font-semibold text-navigation items-center">
-              {NAVBAR_ITEMS.map(({ title, href }, idx) => (
-                <li key={idx} className="hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+              {NAVBAR_ITEMS.map(({ title, href }, idx) => {
+                const isActive = pathname.split("/")[1] === href.split("/")[1]
+                return (
+                <li key={idx} className={`${isActive ? "text-primary": ""} hover:cursor-pointer hover:scale-110 transition-transform duration-300`}>
                   <Link href={href}>{title}</Link>
                 </li>
-              ))}
+              )})}
               <Link href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
                 <span>Contattami</span>
               </Link>
@@ -173,7 +195,7 @@ export default function Navbar() {
                 src={isStickyMenuOpen ? XMenuIcon : BurgerMenuIcon}
                 alt="Menù di navigazione"
                 priority
-                className={`z-10 transition-transform duration-300 ease-in-out ${isStickyMenuOpen ? "size-5 tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
+                className={`z-10 transition-transform duration-300 ease-in-out ${isStickyMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
               />
             </button>
           </div>
@@ -182,16 +204,20 @@ export default function Navbar() {
               isStickyMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
             }`}>
             <nav className="absolute -z-10 inset-x-0 top-0 bg-background p-5 text-paragraph font-semibold text-lg">
-              <ul className="w-fit mx-auto text-base tablet:text-md space-y-5 my-5">
-                {NAVBAR_ITEMS.map(({ title, href }, idx) => (
-                  <li key={idx} className="text-center hover:scale-105 hover:cursor-pointer transition-transform duration-200">
-                    <Link href={href} onClick={closeMenu}>{title}</Link>
+              <ul className="w-fit mx-auto text-base tablet:text-lg space-y-5 my-5">
+                {NAVBAR_ITEMS.map(({ title, href }, idx) => {
+                  const isActive = pathname.split("/")[1] === href.split("/")[1]
+                  return (
+                  <li key={idx} className={`${isActive ? "text-primary": ""} text-center hover:cursor-pointer hover:scale-110 transition-transform duration-300`}>
+                    <Link onClick={closeMenu} href={href}>{title}</Link>
                   </li>
-                ))}
-                <Link href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+                )})}
+              </ul>
+              <div className="flex justify-center">
+                <Link onClick={closeMenu} href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
                   <span>Contattami</span>
                 </Link>
-              </ul>
+              </div>
             </nav>
           </div>
         </div>

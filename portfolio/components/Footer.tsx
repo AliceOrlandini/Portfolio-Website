@@ -7,7 +7,7 @@ import { Mail, LinkedinIcon, GithubIcon, ChevronRight } from "lucide-react"
 export default function Footer() {
   return (
     <footer>
-      <div className="grid grid-cols-12 gap-y-10 desktop:gap-4 px-5 desktop:px-32 desktop:py-20 items-center font-raleway">
+      <div className="grid grid-cols-12 gap-y-10 mt-20 desktop:gap-4 px-5 desktop:px-32 desktop:py-20 items-center font-raleway">
         <div className="col-span-12 tablet:col-span-4 w-fit">
           <div className="flex items-center gap-4">
             <Image src={Logo} alt="Logo" className="w-7 desktop:w-10 h-auto" />
