@@ -33,10 +33,10 @@ export default function ArticleCard({
         <time dateTime={date}>{formatDate(date)}</time>
       </div>
       <p className="font-medium">{description}</p>
-      <div className="bg-primary mt-7 w-full justify-center flex flex-row gap-2 mx-auto text-base font-semibold items-center text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-105 transition-transform duration-300">
-        <Link href={slug}>Leggi</Link>
+      <Link href={slug} className="bg-primary mt-7 w-full justify-center flex flex-row gap-2 mx-auto text-base font-semibold items-center text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-105 transition-transform duration-300">
+        <span>Leggi</span>
         <ArrowUpRight size={20}/>
-      </div>
+      </Link>
     </article>
   );
 }

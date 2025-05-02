@@ -77,9 +77,9 @@ export default function Navbar() {
                 <Link href={href}>{title}</Link>
               </li>
             ))}
-            <li className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
-              <Link href="/contatti">Contattami</Link>
-            </li>
+            <Link href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+              <span>Contattami</span>
+            </Link>
           </ul>
         </div>
       </nav>
@@ -113,9 +113,9 @@ export default function Navbar() {
                   <Link href={href} onClick={closeMenu}>{title}</Link>
                 </li>
               ))}
-              <li className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
-                <Link href="/contatti" onClick={closeMenu}>Contattami</Link>
-              </li>
+              <Link href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+                <span>Contattami</span>
+              </Link>
             </ul>
           </nav>
         </div>
@@ -144,9 +144,9 @@ export default function Navbar() {
                   <Link href={href}>{title}</Link>
                 </li>
               ))}
-              <li className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
-                <Link href="/contatti">Contattami</Link>
-              </li>
+              <Link href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+                <span>Contattami</span>
+              </Link>
             </ul>
           </div>
         </div>
@@ -188,9 +188,9 @@ export default function Navbar() {
                     <Link href={href} onClick={closeMenu}>{title}</Link>
                   </li>
                 ))}
-                <li className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
-                  <Link href="/contatti" onClick={closeMenu}>Contattami</Link>
-                </li>
+                <Link href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
+                  <span>Contattami</span>
+                </Link>
               </ul>
             </nav>
           </div>
