@@ -11,7 +11,7 @@ export default async function BlogPage() {
       {sortedPosts?.length > 0 ? (
         <ul className="grid grid-cols-12 gap-4 w-full">
           {sortedPosts.map((post) => (
-            <li key={post.slug} className="col-span-12 desktop:col-span-3">
+            <li key={post.slug} className="col-span-12 tablet:col-span-6 small-laptop:col-span-4 desktop:col-span-3">
               <ArticleCard 
                 title={post.title}
                 description={post.description}
