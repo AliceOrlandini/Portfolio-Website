@@ -30,6 +30,33 @@ export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   }));
 }
 
+export async function generateMetadata({ params }: PostPageProps) {
+  const { slug } = await params;
+  const post = await getPostFromParams(slug);
+  if (!post) {
+    return {
+      title: "Post non trovato",
+      description: "Il post che stai cercando non esiste.",
+    };
+  }
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `https://aliceorlandini.it/blog/${post.slugAsParams}`,
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    }
+  };
+}
+
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
 
