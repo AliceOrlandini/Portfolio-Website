@@ -16,7 +16,15 @@ const posts = defineCollection({
     description: s.string().max(999),
     date: s.isodate(),
     published: s.boolean().default(true),
+    timing: s.number().default(1),
     image: s.string(),
+    faqs: s.array(
+      s.object({
+        question: s.string().max(99),
+        answer: s.string().max(999),
+        url: s.string()
+      })
+    ),
     body: s.mdx()
   }).transform(computedFields),
 });
