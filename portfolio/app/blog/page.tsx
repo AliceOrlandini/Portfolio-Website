@@ -15,9 +15,9 @@ export default async function BlogPage() {
               <ArticleCard 
                 title={post.title}
                 description={post.description}
-                slug={post.slugAsParams}
+                slug={post.slug}
                 date={post.date}
-                image="https://images.unsplash.com/photo-1744144501170-adec17d0c893?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                image={post.image}
               />
             </li>
           ))}

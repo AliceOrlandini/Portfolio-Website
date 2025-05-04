@@ -6,16 +6,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface PostPageProps {
-  params: {
-    slug: string[];
-  };
+  params: Promise<{ slug: string[] }>;
 }
 
-async function getPostFromParams(paramsPromise: PostPageProps["params"]) {
-
-  const params = await paramsPromise;
-  if (!params?.slug) return null;
-  const slugPath = params.slug.join("/");
+async function getPostFromParams(slugArray: string[]) {
+  const slugPath = slugArray.join("/");
   return posts.find((p) => p.slugAsParams === slugPath) ?? null;
 }
 
@@ -28,16 +23,17 @@ function getAdjacentPosts(allPosts: typeof posts, currentSlug: string) {
   return { prev, next };
 }
 
-export async function generateStaticParams(): Promise<PostPageProps["params"][]> {
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return posts.map((post) => ({
     slug: post.slugAsParams.split("/"),
   }));
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostFromParams(params);
+  const { slug } = await params;
 
-  if (!post || !post.published) {
+  const post = await getPostFromParams(slug);
+  if (!post) {
     notFound();
   }
 

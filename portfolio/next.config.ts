@@ -8,8 +8,9 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 }
 
 const nextConfig: NextConfig = {
-  output: "export",
-  trailingSlash: true,
+  //output: "export",
+  //trailingSlash: true,
+  productionBrowserSourceMaps: true,
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -20,7 +21,46 @@ const nextConfig: NextConfig = {
         pathname: "/**"
       }
     ]
-  }
+  },
+  /*async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: `
+              default-src 'self';
+              script-src 'self' 'unsafe-inline';
+              style-src 'self' 'unsafe-inline';
+              img-src 'self' https://images.unsplash.com https://unsplash.com data:;
+              font-src 'self';
+              object-src 'none';
+              base-uri 'self';
+              form-action 'self';
+              frame-ancestors 'none';
+            `.replace(/\s{2,}/g, " ").trim(),
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+        ],
+      },
+    ];
+  },*/
 };
 
 export default nextConfig;
