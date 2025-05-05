@@ -1,6 +1,6 @@
 import { posts } from "#site/content";
 import FAQ from "@/components/FAQ";
-//import { MDXContent } from "@/components/MDXComponents";
+import { MDXContent } from "@/components/MDXComponents";
 import { formatDate, sortBlogPosts } from "@/lib/utils";
 import { Calendar, MoveRight, MoveLeft } from "lucide-react";
 import Link from "next/link";
@@ -93,7 +93,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
         <hr className="h-px my-8 bg-black border-0 max-w-2xl mx-auto" />
         <div className="font-raleway max-w-2xl text-base tablet:text-lg mx-auto leading-relaxed">
-          {/*<MDXContent code={post.body} />*/}
+          <MDXContent code={post.body} />
         </div>
       </article>
       <hr className="h-px my-20 bg-black border-0 mx-5 desktop:mx-20" />
