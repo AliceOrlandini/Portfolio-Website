@@ -45,6 +45,9 @@ export async function generateMetadata({ params }: PostPageProps) {
     openGraph: {
       title: post.title,
       description: post.description,
+      type: 'article',
+      publishedTime: post.date,
+      author: 'Alice Orlandini',
       url: `https://aliceorlandini.it/blog/${post.slugAsParams}`,
       images: [
         {
@@ -53,6 +56,12 @@ export async function generateMetadata({ params }: PostPageProps) {
           height: 630,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [post.image], // must be an absolute URL
     }
   };
 }
@@ -68,24 +77,26 @@ export default async function PostPage({ params }: PostPageProps) {
   const { prev, next } = getAdjacentPosts(posts, post.slugAsParams);
 
   return (
-    <article className="mx-5 desktop:mx-0">
-      <h1 className="font-raleway max-w-2xl text-4xl desktop:text-5xl desktop:leading-14 font-bold mx-auto">{post.title}</h1>
-      <div className="flex flex-row max-w-2xl mx-auto mt-4">
-        <div className="flex items-center gap-2 font-raleway font-medium">
-          <Calendar size={18} />
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
+    <>
+      <article className="mx-5 desktop:mx-0">
+        <h1 className="font-raleway max-w-2xl text-4xl desktop:text-5xl desktop:leading-14 font-bold mx-auto">{post.title}</h1>
+        <div className="flex flex-row max-w-2xl mx-auto mt-4">
+          <div className="flex items-center gap-2 font-raleway font-medium">
+            <Calendar size={18} />
+            <time dateTime={post.date}>{formatDate(post.date)}</time>
+          </div>
+          <div className="ml-auto">
+            <p className="font-raleway font-medium">
+              Tempo di lettura: {post.timing} min
+            </p>
+          </div>
         </div>
-        <div className="ml-auto">
-          <p className="font-raleway font-medium">
-            Tempo di lettura: {post.timing} min
-          </p>
+        <hr className="h-px my-8 bg-black border-0 max-w-2xl mx-auto" />
+        <div className="font-raleway max-w-2xl text-base tablet:text-lg mx-auto leading-relaxed">
+          <MDXContent code={post.body} />
         </div>
-      </div>
-      <hr className="h-px my-8 bg-black border-0 max-w-2xl mx-auto" />
-      <div className="font-raleway max-w-2xl text-base tablet:text-lg mx-auto leading-relaxed">
-        <MDXContent code={post.body} />
-      </div>
-      <hr className="h-px my-20 bg-black border-0 desktop:mx-20" />
+      </article>
+      <hr className="h-px my-20 bg-black border-0 mx-5 desktop:mx-20" />
       <div>
         <FAQ items={post.faqs}/>
       </div>
@@ -108,6 +119,6 @@ export default async function PostPage({ params }: PostPageProps) {
           </Link>
         ) : <div />}
       </div>
-    </article>
+    </>
   );
 }

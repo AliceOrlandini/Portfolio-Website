@@ -15,6 +15,7 @@ export default function Navbar() {
   const [isStickyMenuOpen, setIsStickyMenuOpen] = useState(false);
   const [showDesktopStickyNavbar, setShowDesktopStickyNavbar] = useState(false);
   const [showMobileStickyNavbar, setShowMobileStickyNavbar] = useState(false);
+  const [completion, setCompletion] = useState(0);
 
   const openMenu = () => {
     if(window.scrollY < 500) {
@@ -51,9 +52,18 @@ export default function Navbar() {
       } else {
         setShowMobileStickyNavbar(false);
       }
+
+      const currentProgress = window.scrollY;
+      const scrollHeight = document.body.scrollHeight - window.innerHeight;
+      if (scrollHeight) {
+        setCompletion(
+          Number((currentProgress / scrollHeight).toFixed(2)) * 100
+        );
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
+
 
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -142,7 +152,7 @@ export default function Navbar() {
       </div>
 
       {/* Desktop Sticky Navbar */}
-      <div
+      <nav
         className={`
           invisible desktop:visible fixed top-0 left-0 right-0 z-50 shadow-md transition-transform duration-300 ease-in-out font-raleway
           ${showDesktopStickyNavbar ? 'translate-y-0' : '-translate-y-full'}
@@ -172,7 +182,8 @@ export default function Navbar() {
             </ul>
           </div>
         </div>
-      </div>
+        <span style={{transform: `translateX(${completion - 100}%)`}} className={`absolute bottom-0 w-full transition-transform duration-150 h-[0.20rem] bg-primary`}/>
+      </nav>
 
       {/* Mobile Sticky Navbar */}
       <div
@@ -221,6 +232,7 @@ export default function Navbar() {
             </nav>
           </div>
         </div>
+        <span style={{transform: `translateX(${completion - 100}%)`}} className={`absolute bottom-0 w-full transition-transform duration-150 h-[0.20rem] bg-primary`}/>
       </div>
     </>
   )

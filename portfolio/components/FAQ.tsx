@@ -35,7 +35,7 @@ export default function FAQ({ items }: FAQProps) {
   };
 
   return (
-    <section className="bg-quaternary w-full my-24">
+    <section className="bg-quaternary w-full mt-24">
       <JsonLd data={faqJsonLd} />
       <div className="font-raleway px-4 tablet:px-20 py-20">
         <div className="grid grid-cols-12 tablet:gap-10">
