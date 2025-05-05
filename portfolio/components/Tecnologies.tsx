@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import InfiniteLogoSlider from '@/components/ui/infinite-logo-slider';
 import { TECNOLOGIES_ITEMS } from '@/lib/constants';
 
@@ -17,11 +16,18 @@ export default function Tecnologies() {
               target="_blank"
               rel="noreferrer"
             >
-              <Image
-                src={icon}
-                alt={title}
-                className="w-44 desktop:w-64 h-auto opacity-40 hover:opacity-100 hover:cursor-pointer transition-opacity duration-300"
-              />
+              <picture>
+                <source srcSet={`/assets/technologies/${icon}.webp`} type="image/webp" />
+                <img
+                  src={`/assets/tecnologies/${icon}.png`}
+                  alt={title}
+                  decoding="async"
+                  loading="lazy"
+                  width={250}
+                  height={50}
+                  className="w-44 desktop:w-64 h-auto opacity-40 hover:opacity-100 hover:cursor-pointer transition-opacity duration-300"
+                />
+              </picture>
             </a>
           ))}
         </InfiniteLogoSlider>

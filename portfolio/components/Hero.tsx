@@ -1,14 +1,21 @@
-import Image from "next/image";
 import { FlipWords } from "@/components/ui/flip-words";
-import Birds from "@/public/assets/birds.png";
-import HeroImage from "@/public/assets/hero.png";
 import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="h-fit desktop:h-screen">
       <div className="relative">
-        <Image src={Birds} alt="Birds" className="absolute -z-10 w-20 tablet:w-28 -top-14 desktop:-top-10 left-48 tablet:left-72" />
+        <picture>
+          <source srcSet="/assets/birds/birds.webp" type="image/webp" />
+          <img
+            src="/assets/birds/birds.png"
+            alt="Logo"
+            decoding="async"
+            width={119}
+            height={65}
+            className="absolute -z-10 w-20 tablet:w-28 -top-14 desktop:-top-10 left-48 tablet:left-72"
+          />
+        </picture>
       </div>
       <div className="grid grid-cols-12 gap-4 px-10 desktop:px-32 py-14 desktop:py-20 items-center">
         <div className="col-span-12 tablet:col-span-7 desktop:col-span-6 w-fit">
@@ -21,7 +28,34 @@ export default function Hero() {
           </div>
         </div>
         <div className="col-span-12 tablet:col-span-5 desktop:col-span-6 mt-10 desktop:mt-0">
-          <Image src={HeroImage} alt="Hero" className="w-full h-auto drop-shadow-md" />
+          <picture>
+            <source
+              srcSet="
+                /assets/hero/hero-480.webp 480w,
+                /assets/hero/hero-768.webp 768w,
+                /assets/hero/hero-1024.webp 1024w
+              "
+              sizes="(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw"
+              type="image/webp"
+            />
+            <source
+              srcSet="
+                /assets/hero/hero-480.png 480w,
+                /assets/hero/hero-768.png 768w,
+                /assets/hero/hero-1024.png 1024w
+              "
+              sizes="(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw"
+              type="image/jpeg"
+            />
+            <img
+              src="/assets/hero/hero-1024.png"
+              alt="Alice Orlandini con una corona d'alloro e il suo un cane a Lucca"
+              decoding="async"
+              width={1024}
+              height={1024}
+              className="w-full h-auto drop-shadow-md"
+            />
+          </picture>
         </div>
       </div>
     </section>

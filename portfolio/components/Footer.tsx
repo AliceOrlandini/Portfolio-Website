@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Logo from "@/public/assets/logo.png";
 import { NAVBAR_ITEMS } from "@/lib/constants";
 import Link from "next/link";
 import { Mail, LinkedinIcon, GithubIcon, ChevronRight } from "lucide-react"
@@ -10,7 +8,17 @@ export default function Footer() {
       <div className="grid grid-cols-12 gap-y-10 mt-20 desktop:gap-4 px-5 desktop:px-32 desktop:py-20 items-center font-raleway">
         <div className="col-span-12 tablet:col-span-4 w-fit">
           <div className="flex items-center gap-4">
-            <Image src={Logo} alt="Logo" className="w-7 desktop:w-10 h-auto" />
+            <picture>
+              <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+              <img
+                src="/assets/logo/logo.png"
+                alt="Logo"
+                decoding="async"
+                width={50}
+                height={50}
+                className="w-7 desktop:w-10 h-auto"
+              />
+            </picture>
             <h1 className="text-xl desktop:text-2xl font-bold text-title">Alice Orlandini</h1>
           </div>
           <div className="flex items-center gap-4 mt-10">

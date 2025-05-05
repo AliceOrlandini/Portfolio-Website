@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import Head from "next/head";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -53,10 +54,11 @@ export const metadata: Metadata = {
     description: "Il mio Blog personale, dove condivido le mie esperienze e le mie passioni.",
     url: "https://aliceorlandini.it/",
     siteName: "Alice Orlandini",
-    // images: "https://aliceorlandini.it/images/icon.png",
+    images: "https://aliceorlandini.it/icon1.png",
     locale: "it-IT",
     type: "website",
   },
+  metadataBase: new URL("https://aliceorlandini.it/"),
 };
 
 export default function RootLayout({
@@ -66,6 +68,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it-IT">
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/hero/hero-1024.png"
+          imageSrcSet="/assets/hero/hero-480.png 480w, /assets/hero/hero-768.png 768w, /assets/hero/hero-1024.png 1024w"
+          imageSizes="(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw"
+        />
+      </Head>
       <body
         className={`${raleway.variable} antialiased bg-background overflow-x-hidden`}
       >

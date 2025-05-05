@@ -1,6 +1,4 @@
 import FormContacts from "@/components/FormContacts";
-import Image from "next/image";
-import ContactMeImage from "@/public/assets/contact_me_2.png";
 
 export default function ContactsPage() {
   return (
@@ -12,7 +10,35 @@ export default function ContactsPage() {
             <p className="text-base tablet:text-lg tablet:p-2 font-medium max-w-xl">
               Per qualsiasi domanda, parere o commento, riempi il modulo e ti ricontatterò in meno di 24 ore! Mi fa sempre piacere ricevere feedback e suggerimenti, quindi non esitare a contattarmi!
             </p>
-            <Image src={ContactMeImage} alt="Contattami" className="w-3/4 max-w-xl mx-auto" />
+            <picture>
+              <source
+                srcSet="
+                  /assets/contact-me/contact-me-2-480.webp 480w,
+                  /assets/contact-me/contact-me-2-768.webp 768w,
+                  /assets/contact-me/contact-me-2-1024.webp 1024w
+                "
+                sizes="(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw"
+                type="image/webp"
+              />
+              <source
+                srcSet="
+                  /assets/contact-me/contact-me-2-480.png 480w,
+                  /assets/contact-me/contact-me-2-768.png 768w,
+                  /assets/contact-me/contact-me-2-1024.png 1024w
+                "
+                sizes="(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw"
+                type="image/jpeg"
+              />
+              <img
+                src="/assets/contact-me/contact-me-2-1024.png"
+                alt="Contattami"
+                decoding="async"
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="w-3/4 max-w-xl mx-auto"
+              />
+            </picture>
           </div>
         </div>
         <div className="mt-10 h-full bg-white rounded-xl p-10 desktop:mt-0 desktop:w-1/2">

@@ -1,10 +1,6 @@
 "use client";
-import Image from "next/image"
 import Link from "next/link"
-import Logo from "@/public/assets/logo.png"
 import { NAVBAR_ITEMS } from "@/lib/constants"
-import BurgerMenuIcon from "@/public/assets/svg/burger_menu.svg"
-import XMenuIcon from "@/public/assets/svg/x_symbol.svg"
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -87,11 +83,17 @@ export default function Navbar() {
       {/* Desktop Navbar */}
       <nav className="font-raleway hidden desktop:flex justify-between items-center px-10 py-5">
         <div className="flex gap-3 items-center">
-          <Image 
-            src={Logo} 
-            alt="Logo Alice Orlandini" 
-            className="size-10"
-            priority />
+          <picture>
+            <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+            <img
+              src="/assets/logo/logo.png"
+              alt="Logo"
+              decoding="async"
+              width={50}
+              height={50}
+              className="size-10"
+            />
+          </picture>
           <h1 className="font-bold text-2xl text-title">Alice Orlandini</h1>
         </div>
         <div>
@@ -113,19 +115,26 @@ export default function Navbar() {
       {/* Mobile Navbar */}
       <div className="desktop:hidden isolate relative px-5 p-10 w-full">
         <div className="flex flex-row">
-          <Image 
-            src={Logo}
-            alt="Logo Alice Orlandini"
-            priority
-            className="z-10 size-8" />
+          <picture>
+            <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+            <img
+              src="/assets/logo/logo.png"
+              alt="Logo"
+              decoding="async"
+              width={50}
+              height={50}
+              className="size-8 z-10"
+            />
+          </picture>
           <h1 className="font-bold mx-2 -z-10 text-xl tablet:text-2xl my-auto text-title">Alice Orlandini</h1>
           <button onClick={openMenu} className="ml-auto">
-            <Image 
-              src={isMenuOpen ? XMenuIcon : BurgerMenuIcon}
-              alt="Menù di navigazione"
-              priority
-              className={`z-10 transition-transform duration-300 ease-in-out ${isMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
-            />
+            <picture>
+              <img 
+                src={isMenuOpen ? "/assets/svg/x_symbol.svg" : "/assets/svg/burger_menu.svg"}
+                alt="Menù di navigazione"
+                className={`z-10 transition-transform duration-300 ease-in-out ${isMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
+              />
+            </picture>
           </button>
         </div>
         <div 
@@ -159,14 +168,20 @@ export default function Navbar() {
         `}
       >
         <div className="bg-background flex flex-row items-center py-3 px-5">
-          <div className="flex gap-3 items-center">
-            <Image 
-              src={Logo} 
-              alt="Logo Alice Orlandini" 
-              className="size-10"
-              priority />
+            <div className="flex gap-3 items-center">
+            <picture>
+              <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+              <img
+                src="/assets/logo/logo.png"
+                alt="Logo"
+                decoding="async"
+                width={50}
+                height={50}
+                className="size-10"
+              />
+            </picture>
             <h1 className="font-bold text-2xl text-title">Alice Orlandini</h1>
-          </div>
+            </div>
           <div className="ml-auto">
             <ul className="flex gap-14 text-base font-semibold text-navigation items-center">
               {NAVBAR_ITEMS.map(({ title, href }, idx) => {
@@ -182,7 +197,9 @@ export default function Navbar() {
             </ul>
           </div>
         </div>
-        <span style={{transform: `translateX(${completion - 100}%)`}} className={`absolute bottom-0 w-full transition-transform duration-150 h-[0.20rem] bg-primary`}/>
+        {pathname.startsWith('/blog/') && (
+          <span style={{transform: `translateX(${completion - 100}%)`}} className={`absolute bottom-0 w-full transition-transform duration-150 h-[0.20rem] bg-primary`}/>
+        )}
       </nav>
 
       {/* Mobile Sticky Navbar */}
@@ -196,18 +213,25 @@ export default function Navbar() {
       >
         <div className={`bg-background h-fit p-5 ${isStickyMenuOpen ? "" : "shadow-md"}`}>
           <div className="flex flex-row">
-            <Image 
-              src={Logo}
-              alt="Logo Alice Orlandini"
-              priority
-              className="h-8 w-auto" />
-            <button onClick={openMenu} className="ml-auto">
-              <Image 
-                src={isStickyMenuOpen ? XMenuIcon : BurgerMenuIcon}
-                alt="Menù di navigazione"
-                priority
-                className={`z-10 transition-transform duration-300 ease-in-out ${isStickyMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
+            <picture>
+              <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+              <img
+                src="/assets/logo/logo.png"
+                alt="Logo"
+                decoding="async"
+                width={50}
+                height={50}
+                className="h-8 w-auto"
               />
+            </picture>
+            <button onClick={openMenu} className="ml-auto">
+              <picture>
+                <img 
+                  src={isStickyMenuOpen ? "/assets/svg/x_symbol.svg" : "/assets/svg/burger_menu.svg"}
+                  alt="Menù di navigazione"
+                  className={`z-10 transition-transform duration-300 ease-in-out ${isStickyMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
+                />
+              </picture>
             </button>
           </div>
           <div 
@@ -232,7 +256,9 @@ export default function Navbar() {
             </nav>
           </div>
         </div>
-        <span style={{transform: `translateX(${completion - 100}%)`}} className={`absolute bottom-0 w-full transition-transform duration-150 h-[0.20rem] bg-primary`}/>
+        {pathname.startsWith('/blog/') && (
+          <span style={{transform: `translateX(${completion - 100}%)`}} className={`absolute bottom-0 w-full transition-transform duration-150 h-[0.20rem] bg-primary`}/>
+        )}
       </div>
     </>
   )
