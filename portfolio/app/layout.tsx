@@ -60,6 +60,9 @@ export const metadata: Metadata = {
     type: "website",
   },
   metadataBase: new URL("https://aliceorlandini.it/"),
+  verification: {
+    google: "EMVHO7zqss_-SQxCX9MuShIyVarE-dGxCRTLznYf9fQ"
+  }
 };
 
 export default function RootLayout({
