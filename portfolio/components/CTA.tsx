@@ -20,24 +20,24 @@ export default function CTA() {
           <picture>
             <source
               srcSet="
-                /assets/contact-me/contact-me-1-480.webp 480w,
-                /assets/contact-me/contact-me-1-768.webp 768w,
-                /assets/contact-me/contact-me-1-1024.webp 1024w
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/contact-me/contact-me-1-480.webp 480w,
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/contact-me/contact-me-1-768.webp 768w,
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/contact-me/contact-me-1-1024.webp 1024w
               "
               sizes="(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw"
               type="image/webp"
             />
             <source
               srcSet="
-                /assets/contact-me/contact-me-1-480.png 480w,
-                /assets/contact-me/contact-me-1-768.png 768w,
-                /assets/contact-me/contact-me-1-1024.png 1024w
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/contact-me/contact-me-1-480.png 480w,
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/contact-me/contact-me-1-768.png 768w,
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/contact-me/contact-me-1-1024.png 1024w
               "
               sizes="(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw"
               type="image/jpeg"
             />
             <img
-              src="/assets/contact-me/contact-me-1-1024.png"
+              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/contact-me/contact-me-1-1024.png"
               alt="Contattami"
               decoding="async"
               loading="lazy"

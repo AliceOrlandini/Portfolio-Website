@@ -32,24 +32,24 @@ export default function Features() {
               <picture>
                 <source
                   srcSet="
-                    /assets/features/features-480.webp 480w,
-                    /assets/features/features-768.webp 768w,
-                    /assets/features/features-1024.webp 1024w
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/features/features-480.webp 480w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/features/features-768.webp 768w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/features/features-1024.webp 1024w
                   "
                   sizes="(max-width: 1024px) 70vw, 33.33vw"
                   type="image/webp"
                 />
                 <source
                   srcSet="
-                    /assets/features/features-480.png 480w,
-                    /assets/features/features-768.png 768w,
-                    /assets/features/features-1024.png 1024w
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/features/features-480.png 480w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/features/features-768.png 768w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/features/features-1024.png 1024w
                   "
                   sizes="(max-width: 1024px) 70vw, 33.33vw"
                   type="image/jpeg"
                 />
                 <img
-                  src="/assets/features/features-1024.png"
+                  src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/features/features-1024.png"
                   alt="Alice Orlandini su un robot rosso nella foresta"
                   decoding="async"
                   loading="lazy"

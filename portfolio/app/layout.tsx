@@ -73,8 +73,8 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/assets/hero/hero-1024.png"
-          imageSrcSet="/assets/hero/hero-480.png 480w, /assets/hero/hero-768.png 768w, /assets/hero/hero-1024.png 1024w"
+          href="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-1024.png"
+          imageSrcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-480.png 480w, https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-768.png 768w, https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-1024.png 1024w"
           imageSizes="(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw"
         />
       </Head>

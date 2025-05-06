@@ -1,0 +1,2 @@
+// ignore the public folder since the assets are served from the CDN
+/assets/

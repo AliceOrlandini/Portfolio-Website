@@ -84,9 +84,9 @@ export default function Navbar() {
       <nav className="font-raleway hidden desktop:flex justify-between items-center px-10 py-5">
         <div className="flex gap-3 items-center">
           <picture>
-            <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+            <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
             <img
-              src="/assets/logo/logo.png"
+              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
               alt="Logo"
               decoding="async"
               width={50}
@@ -116,9 +116,9 @@ export default function Navbar() {
       <div className="desktop:hidden isolate relative px-5 p-10 w-full">
         <div className="flex flex-row">
           <picture>
-            <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+            <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
             <img
-              src="/assets/logo/logo.png"
+              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
               alt="Logo"
               decoding="async"
               width={50}
@@ -130,7 +130,7 @@ export default function Navbar() {
           <button onClick={openMenu} className="ml-auto">
             <picture>
               <img 
-                src={isMenuOpen ? "/assets/svg/x_symbol.svg" : "/assets/svg/burger_menu.svg"}
+                src={isMenuOpen ? "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/x_symbol.svg" : "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/burger_menu.svg"}
                 alt="Menù di navigazione"
                 className={`z-10 transition-transform duration-300 ease-in-out ${isMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
               />
@@ -170,9 +170,9 @@ export default function Navbar() {
         <div className="bg-background flex flex-row items-center py-3 px-5">
             <div className="flex gap-3 items-center">
             <picture>
-              <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
               <img
-                src="/assets/logo/logo.png"
+                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
                 alt="Logo"
                 decoding="async"
                 width={50}
@@ -214,9 +214,9 @@ export default function Navbar() {
         <div className={`bg-background h-fit p-5 ${isStickyMenuOpen ? "" : "shadow-md"}`}>
           <div className="flex flex-row">
             <picture>
-              <source srcSet="/assets/logo/logo.webp" type="image/webp" />
+              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
               <img
-                src="/assets/logo/logo.png"
+                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
                 alt="Logo"
                 decoding="async"
                 width={50}
@@ -227,7 +227,7 @@ export default function Navbar() {
             <button onClick={openMenu} className="ml-auto">
               <picture>
                 <img 
-                  src={isStickyMenuOpen ? "/assets/svg/x_symbol.svg" : "/assets/svg/burger_menu.svg"}
+                  src={isStickyMenuOpen ? "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/x_symbol.svg" : "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/burger_menu.svg"}
                   alt="Menù di navigazione"
                   className={`z-10 transition-transform duration-300 ease-in-out ${isStickyMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
                 />

@@ -8,15 +8,13 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 }
 
 const nextConfig: NextConfig = {
-  //output: "export",
-  //trailingSlash: true,
   productionBrowserSourceMaps: true,
   images: {
     unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
+        hostname: "cdn.jsdelivr.net",
         port: "",
         pathname: "/**"
       }
