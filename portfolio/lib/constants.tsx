@@ -52,7 +52,7 @@ export const FEATURES_ITEMS = [
   {
     icon: <Compass className="text-tertiary mb-3" />,
     title: "Guide e Tutorial",
-    copy: "Un sito bello ma difficile da trovare non serve a nessuno! Con me, la SEO è già inclusa nella realizzazione del tuo sito: scelgo con cura titoli, testi e struttura tecnica per favorire il miglior posizionamento possibile. Se vuoi un sito internet che non sia solo online, ma anche trovato facilmente su Google, ti aiuto a raggiungere questo obiettivo fin dall'inizio."
+    copy: "In questo blog non mancheranno guide e tutorial. Ho sempre pensato che il miglior modo per imparare sia quello di insegnare, perciò scrivere articoli in cui spiego come ho risolto un problema mi aiuta a fissare i concetti. Inoltre, sono convinta che il mondo dell'informatica sia in continua evoluzione e che sia fondamentale tenersi aggiornati. Scrivere articoli mi aiuta a rimanere al passo con le novità."
   },
 ];
 

@@ -8,7 +8,7 @@ export default function Features() {
           src="assets/svg/wavy-loops-bottom.svg" 
           alt="Onda decorativa di separazione" 
           width="100vw"
-          height={150}
+          height={10}
           className="w-full h-auto -mt-3"
         />
       </picture>
@@ -68,7 +68,7 @@ export default function Features() {
           alt="Onda decorativa di separazione" 
           className="w-full h-auto -mb-3"
           width="100vw"
-          height={150}
+          height={10}
         />
       </picture>
     </>
