@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Head from "next/head";
 
 const raleway = Raleway({
@@ -84,6 +85,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Toaster toastOptions={{ className: 'font-raleway', }}/>
+        <SpeedInsights/>
       </body>
     </html>
   );
