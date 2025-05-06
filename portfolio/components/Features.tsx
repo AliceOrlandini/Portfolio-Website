@@ -5,7 +5,7 @@ export default function Features() {
     <>
       <picture>
         <img 
-          src="assets/svg/wavy-loops-bottom.svg" 
+          src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/wavy-loops-bottom.svg" 
           alt="Onda decorativa di separazione" 
           width="100vw"
           height={10}
@@ -64,7 +64,7 @@ export default function Features() {
       </section>
       <picture>
         <img 
-          src="assets/svg/wavy-loops-top.svg" 
+          src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/wavy-loops-top.svg" 
           alt="Onda decorativa di separazione" 
           className="w-full h-auto -mb-3"
           width="100vw"
