@@ -25,6 +25,12 @@ const nextConfig: NextConfig = {
       {
         source: '/((?!api|favicon.ico|icon0.svg|icon1.png|apple-icon.png|manifest.json|robots.txt|sitemap.xml).*)',
         headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "font-src 'self'",
+            ].join('; '),
+          },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },

@@ -21,10 +21,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import Link from "next/link";
 import { sendMail } from "@/lib/api";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function FormContacts() {
 
   const [isLoading, setIsLoading] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
@@ -38,8 +40,15 @@ export default function FormContacts() {
   });
 
   async function onSubmit(values: z.infer<typeof contactFormSchema>) {
+    if (!executeRecaptcha) {
+      toast.error("Recaptcha non caricato. Riprova più tardi.", {
+        duration: 10000
+      });
+      return;
+    }
     setIsLoading(true);
 
+    const token = await executeRecaptcha("contact_form");
     const { name, surname, email, message } = values;
 
     const data = {
@@ -51,7 +60,8 @@ export default function FormContacts() {
         surname: surname,
         email: email,
         message: message,
-      }
+      },
+      recaptchaToken: token
     };
 
     try {
