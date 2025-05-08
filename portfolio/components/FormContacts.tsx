@@ -152,7 +152,7 @@ export default function FormContacts() {
                   <Label htmlFor="terms" className="flex items-center flex-wrap gap-1">
                     Ho preso visione della
                     <Link
-                      href="/privacy"
+                      href="/privacy-policy"
                       target="_blank"
                       className="hover:text-primary hover:underline"
                     >
