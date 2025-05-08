@@ -9,9 +9,9 @@ export default function Footer() {
         <div className="col-span-12 tablet:col-span-4 w-fit">
           <div className="flex items-center gap-4">
             <picture>
-              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
+              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
               <img
-                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
+                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.png"
                 alt="Logo"
                 decoding="async"
                 width={50}

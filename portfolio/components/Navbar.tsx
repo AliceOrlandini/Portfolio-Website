@@ -77,9 +77,9 @@ export default function Navbar() {
       <nav className="font-raleway hidden desktop:flex justify-between items-center px-10 py-5">
         <div className="flex gap-3 items-center">
           <picture>
-            <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
+            <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
             <img
-              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
+              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.png"
               alt="Logo"
               decoding="async"
               width={50}
@@ -109,9 +109,9 @@ export default function Navbar() {
       <div className="desktop:hidden isolate relative px-5 p-10 w-full">
         <div className="flex flex-row items-center">
           <picture>
-            <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
+            <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
             <img
-              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
+              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.png"
               alt="Logo"
               decoding="async"
               width={50}
@@ -169,9 +169,9 @@ export default function Navbar() {
         <div className="bg-background flex flex-row items-center py-3 px-5">
             <div className="flex gap-3 items-center">
             <picture>
-              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
+              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
               <img
-                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
+                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.png"
                 alt="Logo"
                 decoding="async"
                 width={50}
@@ -212,9 +212,9 @@ export default function Navbar() {
         <div className={`bg-background max-w-screen h-fit p-5 ${showMobileStickyNavbar ? "shadow-md" : ""}`}>
           <div className="flex flex-row items-center">
             <picture>
-              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
+              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
               <img
-                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.png"
+                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.png"
                 alt="Logo"
                 decoding="async"
                 width={50}

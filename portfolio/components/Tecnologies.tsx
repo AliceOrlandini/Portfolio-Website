@@ -17,9 +17,9 @@ export default function Tecnologies() {
               rel="noreferrer"
             >
               <picture>
-                <source srcSet={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/technologies/${icon}.webp`} type="image/webp" />
+                <source srcSet={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/technologies/${icon}.webp`} type="image/webp" />
                 <img
-                  src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/tecnologies/${icon}.png`}
+                  src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/tecnologies/${icon}.png`}
                   alt={title}
                   decoding="async"
                   loading="lazy"

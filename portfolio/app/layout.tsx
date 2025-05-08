@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     description: "Il mio Blog personale, dove condivido le mie esperienze e le mie passioni.",
     url: "https://aliceorlandini.it/",
     siteName: "Alice Orlandini",
-    images: "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/icon/icon2.png",
+    images: "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/icon/icon2.png",
     locale: "it-IT",
     type: "website",
   },
@@ -76,8 +76,8 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-1024.png"
-          imageSrcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-480.png 480w, https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-768.png 768w, https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-1024.png 1024w"
+          href="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png"
+          imageSrcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-480.png 480w, https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-768.png 768w, https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png 1024w"
           imageSizes="(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw"
         />
       </Head>

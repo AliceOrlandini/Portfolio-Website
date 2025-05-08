@@ -6,9 +6,9 @@ export default function Hero() {
     <section className="h-fit desktop:h-screen">
       <div className="relative">
         <picture>
-          <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/birds/birds.webp" type="image/webp" />
+          <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/birds/birds.webp" type="image/webp" />
           <img
-            src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/birds/birds.png"
+            src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/birds/birds.png"
             alt="Logo"
             decoding="async"
             width={119}
@@ -31,24 +31,24 @@ export default function Hero() {
           <picture>
             <source
               srcSet="
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-480.webp 480w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-768.webp 768w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-1024.webp 1024w
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-480.webp 480w,
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-768.webp 768w,
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.webp 1024w
               "
               sizes="(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw"
               type="image/webp"
             />
             <source
               srcSet="
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-480.png 480w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-768.png 768w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-1024.png 1024w
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-480.png 480w,
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-768.png 768w,
+                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png 1024w
               "
               sizes="(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw"
               type="image/jpeg"
             />
             <img
-              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/hero/hero-1024.png"
+              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png"
               alt="Alice Orlandini con una corona d'alloro e il suo un cane a Lucca"
               decoding="async"
               width={1024}

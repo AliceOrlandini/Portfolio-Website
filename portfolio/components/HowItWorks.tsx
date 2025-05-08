@@ -5,9 +5,9 @@ export default function HowItWorks() {
     <section className="relative isolate pt-24 tablet:pt-52 desktop:pt-72 mt-24 overflow-hidden font-raleway tablet:py-32">
       <h2 className="absolute text-center inset-x-0 top-0 font-bold text-2xl desktop:text-4xl font-raleway">Com&#39;è il mio carattere?</h2>
       <picture>
-        <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/ellipse/ellipse.webp" type="image/webp" />
+        <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/ellipse/ellipse.webp" type="image/webp" />
         <img
-          src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/ellipse/ellipse.png"
+          src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/ellipse/ellipse.png"
           alt="Ellisse decorativa di sfondo"
           decoding="async"
           width={768}
@@ -25,24 +25,24 @@ export default function HowItWorks() {
               <picture>
                 <source
                   srcSet={`
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/how-it-works/${img}-480.webp 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/how-it-works/${img}-768.webp 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/how-it-works/${img}-1024.webp 1024w
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-480.webp 480w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-768.webp 768w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.webp 1024w
                   `}
                   sizes="(max-width: 768px) 70vw, 33.33vw"
                   type="image/webp"
                 />
                 <source
                   srcSet={`
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/how-it-works/${img}-480.png 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/how-it-works/${img}-768.png 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/how-it-works/${img}-1024.png 1024w
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-480.png 480w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-768.png 768w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.png 1024w
                   `}
                   sizes="(max-width: 768px) 70vw, 33.33vw"
                   type="image/jpeg"
                 />
                 <img
-                  src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/how-it-works/${img}-1024.png`}
+                  src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.png`}
                   alt={title}
                   decoding="async"
                   loading="lazy"
