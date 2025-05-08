@@ -3,23 +3,16 @@ import Link from "next/link"
 import { NAVBAR_ITEMS } from "@/lib/constants"
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { Squash as Hamburger } from 'hamburger-react'
 
 export default function Navbar() {
   const pathname = usePathname()
-  const navRef = useRef<HTMLElement | null>(null)
+  const navRef = useRef<HTMLDivElement | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isStickyMenuOpen, setIsStickyMenuOpen] = useState(false);
   const [showDesktopStickyNavbar, setShowDesktopStickyNavbar] = useState(false);
   const [showMobileStickyNavbar, setShowMobileStickyNavbar] = useState(false);
   const [completion, setCompletion] = useState(0);
-
-  const openMenu = () => {
-    if(window.scrollY < 500) {
-      setIsMenuOpen((prev) => !prev);
-    } else {
-      setIsStickyMenuOpen((prev) => !prev);
-    }
-  }
 
   const closeMenu = useCallback(() => {
     if(window.scrollY < 500) {
@@ -114,7 +107,7 @@ export default function Navbar() {
 
       {/* Mobile Navbar */}
       <div className="desktop:hidden isolate relative px-5 p-10 w-full">
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center">
           <picture>
             <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
             <img
@@ -123,41 +116,47 @@ export default function Navbar() {
               decoding="async"
               width={50}
               height={50}
-              className="size-8 z-10"
+              className="size-8"
             />
           </picture>
-          <h1 className="font-bold mx-2 -z-10 text-xl tablet:text-2xl my-auto text-title">Alice Orlandini</h1>
-          <button onClick={openMenu} className="ml-auto">
-            <picture>
-              <img 
-                src={isMenuOpen ? "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/x_symbol.svg" : "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/burger_menu.svg"}
-                alt="Menù di navigazione"
-                className={`z-10 transition-transform duration-300 ease-in-out ${isMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
-              />
-            </picture>
-          </button>
+          <h1 className="font-bold mx-2 text-xl tablet:text-2xl my-auto text-title">Alice Orlandini</h1>
+
+          <div className="ml-auto z-50">
+            <Hamburger rounded toggled={isMenuOpen} toggle={setIsMenuOpen} label="menu button" size={20} />
+          </div>
         </div>
-        <div 
-          className={`-z-10 mt-8 absolute inset-x-0 top-0 bg-background p-5 font-raleway transform transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-          }`}>
-          <nav className="absolute -z-10 inset-x-0 top-0 bg-background p-5 font-raleway text-paragraph font-semibold">
-            <ul className="w-fit mx-auto text-base tablet:text-lg space-y-5 my-5">
-              {NAVBAR_ITEMS.map(({ title, href }, idx) => {
-                const isActive = pathname.split("/")[1] === href.split("/")[1]
-                return (
-                <li key={idx} className={`${isActive ? "text-primary": ""} text-center hover:cursor-pointer hover:scale-110 transition-transform duration-300`}>
-                  <Link onClick={closeMenu} href={href}>{title}</Link>
+        <nav
+          className={`
+            absolute mt-8 inset-x-0 top-0 bg-background p-5 font-raleway text-paragraph font-semibold
+            transform transition-all duration-500 ease-in-out overflow-hidden
+            ${isMenuOpen ? "translate-y-0 opacity-100 max-h-screen" : "-translate-y-10 opacity-0 max-h-0 pointer-events-none"}
+          `}
+        >
+          <ul className="w-fit mx-auto text-base tablet:text-lg space-y-5 my-5">
+            {NAVBAR_ITEMS.map(({ title, href }, idx) => {
+              const isActive = pathname.split("/")[1] === href.split("/")[1];
+              return (
+                <li
+                  key={idx}
+                  className={`${isActive ? "text-primary" : ""} z-50 text-center hover:cursor-pointer hover:scale-110 transition-transform duration-300`}
+                >
+                  <Link onClick={closeMenu} href={href}>
+                    {title}
+                  </Link>
                 </li>
-              )})}
-            </ul>
-            <div className="flex justify-center">
-              <Link onClick={closeMenu} href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
-                <span>Contattami</span>
-              </Link>
-            </div>
-          </nav>
-        </div>
+              );
+            })}
+          </ul>
+          <div className="flex justify-center">
+            <Link
+              onClick={closeMenu}
+              href="/contatti"
+              className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300"
+            >
+              <span>Contattami</span>
+            </Link>
+          </div>
+        </nav>
       </div>
 
       {/* Desktop Sticky Navbar */}
@@ -205,14 +204,13 @@ export default function Navbar() {
       {/* Mobile Sticky Navbar */}
       <div
         className={`
-          desktop:hidden fixed top-0 left-0 right-0 z-50
+          desktop:hidden max-w-screen fixed top-0 left-0 right-0 z-50
           transition-transform duration-300 ease-in-out
           ${showMobileStickyNavbar ? "translate-y-0" : "-translate-y-full"}
-          desktop:hidden
         `}
       >
-        <div className={`bg-background h-fit p-5 ${isStickyMenuOpen ? "" : "shadow-md"}`}>
-          <div className="flex flex-row">
+        <div className={`bg-background max-w-screen h-fit p-5 ${showMobileStickyNavbar ? "shadow-md" : ""}`}>
+          <div className="flex flex-row items-center">
             <picture>
               <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/logo/logo.webp" type="image/webp" />
               <img
@@ -221,44 +219,52 @@ export default function Navbar() {
                 decoding="async"
                 width={50}
                 height={50}
-                className="h-8 w-auto"
+                className="size-8"
               />
             </picture>
-            <button onClick={openMenu} className="ml-auto">
-              <picture>
-                <img 
-                  src={isStickyMenuOpen ? "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/x_symbol.svg" : "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/svg/burger_menu.svg"}
-                  alt="Menù di navigazione"
-                  className={`z-10 transition-transform duration-300 ease-in-out ${isStickyMenuOpen ? "size-[18px] tablet:size-6 desktop:size-8 rotate-90 scale-110" : "size-6 tablet:size-7 desktop:size-10 rotate-0 scale-100"}`}
-                />
-              </picture>
-            </button>
+            <div className="ml-auto z-50">
+              <Hamburger
+                rounded
+                toggled={isStickyMenuOpen}
+                toggle={setIsStickyMenuOpen}
+                label="menu button"
+                size={20}
+              />
+            </div>
           </div>
-          <div 
-            className={`-z-10 mt-10 absolute inset-x-0 top-0 bg-background p-5 font-raleway text-white font-bold text-lg transform transition-all duration-300 ease-in-out ${
-              isStickyMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-            }`}>
-            <nav className="absolute -z-10 inset-x-0 top-0 bg-background p-5 text-paragraph font-semibold text-lg">
-              <ul className="w-fit mx-auto text-base tablet:text-lg space-y-5 my-5">
-                {NAVBAR_ITEMS.map(({ title, href }, idx) => {
-                  const isActive = pathname.split("/")[1] === href.split("/")[1]
-                  return (
-                  <li key={idx} className={`${isActive ? "text-primary": ""} text-center hover:cursor-pointer hover:scale-110 transition-transform duration-300`}>
-                    <Link onClick={closeMenu} href={href}>{title}</Link>
+          <nav
+            className={`
+              absolute mt-8 inset-x-0 top-0 bg-background p-5 font-raleway text-paragraph font-semibold
+              transform transition-all duration-500 ease-in-out overflow-hidden
+              ${isStickyMenuOpen ? "translate-y-0 opacity-100 max-h-screen" : "-translate-y-10 opacity-0 max-h-0 pointer-events-none"}
+            `}
+          >
+            <ul className="w-fit mx-auto text-base tablet:text-lg space-y-5 my-5">
+              {NAVBAR_ITEMS.map(({ title, href }, idx) => {
+                const isActive = pathname.split("/")[1] === href.split("/")[1];
+                return (
+                  <li
+                    key={idx}
+                    className={`${isActive ? "text-primary" : ""} z-50 text-center hover:cursor-pointer hover:scale-110 transition-transform duration-300`}
+                  >
+                    <Link onClick={closeMenu} href={href}>
+                      {title}
+                    </Link>
                   </li>
-                )})}
-              </ul>
-              <div className="flex justify-center">
-                <Link onClick={closeMenu} href="/contatti" className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300">
-                  <span>Contattami</span>
-                </Link>
-              </div>
-            </nav>
-          </div>
+                );
+              })}
+            </ul>
+            <div className="flex justify-center">
+              <Link
+                onClick={closeMenu}
+                href="/contatti"
+                className="bg-primary text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300"
+              >
+                <span>Contattami</span>
+              </Link>
+            </div>
+          </nav>
         </div>
-        {pathname.startsWith('/blog/') && (
-          <span style={{transform: `translateX(${completion - 100}%)`}} className={`absolute bottom-0 w-full transition-transform duration-150 h-[0.20rem] bg-primary`}/>
-        )}
       </div>
     </>
   )

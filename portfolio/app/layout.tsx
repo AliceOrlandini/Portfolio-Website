@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     description: "Il mio Blog personale, dove condivido le mie esperienze e le mie passioni.",
     url: "https://aliceorlandini.it/",
     siteName: "Alice Orlandini",
-    images: "https://aliceorlandini.it/icon1.png",
+    images: "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/icon/icon2.png",
     locale: "it-IT",
     type: "website",
   },

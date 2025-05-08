@@ -51,9 +51,9 @@ export async function generateMetadata({ params }: PostPageProps) {
       url: `https://aliceorlandini.it/blog/${post.slugAsParams}`,
       images: [
         {
-          url: post.image,
-          width: 1200,
-          height: 630,
+          url: `${post.image}.png`,
+          width: 500,
+          height: 333,
         },
       ],
     },
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: PostPageProps) {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: [post.image], // must be an absolute URL
+      images: [`${post.image}.png`], // must be an absolute URL
     }
   };
 }
