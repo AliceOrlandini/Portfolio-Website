@@ -14,8 +14,8 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "Alice Orlandini",
-  description: "Il mio Blog personale, dove condivido le mie esperienze e le mie passioni.",
+  title: "Alice Orlandini - Blog su Tecnologie, Coding e Didattica",
+  description: "Nel mio blog trovi guide pratiche, esperienze reali, consigli tech e supporto per studenti: sviluppo web, coding e molto altro.",
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' },
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
   ],
   category: "website",
   openGraph: {
-    title: "Alice Orlandini",
-    description: "Il mio Blog personale, dove condivido le mie esperienze e le mie passioni.",
+    title: "Alice Orlandini - Blog su Tecnologie, Coding e Didattica",
+    description: "Nel mio blog trovi guide pratiche, esperienze reali, consigli tech e supporto per studenti: sviluppo web, coding e molto altro.",
     url: "https://aliceorlandini.it/",
     siteName: "Alice Orlandini",
     images: "https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/icon/icon2.png",

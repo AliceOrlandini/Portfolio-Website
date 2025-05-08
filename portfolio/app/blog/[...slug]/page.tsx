@@ -39,11 +39,13 @@ export async function generateMetadata({ params }: PostPageProps) {
       description: "Il post che stai cercando non esiste.",
     };
   }
+  const year = new Date(post.date).getFullYear();
+
   return {
-    title: post.title,
+    title: `${post.title} (${year})`,
     description: post.description,
     openGraph: {
-      title: post.title,
+      title: `${post.title} (${year})`,
       description: post.description,
       type: 'article',
       publishedTime: post.date,
@@ -59,7 +61,7 @@ export async function generateMetadata({ params }: PostPageProps) {
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
+      title: `${post.title} (${year})`,
       description: post.description,
       images: [`${post.image}.png`], // must be an absolute URL
     }
