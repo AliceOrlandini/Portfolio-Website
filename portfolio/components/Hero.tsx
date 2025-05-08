@@ -9,7 +9,7 @@ export default function Hero() {
           <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/birds/birds.webp" type="image/webp" />
           <img
             src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/birds/birds.png"
-            alt="Logo"
+            alt="Birds"
             decoding="async"
             width={119}
             height={65}

@@ -121,7 +121,7 @@ export default function Navbar() {
           </picture>
           <h1 className="font-bold mx-2 text-xl tablet:text-2xl my-auto text-title">Alice Orlandini</h1>
 
-          <div className="ml-auto z-50">
+          <div className="ml-auto z-10">
             <Hamburger rounded toggled={isMenuOpen} toggle={setIsMenuOpen} label="menu button" size={20} />
           </div>
         </div>
@@ -162,8 +162,8 @@ export default function Navbar() {
       {/* Desktop Sticky Navbar */}
       <nav
         className={`
-          invisible desktop:visible fixed top-0 left-0 right-0 z-50 shadow-md transition-transform duration-300 ease-in-out font-raleway
-          ${showDesktopStickyNavbar ? 'translate-y-0' : '-translate-y-full'}
+          invisible desktop:visible fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out font-raleway
+          ${showDesktopStickyNavbar ? 'translate-y-0 shadow-md' : '-translate-y-full'}
         `}
       >
         <div className="bg-background flex flex-row items-center py-3 px-5">

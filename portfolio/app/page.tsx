@@ -6,7 +6,7 @@ import Tecnologies from "@/components/Tecnologies";
 
 export default function Home() {
   return (
-    <main className="font-raleway max-w-screen overflow-x-hidden">
+    <main className="font-raleway max-w-screen">
       <Hero />
       <Features />
       <HowItWorks />
