@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Head from "next/head";
+import JsonLd from "@/components/JsonLd";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -89,6 +90,20 @@ export default function RootLayout({
         <Footer />
         <Toaster toastOptions={{ className: 'font-raleway', }}/>
         <SpeedInsights/>
+        <JsonLd data={
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Alice Orlandini",  
+            "url": "https://aliceorlandini.it",  
+            "jobTitle": "Blogger / Sviluppatrice",  
+            "description": "Alice Orlandini è una blogger e sviluppatrice web con esperienza in HTML, CSS, JavaScript e PHP. Condivide le sue conoscenze attraverso articoli e guide pratiche.",  
+            "sameAs": [
+              "https://www.linkedin.com/in/aliceorlandini/",
+              "https://github.com/aliceorlandini"
+            ],
+          }
+        } />
       </body>
     </html>
   );

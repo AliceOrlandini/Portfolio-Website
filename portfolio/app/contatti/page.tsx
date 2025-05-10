@@ -25,7 +25,6 @@ const customI18nDictionaries: typeof i18nDictionaries = {
 
 export default function ContactsPage() {
   return (
-    <ReCaptchaProvider>
       <section>
         <div className="mx-0 tablet:mx-5 desktop:mx-auto size-fit mb-20 font-raleway flex flex-col bg-primary py-10 px-5 tablet:px-10 shadow-lg tablet:rounded-xl tablet:flex-row">
           <div className="m-auto size-fit text-white">
@@ -66,14 +65,15 @@ export default function ContactsPage() {
             </div>
           </div>
           <div className="mt-10 h-full bg-white rounded-xl p-10 desktop:mt-0 desktop:w-1/2">
-            <IubendaProvider bannerConfig={iubendaBannerConfig} customI18nDictionaries={customI18nDictionaries} fallbackLang='it'>
-              <ConsentAwareWrapper requiredGdprPurposes={['functionality']} className="max-w-md">
-                <FormContacts />
-            </ConsentAwareWrapper>
-            </IubendaProvider>
+            <ReCaptchaProvider>
+              <IubendaProvider bannerConfig={iubendaBannerConfig} customI18nDictionaries={customI18nDictionaries} fallbackLang='it'>
+                <ConsentAwareWrapper requiredGdprPurposes={['functionality']} className="max-w-md">
+                  <FormContacts />
+              </ConsentAwareWrapper>
+              </IubendaProvider>
+            </ReCaptchaProvider>
           </div>
         </div>
       </section>
-    </ReCaptchaProvider>
   );
 }
