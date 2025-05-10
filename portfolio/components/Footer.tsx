@@ -1,6 +1,6 @@
 import { NAVBAR_ITEMS } from "@/lib/constants";
 import Link from "next/link";
-import { Mail, LinkedinIcon, GithubIcon, ChevronRight } from "lucide-react"
+import { Mail, LinkedinIcon, GithubIcon, ChevronRight, ScrollText, Cookie } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -52,10 +52,25 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="border-1 border-paragraph text-center rounded-md px-3 py-2 hover:cursor-pointer hover:scale-105 transition-transform duration-300">
-              <Link href="/privacy-policy" className="font-semibold text-sm text-paragraph">Privacy Policy</Link>
-            </div>
+          <div className="flex flex-col gap-3 font-raleway">
+            <a 
+              href="https://www.iubenda.com/privacy-policy/27117967" 
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Privacy Policy"
+              className="text-xs desktop:text-sm text-paragraph border border-paragraph w-fit rounded-md px-5 py-2 flex flex-row font-montserrat font-bold hover:scale-105 hover:cursor-pointer transition-transform duration-300">
+                <ScrollText className="text-paragraph size-[10px] my-auto tablet:size-3 desktop:size-4 mr-2 desktop:mr-3" />
+                Privacy Policy
+            </a>
+            <a 
+              href="https://www.iubenda.com/privacy-policy/27117967/cookie-policy" 
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Cookie Policy"
+              className="text-xs desktop:text-sm text-paragraph border border-paragraph w-fit rounded-md px-5 py-2 flex flex-row font-montserrat font-bold hover:scale-105 hover:cursor-pointer transition-transform duration-300">
+                <Cookie className="text-paragraph size-[10px] my-auto tablet:size-3 desktop:size-4 mr-2 desktop:mr-3" />
+                Cookie Policy
+            </a>
           </div>
         </div>
       </div>

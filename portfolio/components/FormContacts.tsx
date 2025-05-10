@@ -19,7 +19,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
-import Link from "next/link";
 import { sendMail } from "@/lib/api";
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -161,13 +160,15 @@ export default function FormContacts() {
                   />
                   <Label htmlFor="terms" className="flex items-center flex-wrap gap-1">
                     Ho preso visione della
-                    <Link
-                      href="/privacy-policy"
+                    <a
+                      href="https://www.iubenda.com/privacy-policy/27117967"
                       target="_blank"
+                      rel="noopener noreferrer"
+                      title="Privacy Policy"
                       className="hover:text-primary hover:underline"
                     >
                       Privacy Policy
-                    </Link>
+                    </a>
                   </Label>
                 </div>
               </FormControl>
