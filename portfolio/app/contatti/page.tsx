@@ -1,5 +1,27 @@
 import FormContacts from "@/components/FormContacts";
 import { ReCaptchaProvider } from "@/components/reCAPTCHAProvider";
+import { IubendaProvider, IubendaCookieSolutionBannerConfigInterface, ConsentAwareWrapper, i18nDictionaries } from '@mep-agency/next-iubenda';
+
+const iubendaBannerConfig: IubendaCookieSolutionBannerConfigInterface = {
+  siteId: 4020438,
+  cookiePolicyId: 27117967,
+  lang: 'it',
+  banner: {
+    position: 'float-bottom-center',
+    rejectButtonDisplay: true,
+  }
+};
+
+const customI18nDictionaries: typeof i18nDictionaries = {
+  it: {
+    consentAwareWrapper: {
+      loading: 'Dai il consenso ai cookie per visualizzare il form di contatto.',
+      consentNotGranted:
+        'È stato negato il consenso ai cookie. Li utilizziamo per verificare che tu non sia un robot. Per favore, accetta i cookie per continuare.',
+      openPreferencesButtonText: 'Apri preferenze',
+    }
+  }
+};
 
 export default function ContactsPage() {
   return (
@@ -44,7 +66,11 @@ export default function ContactsPage() {
             </div>
           </div>
           <div className="mt-10 h-full bg-white rounded-xl p-10 desktop:mt-0 desktop:w-1/2">
-            <FormContacts />
+            <IubendaProvider bannerConfig={iubendaBannerConfig} customI18nDictionaries={customI18nDictionaries} fallbackLang='it'>
+              <ConsentAwareWrapper requiredGdprPurposes={['functionality']} className="max-w-md">
+                <FormContacts />
+            </ConsentAwareWrapper>
+            </IubendaProvider>
           </div>
         </div>
       </section>

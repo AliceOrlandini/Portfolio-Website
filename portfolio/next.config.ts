@@ -9,6 +9,7 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: true,
+  transpilePackages: ['@mep-agency/next-iubenda'],
   images: {
     unoptimized: true,
     remotePatterns: [
