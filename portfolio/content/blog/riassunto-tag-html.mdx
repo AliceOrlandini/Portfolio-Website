@@ -1,0 +1,514 @@
+---
+title: Riassunto tag HTML
+description: In questo articolo mi rivolgo agli studenti del liceo che stanno studiando HTML e che necessitano di un riassunto. In fondo all'articolo ho reso disponibile un file PDF scaricabile con il riassunto completo.
+date: 2025-05-12
+published: true
+timing: 9
+image: https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/riassunto-tag-html/copertina
+faqs:
+  - question: Come si apre e si chiude un tag HTML?
+    answer: La maggior parte dei tag HTML va aperta e poi chiusa, scrivendo il nome del tag tra parentesi angolari e aggiungendo la barra in quello di chiusura.
+    url: "https://aliceorlandini.it/blog/riassunto-tag-html#tag-html"
+---
+
+### Introduzione <span id="introduzione"></span>
+
+Faccio ripetizioni ormai da **3 anni** e ho notato che gli studenti di quarta spesso fanno fatica a trovare un riassunto chiaro dei **tag [HTML](https://it.wikipedia.org/wiki/HTML) più usati** dai professori per le verifiche. I riassunti che si trovano online, infatti, o sono _a pagamento_, oppure sono pensati per l’università e contengono **molte più informazioni del necessario**.
+
+Per questo motivo, ho deciso di spiegare in questo articolo **i tag più utilizzati a scuola**, uno per uno. Alla fine, nelle _conclusioni_, troverai anche un **PDF scaricabile** con una _tabella riassuntiva_. So che alcuni professori permettono di portare questo tipo di appunti alle verifiche sull’HTML, anche perché **i tag da ricordare sono davvero tanti**.
+
+### I tag HTML <span id="tag-html"></span>
+
+Iniziamo subito col dire che **la maggior parte dei tag HTML va _aperta_ e poi _chiusa_**.
+
+Mi spiego meglio: se, per esempio, abbiamo un tag che si chiama `ciao` (_a caso — non esiste il tag `ciao`, ahaha_), e dico che va aperto e chiuso, intendo che bisogna scrivere:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[1, 3]}
+  code={`<ciao> <!-- qui lo apro -->
+
+  </ciao> <!-- qui lo chiudo -->`}
+/>
+
+Il mio consiglio è sempre quello di **aprire subito il tag e chiuderlo immediatamente**, per evitare di dimenticarselo. Solo _dopo_ si pensa a cosa scriverci dentro.
+
+### Robe iniziali necessarie <span id="robe-iniziali"></span>
+
+Allora, per prima cosa apriamo un file sul nostro computer, ad esempio con il Blocco Note, e salviamolo con un nome come `esercizio.html`.
+
+A questo punto, partiamo da quelle che io chiamo _"le robe iniziali necessarie"_.
+
+Si tratta di alcuni tag fondamentali che servono a far capire al browser (come Chrome) che il file che stiamo scrivendo è di tipo **HTML**, e quindi deve essere interpretato come tale.  
+Quello che andiamo a scrivere è:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[1, 3, 4, 6, 7]}
+  code={`<!DOCTYPE html>
+  <html>
+	  <head>
+	  </head>
+	
+	  <body>
+	  </body>
+  </html>`}
+/>
+
+È praticamente da **imparare a memoria**, e possiamo notare che contiene i seguenti tag:
+
+- `<!DOCTYPE html>`: va **solo aperto**, non si chiude. Serve per dire che stiamo usando HTML5.
+- `<html>`: è il primo tag che va **aperto e chiuso**, e al suo interno conterrà tutti gli altri tag.
+- `<head>`: anche questo va aperto e chiuso — **fallo subito**, poi vedrai cosa metterci dentro. In inglese significa _"testa"_, ed è la parte dove si inseriscono informazioni sulla pagina: ad esempio che è in italiano, oppure il **titolo** che comparirà in alto nella scheda del browser.
+- `<body>`: va aperto e chiuso **sotto `head`**, perché rappresenta un'altra parte della struttura. Qui ci riferiamo al _"corpo"_ della pagina, cioè alla **ciccia** del nostro file. È qui che andremo a mettere **paragrafi**, **immagini**, **titoli** e tutto ciò che _si vede davvero_ nella pagina.
+
+### Titolo della pagina <span id="titolo-pagina"></span>
+
+Ora che abbiamo scritto _le robe iniziali necessarie_, apriamo il file in un browser come **Chrome** e vedremo... **NULLA**, una pagina completamente bianca.
+
+Questo succede perché nei tag `<head>` e `<body>` **non c'è ancora nulla**. Quindi iniziamo a riempirli.
+
+Partiamo col dare un **titolo** alla pagina — titolo che verrà visualizzato in alto nella **scheda del browser** (tipo quella di Chrome).  
+Per farlo, si usa il tag `<title>`, che va **aperto**, **chiuso** e, _al suo interno_, ci si può scrivere ciò che si vuole.
+
+Ecco un esempio:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[4]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+    </body>
+  </html>`}
+/>
+
+Se ora **aggiornate la pagina**, vedrete il **titolo comparire nella scheda in alto**.
+
+### Titoli <span id="titolo"></span>
+
+Ora iniziamo a **riempire il `<body>`**. Tutto ciò che si trova dentro il `body` si **vedrà direttamente nella nostra pagina web**.
+
+La prima cosa che si inserisce di solito è un **titolo**, ma attenzione: **non è lo stesso titolo** che abbiamo inserito sopra con il tag `<title>`.  
+Questo nuovo titolo verrà visualizzato _all’interno della pagina_, e **non** nella scheda del browser.
+
+Molti, a prima vista, potrebbero pensare che anche questo titolo si scriva con il tag `<title>`, ma **non è così**. Evidentemente si erano accorti che quel tag era già usato per un’altra cosa, e quindi hanno dovuto trovare una soluzione alternativa.
+
+In inglese, _titolo_ si dice anche **"heading"**, da cui hanno ricavato la lettera **`h`**.  
+Volevano anche permettere titoli di diverse grandezze, quindi hanno deciso di usare dei numeri: da **1** (il più grande) a **6** (il più piccolo).
+
+Quindi il tag per un **titolo grande** è `h1` (_heading 1_), e va — come al solito — **aperto e chiuso**:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8, 9, 10, 11]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <h1>Titolo grande</h1>
+      <h2>Titolo leggermente più piccolo</h2>
+      <h3>Titolo ancora più piccolo</h3>
+      <h4>Ecc.. insomma hai capito ahahah</h4>
+    </body>
+  </html>`}
+/>
+
+
+### Paragrafo <span id="paragrafo"></span>
+
+Questo è facile: come si dice _paragrafo_ in inglese? Beh, **"paragraph"** — e quindi il tag come sarà? Esatto: **`p`**.  
+Anche questo va **aperto**, **chiuso**, e _al suo interno_ ci scriviamo il testo del nostro paragrafo.
+
+Ecco un esempio completo:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[9]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <h1>Titolo grande</h1>
+      <p>Questo è un paragrafo</p>
+    </body>
+  </html>`}
+/>
+
+Come potete vedere, **i tag nel `<body>` potete metterli uno sotto l’altro** e verranno visualizzati **nell’ordine in cui li scrivete**.
+
+### Liste <span id="liste"></span>
+
+Di **liste** ne esistono due tipologie:
+- Liste **numerate**
+- Liste **puntate**
+
+Ormai avete imparato il giochino: come si traducono in inglese? Eccole:
+- **Ordered List**
+- **Unordered List**
+
+Quindi i rispettivi tag saranno `ol` e `ul`.  
+Questi due servono per **creare la lista in sé**, mentre per inserire **un elemento all’interno della lista** si usa il tag `li`, che sta per _List Item_, ovvero _elemento della lista_.
+
+Capiamolo meglio con un esempio:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8, 10, 12, 14]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <ol>
+      
+      </ol>
+      
+      <ul>
+
+      </ul>
+    </body>
+  </html>`}
+/>
+
+In questo momento abbiamo solo dichiarato che ci sono due liste: prima una **Ordered List** `ol` (e quindi **numerata**), e poi una **Unordered List** `ul` (cioè **puntata**).
+
+Per inserirci degli elementi, dobbiamo usare il tag `li`, così:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[9, 10, 14, 15]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <ol>
+        <li>Cane</li>
+        <li>Gatto</li>
+      </ol>
+      
+      <ul>
+        <li>Coniglio</li>
+        <li>Pappagallo</li>
+      </ul>
+    </body>
+  </html>`}
+/>
+
+Ecco fatto!  
+La **prima lista** conterrà i _List Item_ `li`: **Cane** e **Gatto**.  
+La **seconda lista** avrà anch’essa dei `li`: **Coniglio** e **Pappagallo**.
+
+### Tabella <span id="tabella"></span>
+
+Qui, _intuitivamente_, possiamo immaginare che ci sia un tag `table` che serve per dire: **"Ehi, qui c'è una tabella!"**
+
+Le **tabelle in HTML** vanno pensate come un insieme di _righe_ composte da _colonne_.  
+Ad esempio, la seguente tabella:
+
+| Riga 1 Colonna 1 | Riga 1 Colonna 2 | Riga 1 Colonna 3 |
+| ---------------- | ---------------- | ---------------- |
+| Riga 2 Colonna 1 | Riga 2 Colonna 2 | Riga 2 Colonna 3 |
+
+Ha **2 righe** e **3 colonne**.
+
+I tag che ci servono per costruirla sono:
+- `tr`: sta per _Table Row_, ovvero **riga della tabella** — va **aperto e chiuso**.
+- `td`: sta per _Table Data_, cioè **il contenuto** all’interno della riga — anche questo va **aperto e chiuso**.
+
+Per rappresentare la struttura della tabella sopra, partiamo così:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8, 9, 10, 12, 13]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <table> <!-- Dico che c'è una tabella -->
+        <tr> <!-- Riga 1 -->
+        </tr>
+
+        <tr> <!-- Riga 2 -->
+        </tr>
+      </table>
+    </body>
+  </html>`}
+/>
+
+In questo momento ho solo dichiarato che c’è una tabella e che ha **due righe**.  
+Sono però _vuote_. Per riempirle, ci serve il tag `td`, così:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[10, 11, 12, 15, 16, 17]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <table> <!-- Dico che c'è una tabella -->
+        <tr> <!-- Riga 1 -->
+          <td>Riga 1 Colonna 1</td>
+          <td>Riga 1 Colonna 2</td>
+          <td>Riga 1 Colonna 3</td>
+        </tr>
+        <tr> <!-- Riga 2 -->
+          <td>Riga 2 Colonna 1</td>
+          <td>Riga 2 Colonna 2</td>
+          <td>Riga 2 Colonna 3</td>
+        </tr>
+      </table>
+    </body>
+  </html>`}
+/>
+
+Ed ecco che ho riprodotto **la tabella che abbiamo visto sopra**!
+
+Unica cosa: **di default la tabella non ha i bordi**, quindi all’inizio può sembrare "invisibile".  
+Per aggiungerli, basta scrivere `border="1"` **all’interno del tag `table`**, in questo modo:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <table border="1"> <!-- Aggiungiamo il bordo -->
+        <tr>
+          <td>Riga 1 Colonna 1</td>
+          <td>Riga 1 Colonna 2</td>
+          <td>Riga 1 Colonna 3</td>
+        </tr>
+        <tr>
+          <td>Riga 2 Colonna 1</td>
+          <td>Riga 2 Colonna 2</td>
+          <td>Riga 2 Colonna 3</td>
+        </tr>
+      </table>
+    </body>
+  </html>`}
+/>
+
+### Immagine <span id="immagine"></span>
+
+Il tag per inserire un'immagine è `img` (_sono stati un po’ taccagni — potevano chiamarlo `image` dico io ahaha_).  
+Questo tag si **apre soltanto**, **non ha chiusura**.
+
+Ne scrivo uno completo, e poi ve lo commento:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <img src="foto.jpg" alt="Foto di un gatto">
+    </body>
+  </html>`}
+/>
+
+Allora, osserviamo subito che questo tag ha _della roba al suo interno_, prima del simbolo di chiusura `>`, che **non avevamo ancora visto**.  
+Infatti, quando si tratta di un’immagine, bisogna specificare:
+- **La sorgente**: si usa l’attributo `src` (_source_) per indicare **il file dell’immagine**, che si trova **nella stessa cartella** del nostro file `esercizio.html`. È come dire: “L’immagine che voglio visualizzare è questa qui!” — e quindi scriviamo **il nome del file** con la sua estensione (di solito `.jpg` o `.png`).
+- **Il testo alternativo**: abbreviato `alt` (_alternative text_), è il testo che verrà **visualizzato al posto dell’immagine** se per qualche motivo non dovesse caricarsi. Inoltre, questo testo è **importantissimo per l’accessibilità**: i dispositivi per non vedenti leggono ad alta voce proprio quello che scriviamo qui.
+
+Una volta riempiti questi due attributi, **l’immagine verrà visualizzata nella pagina**.
+
+Se l’immagine dovesse essere troppo grande, si possono regolare le dimensioni con `width` e `height`:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <img src="foto.jpg" alt="Foto di un gatto" width="300px" height="300px">
+    </body>
+  </html>`}
+/>
+
+⚠️ **Attenzione alle H** di queste due parole!  
+Ho notato che alcuni miei studenti si confondono spesso: _"width"_ e _"height"_ non sono proprio facilissime da scrivere, ma sono fondamentali se volete controllare **le dimensioni dell’immagine**.
+
+### Ancora <span id="ancora"></span>
+
+L'ancora serve per creare **un collegamento** a un’altra pagina a partire da quella in cui ci troviamo.
+
+Quindi, per prima cosa, creiamo **un altro file** nella stessa cartella del file precedente, e chiamiamolo ad esempio `seconda_pagina.html`.
+
+Quello che vogliamo è poter **raggiungere questa nuova pagina cliccando su un punto preciso** nella prima.  
+Per fare ciò si usa il tag `a`, che sta per _anchor_ (_ancora_ in inglese — non ho idea del perché lo abbiano chiamato così onesta ahaha).
+
+Lo scrivo e poi lo commento:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8, 9, 10]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <a href="seconda_pagina.html">
+      Clicca Qui per raggiungere la seconda pagina
+      </a>
+    </body>
+  </html>`}
+/>
+
+Questo tag si **apre e si chiude**, e _tra i due_ possiamo scrivere **qualsiasi testo vogliamo**, cioè quello che apparirà cliccabile.  
+Nel tag di apertura inseriamo:
+- **`href`**: abbreviazione di _Hypertext REFerence_, serve per dire **“questa è la pagina che voglio raggiungere”**.
+
+Una cosa che piace molto ai professori è **aprire la nuova pagina in un’altra scheda**, invece che nella stessa.  
+Farlo è **semplicissimo**: basta aggiungere l’attributo `target="_blank"` così:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8, 9, 10]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <a href="seconda_pagina.html" target="_blank">
+      Clicca Qui per raggiungere la seconda pagina
+      </a>
+    </body>
+  </html>`}
+/>
+
+Ora, cliccando su quel link, la seconda pagina si aprirà **in una nuova scheda del browser**.
+
+### Divisore <span id="divisore"></span>
+
+Ultimo, ma non meno importante, abbiamo **il divisore**, ovvero il tag `div`, che si **apre e si chiude**.
+
+Questo tag è un po’ particolare perché **“non si vede”**: non ha un risultato visivo evidente come gli altri, ma serve per **raggruppare un insieme di elementi**.
+
+Può essere pensato come una sorta di **box invisibile**, all’interno del quale possiamo mettere altri tag — _e volendo anche altri `div`!_  
+È molto utile soprattutto quando parleremo di **stile (CSS)**, perché permette di applicare **uno stile a un `div`** e uno completamente diverso a un altro.
+
+Visto in azione è così:
+
+<CodeBlock
+  language="html"
+  filename="esercizio.html"
+  highlightLines={[8, 16, 18, 26]}
+  code={`<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Il mio primo esercizio HTML</title>
+    </head>
+    
+    <body>
+      <div>
+        <h2>Sezione Animali</h2>
+        <p>Qui parliamo di animali domestici.</p>
+        <ul>
+          <li>Cane</li>
+          <li>Gatto</li>
+          <li>Coniglio</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Sezione Piante</h2>
+        <p>Qui invece parliamo di piante da appartamento.</p>
+        <ul>
+          <li>Ficus</li>
+          <li>Sansevieria</li>
+          <li>Aloe</li>
+        </ul>
+      </div>
+    </body>
+  </html>`}
+/>
+
+Come puoi vedere, abbiamo **due `div`** che raggruppano due sezioni diverse della pagina: una sugli animali e una sulle piante.  
+_Per ora non cambia nulla a livello grafico_, ma più avanti potremo dire cose tipo: “Voglio che **solo questo `div`** abbia il testo rosso” — ed è lì che il `div` diventa davvero potente!
+
+### Conclusione
+
+Per concludere, mi sento di dare alcuni **consigli pratici**:
+1. Quando aprite un tag, **chiudetelo subito**, sennò palese che ve lo dimenticate ahaha 
+2. Per aiutarvi a **ricordarli a memoria**, provate a **tradurli dall’inglese**: vedrete che dopo un po’ verrà tutto molto naturale.
+3. Se trovate dei tag che **non ho spiegato in questo articolo**, cercateli su questo sito:   [**W3Schools – HTML**](https://www.w3schools.com/html/default.asp), è davvero fatto bene!
+
+
+**Qui trovate il PDF scaricabile** con tutti i tag: ne ho inseriti anche alcuni che **non ho spiegato** in questa guida.  
+
+<a
+  href="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/riassunto-tag-html/riassunto-tag-html.pdf"
+  download
+  style={{
+  border: '1px solid black',
+  borderRadius: '8px',
+  backgroundColor: 'transparent',
+  padding: '12px 20px',
+  margin: '16px auto',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  display: 'block',
+  maxWidth: '200px',
+  cursor: 'pointer',
+  hover: {
+    transform: 'scale(1.05)',
+  },
+}}
+>
+  Scarica il PDF
+</a>
+Se avete dubbi o domande, **contattatemi pure**: aprite il menù e cliccate su _“Contattami”_.  
+Sarò felice di aiutarvi e spiegarvi tutto ciò che non vi è chiaro!
