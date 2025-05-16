@@ -265,7 +265,7 @@ export default function Navbar() {
             </div>
           </nav>
         </div>
-        {pathname.startsWith('/blog/') && (
+        {pathname.startsWith('/blog/') && !isStickyMenuOpen && (
           <span style={{transform: `translateX(${completion - 100}%)`}} className={`absolute bottom-0 w-full transition-transform duration-150 h-[0.20rem] bg-primary`}/>
         )}
       </div>
