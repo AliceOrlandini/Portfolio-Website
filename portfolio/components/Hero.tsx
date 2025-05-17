@@ -1,5 +1,5 @@
-import { FlipWords } from "@/components/ui/flip-words";
 import Link from "next/link";
+import FlipWordsClient from "@/components/FlipWordsClient";
 
 export default function Hero() {
   return (
@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
       <div className="grid grid-cols-12 gap-4 px-10 desktop:px-32 py-14 desktop:py-20 items-center">
         <div className="col-span-12 tablet:col-span-7 desktop:col-span-6 w-fit">
-          <h1 className="text-4xl desktop:text-6xl font-bold text-title desktop:max-w-xl leading-12 desktop:leading-20">Ciao sono Alice! In questo blog parlo<br/>di<FlipWords className="-z-10 max-w-screen" words={["Informatica", "Ripetizioni", "Tecnologie", "Esperienze"]} /></h1>
+          <h1 className="text-4xl desktop:text-6xl font-bold text-title desktop:max-w-xl leading-12 desktop:leading-20">Ciao sono Alice! In questo blog parlo<br/>di<FlipWordsClient className="-z-10 max-w-screen" words={["Informatica", "Ripetizioni", "Tecnologie", "Esperienze"]} /></h1>
           <p className="text-paragraph mt-10 text-base desktop:text-lg leading-8 font-medium">
             La passione per l&#39;informatica è nata sui banchi di scuola quando mi sono resa conto che quando arrivava l’ora di informatica dicevo <em>&#34;ooh via, ora ci si rilassa&#34;</em>.<br/>
             Da lì è iniziato il mio viaggio in questo mondo, mi sono iscritta ad Ingegneria Informatica a Pisa durante la quale ho lavorato, fatto parte di una squadra corse e fatto tanti progetti personali. Ma non spoilero nulla, ci sarà modo di approfondire tutto nel mio blog!</p>
