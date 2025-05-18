@@ -10,7 +10,7 @@ export default async function BlogPage() {
       <h1 className="font-raleway text-2xl desktop:text-5xl font-bold leading-8 desktop:leading-14">Ti va di leggere qualche articolo?</h1>
       {sortedPosts?.length > 0 ? (
         <ul className="grid grid-cols-12 gap-4 w-full">
-          {sortedPosts.map((post) => (
+          {sortedPosts.map((post, idx) => (
             <li key={post.slug} className="col-span-12 tablet:col-span-6 small-laptop:col-span-4 desktop:col-span-3">
               <ArticleCard 
                 title={post.title}
@@ -18,6 +18,7 @@ export default async function BlogPage() {
                 slug={post.slug}
                 date={post.date}
                 image={post.image}
+                priority={idx === 0 ? true : false}
               />
             </li>
           ))}

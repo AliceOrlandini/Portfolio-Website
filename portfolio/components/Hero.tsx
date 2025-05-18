@@ -11,6 +11,8 @@ export default function Hero() {
             src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/birds/birds.png"
             alt="Birds"
             decoding="async"
+            fetchPriority="high"
+            loading="eager"
             width={119}
             height={65}
             className="absolute -z-10 w-20 tablet:w-28 -top-14 desktop:-top-10 left-48 tablet:left-72"
