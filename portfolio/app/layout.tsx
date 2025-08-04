@@ -72,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it-IT">
+    <html lang="it-IT" id="top" className="scroll-smooth">
       <Head>
         <link
           rel="preload"
