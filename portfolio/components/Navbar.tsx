@@ -211,7 +211,7 @@ export default function Navbar() {
       >
         <div className={`bg-background max-w-screen h-fit p-5 ${showMobileStickyNavbar ? "shadow-md" : ""}`}>
           <div className="flex flex-row items-center">
-            <a href="#top" hidden={!showMobileStickyNavbar} className="z-50">
+            <a href="#top">
               <picture>
                 <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
                 <img
