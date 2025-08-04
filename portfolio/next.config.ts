@@ -15,9 +15,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   transpilePackages: ['@mep-agency/next-iubenda'],
-  experimental: {
-    optimizeCss: true,
-  },
   images: {
     unoptimized: true,
     remotePatterns: [
