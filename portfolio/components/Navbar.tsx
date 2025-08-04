@@ -167,7 +167,7 @@ export default function Navbar() {
         `}
       >
         <div className="bg-background flex flex-row items-center py-3 px-5">
-            <div className="flex gap-3 items-center">
+          <a href="#top" className="flex gap-3 items-center">
             <picture>
               <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
               <img
@@ -180,7 +180,7 @@ export default function Navbar() {
               />
             </picture>
             <h1 className="font-bold text-2xl text-title">Alice Orlandini</h1>
-            </div>
+          </a>
           <div className="ml-auto">
             <ul className="flex gap-14 text-base font-semibold text-navigation items-center">
               {NAVBAR_ITEMS.map(({ title, href }, idx) => {
@@ -211,18 +211,20 @@ export default function Navbar() {
       >
         <div className={`bg-background max-w-screen h-fit p-5 ${showMobileStickyNavbar ? "shadow-md" : ""}`}>
           <div className="flex flex-row items-center">
-            <picture>
-              <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
-              <img
-                src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.png"
-                alt="Logo"
-                decoding="async"
-                width={50}
-                height={50}
-                className="size-8"
-              />
-            </picture>
-            <div className="ml-auto z-50">
+            <a href="#top" hidden={!showMobileStickyNavbar} className="z-50">
+              <picture>
+                <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp" type="image/webp" />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.png"
+                  alt="Logo"
+                  decoding="async"
+                  width={50}
+                  height={50}
+                  className="size-8"
+                />
+              </picture>
+            </a>
+            <div className="ml-auto z-40">
               <Hamburger
                 rounded
                 toggled={isStickyMenuOpen}
@@ -233,6 +235,7 @@ export default function Navbar() {
             </div>
           </div>
           <nav
+            hidden={!isStickyMenuOpen}
             className={`
               absolute mt-8 inset-x-0 top-0 bg-background p-5 font-raleway text-paragraph font-semibold
               transform transition-all duration-500 ease-in-out overflow-hidden

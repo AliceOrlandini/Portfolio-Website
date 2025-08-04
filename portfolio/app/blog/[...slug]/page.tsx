@@ -2,7 +2,7 @@ import { posts } from "#site/content";
 import FAQ from "@/components/FAQ";
 import { MDXContent } from "@/components/MDXComponents";
 import { formatDate, sortBlogPosts } from "@/lib/utils";
-import { Calendar, MoveRight, MoveLeft } from "lucide-react";
+import { Calendar, MoveRight, MoveLeft, House, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -80,6 +80,23 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
+      <nav aria-label="breadcrumb" className="max-w-2xl mx-auto mb-10">
+        <ol className="font-raleway text-navigation flex flex-wrap items-center space-x-2">
+          <li className="flex space-x-2">
+            <Link href="/">
+              <House className="size-5 hover:cursor-pointer hover:scale-105 transition-transform duration-300" />
+            </Link>
+            <ChevronRight className="size-5" />
+          </li>
+          <li className="flex space-x-2">
+            <Link href="/blog" className="font-medium hover:cursor-pointer hover:scale-105 transition-transform duration-300">blog</Link>
+            <ChevronRight className="size-5" />
+          </li>
+          <li className="font-semibold hover:cursor-pointer hover:scale-105 transition-transform duration-300">
+            <Link href={post.slugAsParams}>{post.slugAsParams}</Link>
+          </li>
+        </ol>
+      </nav>
       <article className="mx-5 desktop:mx-0">
         <h1 className="font-raleway max-w-2xl text-4xl desktop:text-5xl desktop:leading-14 font-bold mx-auto">{post.title}</h1>
         <div className="flex flex-row max-w-2xl mx-auto mt-4">
