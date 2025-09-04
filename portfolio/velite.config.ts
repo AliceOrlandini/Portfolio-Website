@@ -24,7 +24,7 @@ const posts = defineCollection({
         answer: s.string().max(999),
         url: s.string()
       })
-    ),
+    ).optional(),
     body: s.mdx()
   }).transform(computedFields),
 });

@@ -118,7 +118,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </article>
         <hr className="h-px my-20 bg-black border-0 mx-5 desktop:mx-20" />
         <div>
-          <FAQ items={post.faqs}/>
+          {post.faqs && <FAQ items={post.faqs}/>}
         </div>
         <div className="flex justify-between mt-10 desktop:mx-20 font-raleway font-semibold">
           {prev ? (

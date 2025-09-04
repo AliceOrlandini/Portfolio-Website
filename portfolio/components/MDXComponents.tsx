@@ -149,6 +149,9 @@ const components = {
       {...props}
     />
   ),
+  em: ({ className, ...props }: React.HTMLAttributes<HTMLElement> & { className?: string }) => (
+    <em className={cn("italic text-black", className)} {...props} />
+  ),
   Image,
   CodeBlock
 }
