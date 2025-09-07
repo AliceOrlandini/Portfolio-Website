@@ -1,49 +1,55 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function CTA() {
   return (
-    <section className="mx-4 desktop:mx-32 rounded-xl bg-primary text-white pb-10">
-      <div className="grid grid-cols-12 gap-4 px-10 desktop:px-20 pt-15 desktop:pt-20">
-        <div className="col-span-12 desktop:col-span-6">
-          <h1 className="text-2xl desktop:text-5xl font-bold leading-8 desktop:leading-14">Ti va di leggere qualche articolo?</h1>
-          <p className="mt-10 text-sm desktop:text-lg font-medium">In questo blog parlo di informatica, ripetizioni, tecnologie e delle mie esperienze. Se sei curioso di sapere di cosa tratto, dai un&#39;occhiata agli articoli!</p>
-          <div className="mt-10 tablet:mt-16">
+    <section className='desktop:mx-32 bg-primary mx-4 rounded-xl pb-10 text-white'>
+      <div className='desktop:px-20 desktop:pt-20 grid grid-cols-12 gap-4 px-10 pt-15'>
+        <div className='desktop:col-span-6 col-span-12'>
+          <h1 className='desktop:text-5xl desktop:leading-14 text-2xl leading-8 font-bold'>
+            Ti va di leggere qualche articolo?
+          </h1>
+          <p className='desktop:text-lg mt-10 text-sm font-medium'>
+            In questo blog parlo di informatica, ripetizioni, tecnologie e delle
+            mie esperienze. Se sei curioso di sapere di cosa tratto, dai
+            un&#39;occhiata agli articoli!
+          </p>
+          <div className='tablet:mt-16 mt-10'>
             <Link
-              href="/blog"
-              className="bg-tertiary font-semibold w-fit mx-auto py-4 px-7 tablet:mx-0 text-paragraph rounded-2xl shadow-md hover:cursor-pointer hover:scale-110 transition-transform duration-300 block"
+              href='/blog'
+              className='bg-tertiary tablet:mx-0 text-paragraph mx-auto block w-fit rounded-2xl px-7 py-4 font-semibold shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
             >
               Vai agli Articoli
             </Link>
           </div>
         </div>
-        <div className="col-span-12 desktop:col-span-6">
+        <div className='desktop:col-span-6 col-span-12'>
           <picture>
             <source
-              srcSet="
+              srcSet='
                 https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-480.webp 480w,
                 https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-768.webp 768w,
                 https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.webp 1024w
-              "
-              sizes="(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw"
-              type="image/webp"
+              '
+              sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
+              type='image/webp'
             />
             <source
-              srcSet="
+              srcSet='
                 https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-480.png 480w,
                 https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-768.png 768w,
                 https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.png 1024w
-              "
-              sizes="(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw"
-              type="image/jpeg"
+              '
+              sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
+              type='image/jpeg'
             />
             <img
-              src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.png"
-              alt="Contattami"
-              decoding="async"
-              loading="lazy"
+              src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.png'
+              alt='Contattami'
+              decoding='async'
+              loading='lazy'
               width={1024}
               height={1024}
-              className="w-full tablet:w-1/2 desktop:w-full max-w-xl tablet:mx-auto h-full object-cover rounded-md"
+              className='tablet:w-1/2 desktop:w-full tablet:mx-auto h-full w-full max-w-xl rounded-md object-cover'
             />
           </picture>
         </div>

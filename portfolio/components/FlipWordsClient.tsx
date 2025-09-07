@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
 const FlipWords = dynamic(
-  () => import("@/components/ui/flip-words").then(mod => mod.FlipWords),
+  () => import('@/components/ui/flip-words').then((mod) => mod.FlipWords),
   { ssr: false, loading: () => <span> Esperienze</span> }
 );
 

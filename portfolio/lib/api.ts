@@ -12,13 +12,13 @@ export async function sendMail(data: {
   const backendAPI = process.env.NEXT_PUBLIC_EMAIL_SENDER_BACKEND_URL;
   try {
     const response = await fetch(`${backendAPI}/api/send-mail`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     });
-  
+
     if (!response.ok) {
       const errorBody = await response.text();
       if (response.status === 400) {
@@ -35,10 +35,9 @@ export async function sendMail(data: {
       }
       throw new Error(`Errore ${response.status}: ${errorBody}`);
     }
-  
   } catch (err) {
     if (err instanceof Error) {
-      throw new Error("Errore di rete: " + String(err.message));
+      throw new Error('Errore di rete: ' + String(err.message));
     }
   }
 }

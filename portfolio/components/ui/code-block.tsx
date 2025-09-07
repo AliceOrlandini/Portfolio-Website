@@ -1,15 +1,15 @@
-"use client";
-import React from "react";
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism-light";
-import markup from "react-syntax-highlighter/dist/esm/languages/prism/markup";
-import css    from "react-syntax-highlighter/dist/esm/languages/prism/css";
-import cpp    from "react-syntax-highlighter/dist/esm/languages/prism/cpp";
+'use client';
+import React from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
+import markup from 'react-syntax-highlighter/dist/esm/languages/prism/markup';
+import css from 'react-syntax-highlighter/dist/esm/languages/prism/css';
+import cpp from 'react-syntax-highlighter/dist/esm/languages/prism/cpp';
 import atomDark from 'react-syntax-highlighter/dist/esm/styles/prism/atom-dark';
-import { IconCheck, IconCopy } from "@tabler/icons-react";
+import { IconCheck, IconCopy } from '@tabler/icons-react';
 
-SyntaxHighlighter.registerLanguage("html", markup);
-SyntaxHighlighter.registerLanguage("css", css);
-SyntaxHighlighter.registerLanguage("cpp", cpp);
+SyntaxHighlighter.registerLanguage('html', markup);
+SyntaxHighlighter.registerLanguage('css', css);
+SyntaxHighlighter.registerLanguage('cpp', cpp);
 
 type CodeBlockProps = {
   language: string;
@@ -36,7 +36,7 @@ export const CodeBlock = ({
   filename,
   code,
   highlightLines = [],
-  tabs = [],
+  tabs = []
 }: CodeBlockProps) => {
   const [copied, setCopied] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState(0);
@@ -61,18 +61,18 @@ export const CodeBlock = ({
     : highlightLines;
 
   return (
-    <div className="relative mt-5 w-full rounded-lg bg-slate-900 p-4 font-mono text-sm">
-      <div className="flex flex-col gap-2">
+    <div className='relative mt-5 w-full rounded-lg bg-slate-900 p-4 font-mono text-sm'>
+      <div className='flex flex-col gap-2'>
         {tabsExist && (
-          <div className="flex  overflow-x-auto">
+          <div className='flex overflow-x-auto'>
             {tabs.map((tab, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`px-3 !py-2 text-xs transition-colors font-sans ${
+                className={`px-3 !py-2 font-sans text-xs transition-colors ${
                   activeTab === index
-                    ? "text-white"
-                    : "text-zinc-400 hover:text-zinc-200"
+                    ? 'text-white'
+                    : 'text-zinc-400 hover:text-zinc-200'
                 }`}
               >
                 {tab.name}
@@ -81,11 +81,11 @@ export const CodeBlock = ({
           </div>
         )}
         {!tabsExist && filename && (
-          <div className="flex justify-between items-center py-2">
-            <div className="text-xs text-zinc-400">{filename}</div>
+          <div className='flex items-center justify-between py-2'>
+            <div className='text-xs text-zinc-400'>{filename}</div>
             <button
               onClick={copyToClipboard}
-              className="flex items-center gap-1 text-xs text-zinc-400 hover:text-zinc-200 transition-colors font-sans"
+              className='flex items-center gap-1 font-sans text-xs text-zinc-400 transition-colors hover:text-zinc-200'
             >
               {copied ? <IconCheck size={14} /> : <IconCopy size={14} />}
             </button>
@@ -98,21 +98,21 @@ export const CodeBlock = ({
         customStyle={{
           margin: 0,
           padding: 0,
-          background: "transparent",
-          fontSize: "0.875rem", // text-sm equivalent
+          background: 'transparent',
+          fontSize: '0.875rem' // text-sm equivalent
         }}
         wrapLines={true}
         showLineNumbers={true}
         lineProps={(lineNumber: number) => ({
           style: {
             backgroundColor: activeHighlightLines.includes(lineNumber)
-              ? "rgba(255,255,255,0.1)"
-              : "transparent",
-            display: "block",
-            width: "100%",
-          },
+              ? 'rgba(255,255,255,0.1)'
+              : 'transparent',
+            display: 'block',
+            width: '100%'
+          }
         })}
-        PreTag="div"
+        PreTag='div'
       >
         {String(activeCode)}
       </SyntaxHighlighter>

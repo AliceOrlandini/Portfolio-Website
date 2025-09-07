@@ -1,15 +1,15 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 import bundleAnalyzer from '@next/bundle-analyzer';
 
-const isDev = process.argv.indexOf('dev') !== -1
-const isBuild = process.argv.indexOf('build') !== -1
+const isDev = process.argv.indexOf('dev') !== -1;
+const isBuild = process.argv.indexOf('build') !== -1;
 if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
-  process.env.VELITE_STARTED = '1'
-  import('velite').then(m => m.build({ watch: isDev, clean: !isDev }))
+  process.env.VELITE_STARTED = '1';
+  import('velite').then((m) => m.build({ watch: isDev, clean: !isDev }));
 }
 
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === 'true'
 });
 
 const nextConfig: NextConfig = {
@@ -19,33 +19,36 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "cdn.jsdelivr.net",
-        port: "",
-        pathname: "/**"
+        protocol: 'https',
+        hostname: 'cdn.jsdelivr.net',
+        port: '',
+        pathname: '/**'
       }
     ]
   },
   async headers() {
     return [
       {
-        source: '/((?!api|favicon.ico|icon0.svg|icon1.png|apple-icon.png|manifest.json|robots.txt|sitemap.xml).*)',
+        source:
+          '/((?!api|favicon.ico|icon0.svg|icon1.png|apple-icon.png|manifest.json|robots.txt|sitemap.xml).*)',
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: [
-              "font-src 'self'",
-            ].join('; '),
+            value: ["font-src 'self'"].join('; ')
           },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
-        ],
-      },
-    ]
-  },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload'
+          }
+        ]
+      }
+    ];
+  }
 };
 
-module.exports = process.env.ANALYZE === 'true' ? withBundleAnalyzer(nextConfig) : nextConfig;
+module.exports =
+  process.env.ANALYZE === 'true' ? withBundleAnalyzer(nextConfig) : nextConfig;
 export default nextConfig;

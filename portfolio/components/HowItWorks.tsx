@@ -2,25 +2,30 @@ import { HOW_IT_WORKS_ITEMS } from '@/lib/constants';
 
 export default function HowItWorks() {
   return (
-    <section className="relative isolate pt-24 tablet:pt-52 desktop:pt-72 mt-24 overflow-hidden font-raleway tablet:py-32">
-      <h2 className="absolute text-center inset-x-0 top-0 font-bold text-2xl desktop:text-4xl font-raleway">Com&#39;è il mio carattere?</h2>
+    <section className='tablet:pt-52 desktop:pt-72 font-raleway tablet:py-32 relative isolate mt-24 overflow-hidden pt-24'>
+      <h2 className='desktop:text-4xl font-raleway absolute inset-x-0 top-0 text-center text-2xl font-bold'>
+        Com&#39;è il mio carattere?
+      </h2>
       <picture>
-        <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/ellipse/ellipse.webp" type="image/webp" />
+        <source
+          srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/ellipse/ellipse.webp'
+          type='image/webp'
+        />
         <img
-          src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/ellipse/ellipse.png"
-          alt="Ellisse decorativa di sfondo"
-          decoding="async"
+          src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/ellipse/ellipse.png'
+          alt='Ellisse decorativa di sfondo'
+          decoding='async'
           width={768}
           height={768}
-          className="pointer-events-none hidden tablet:block tablet:absolute left-1/2 top-0 w-[900px] -translate-x-1/2 select-none"
+          className='tablet:block tablet:absolute pointer-events-none top-0 left-1/2 hidden w-[900px] -translate-x-1/2 select-none'
         />
       </picture>
-      <div className="relative mx-auto mb-20 tablet:mb-0 max-w-7xl px-4 tablet:px-6 desktop:px-8">
-        <div className="grid grid-cols-1 gap-y-20 tablet:grid-cols-3 tablet:gap-x-8">
+      <div className='tablet:mb-0 tablet:px-6 desktop:px-8 relative mx-auto mb-20 max-w-7xl px-4'>
+        <div className='tablet:grid-cols-3 tablet:gap-x-8 grid grid-cols-1 gap-y-20'>
           {HOW_IT_WORKS_ITEMS.map(({ title, copy, img }, idx) => (
             <article
               key={idx}
-              className="flex flex-col items-center text-center"
+              className='flex flex-col items-center text-center'
             >
               <picture>
                 <source
@@ -29,8 +34,8 @@ export default function HowItWorks() {
                     https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-768.webp 768w,
                     https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.webp 1024w
                   `}
-                  sizes="(max-width: 768px) 70vw, 33.33vw"
-                  type="image/webp"
+                  sizes='(max-width: 768px) 70vw, 33.33vw'
+                  type='image/webp'
                 />
                 <source
                   srcSet={`
@@ -38,14 +43,14 @@ export default function HowItWorks() {
                     https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-768.png 768w,
                     https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.png 1024w
                   `}
-                  sizes="(max-width: 768px) 70vw, 33.33vw"
-                  type="image/jpeg"
+                  sizes='(max-width: 768px) 70vw, 33.33vw'
+                  type='image/jpeg'
                 />
                 <img
                   src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.png`}
                   alt={title}
-                  decoding="async"
-                  loading="lazy"
+                  decoding='async'
+                  loading='lazy'
                   width={1024}
                   height={idx === 1 ? 683 : 1024}
                   className={`mb-6 w-[250px] ${
@@ -54,15 +59,17 @@ export default function HowItWorks() {
                 />
               </picture>
 
-              <div className="relative mb-6 inline-flex items-center justify-center">
-                <span className="absolute inline-flex h-12 w-12 rounded-full ring-2 ring-secondary/70 ring-offset-2 ring-offset-white" />
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-lg font-semibold text-white">
+              <div className='relative mb-6 inline-flex items-center justify-center'>
+                <span className='ring-secondary/70 absolute inline-flex h-12 w-12 rounded-full ring-2 ring-offset-2 ring-offset-white' />
+                <span className='bg-secondary inline-flex h-10 w-10 items-center justify-center rounded-full text-lg font-semibold text-white'>
                   {idx + 1}
                 </span>
               </div>
 
-              <h2 className="font-semibold text-2xl text-title">{title}</h2>
-              <p className="mt-3 max-w-xs text-paragraph desktop:text-[17px] font-medium tablet:max-w-md">{copy}</p>
+              <h2 className='text-title text-2xl font-semibold'>{title}</h2>
+              <p className='text-paragraph desktop:text-[17px] tablet:max-w-md mt-3 max-w-xs font-medium'>
+                {copy}
+              </p>
             </article>
           ))}
         </div>

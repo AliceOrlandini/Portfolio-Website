@@ -1,7 +1,7 @@
-import { cn, formatDate } from "@/lib/utils";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { Calendar } from "lucide-react"
+import { cn, formatDate } from '@/lib/utils';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 export default function ArticleCard({
   className,
@@ -10,7 +10,7 @@ export default function ArticleCard({
   slug,
   date,
   image,
-  priority = false,
+  priority = false
 }: {
   className?: string;
   title: string;
@@ -21,29 +21,37 @@ export default function ArticleCard({
   priority?: boolean;
 }) {
   return (
-    <article className={cn("font-raleway tablet:min-h-[600px] mt-10 flex flex-col gap-4 p-4 bg-white rounded-lg shadow-md", className)}>
+    <article
+      className={cn(
+        'font-raleway tablet:min-h-[600px] mt-10 flex flex-col gap-4 rounded-lg bg-white p-4 shadow-md',
+        className
+      )}
+    >
       <picture>
-        <source srcSet={`${image}.webp`} type="image/webp" />
+        <source srcSet={`${image}.webp`} type='image/webp' />
         <img
           src={`${image}.png`}
           alt="Copertina dell'articolo"
-          decoding="async"
-          loading={priority ? "eager" : "lazy"}
-          fetchPriority={priority ? "high" : "low"}
+          decoding='async'
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : 'low'}
           width={500}
           height={300}
-          className="object-fill rounded-lg -mt-10"
+          className='-mt-10 rounded-lg object-fill'
         />
       </picture>
-      <h2 className="text-xl font-bold">{title}</h2>
-      <div className="flex items-center gap-2">
+      <h2 className='text-xl font-bold'>{title}</h2>
+      <div className='flex items-center gap-2'>
         <Calendar size={18} />
         <time dateTime={date}>{formatDate(date)}</time>
       </div>
       <p>{description}</p>
-      <Link href={slug} className="bg-primary mt-7 tablet:mt-auto w-full justify-center flex flex-row gap-2 mx-auto text-base font-semibold items-center text-button-text py-4 px-7 rounded-2xl shadow-md hover:cursor-pointer hover:scale-105 transition-transform duration-300">
+      <Link
+        href={slug}
+        className='tablet:mt-auto bg-primary text-button-text mx-auto mt-7 flex w-full flex-row items-center justify-center gap-2 rounded-2xl px-7 py-4 text-base font-semibold shadow-md transition-transform duration-300 hover:scale-105 hover:cursor-pointer'
+      >
         <span>Leggi</span>
-        <ArrowUpRight size={20}/>
+        <ArrowUpRight size={20} />
       </Link>
     </article>
   );
