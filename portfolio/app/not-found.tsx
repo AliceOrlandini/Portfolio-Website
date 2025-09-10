@@ -21,7 +21,7 @@ export default function NotFound() {
             https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/404/404-1024.png 1024w
           '
           sizes='(max-width: 1024px) 70vw, 80vw'
-          type='image/jpeg'
+          type='image/png'
         />
         <img
           src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/404/404-1024.png'

@@ -1,6 +1,6 @@
-import { HOW_IT_WORKS_ITEMS } from '@/lib/constants';
+import { CHARACTER_ITEMS } from '@/lib/constants';
 
-export default function HowItWorks() {
+export default function Character() {
   return (
     <section className='tablet:pt-52 desktop:pt-72 font-raleway tablet:py-32 relative isolate mt-24 overflow-hidden pt-24'>
       <h2 className='desktop:text-4xl font-raleway absolute inset-x-0 top-0 text-center text-2xl font-bold'>
@@ -22,9 +22,9 @@ export default function HowItWorks() {
       </picture>
       <div className='tablet:mb-0 tablet:px-6 desktop:px-8 relative mx-auto mb-20 max-w-7xl px-4'>
         <div className='tablet:grid-cols-3 tablet:gap-x-8 grid grid-cols-1 gap-y-20'>
-          {HOW_IT_WORKS_ITEMS.map(({ title, copy, img }, idx) => (
+          {CHARACTER_ITEMS.map(({ id, title, copy, img }, idx) => (
             <article
-              key={idx}
+              key={id}
               className='flex flex-col items-center text-center'
             >
               <picture>
@@ -44,7 +44,7 @@ export default function HowItWorks() {
                     https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.png 1024w
                   `}
                   sizes='(max-width: 768px) 70vw, 33.33vw'
-                  type='image/jpeg'
+                  type='image/png'
                 />
                 <img
                   src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.png`}

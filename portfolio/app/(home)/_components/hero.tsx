@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import FlipWordsClient from '@/components/FlipWordsClient';
+import FlipWordsClient from '@/components/flip-words-client';
 
 export default function Hero() {
   return (
@@ -66,7 +66,7 @@ export default function Hero() {
                 https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png 1024w
               '
               sizes='(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw'
-              type='image/jpeg'
+              type='image/png'
             />
             <img
               src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png'

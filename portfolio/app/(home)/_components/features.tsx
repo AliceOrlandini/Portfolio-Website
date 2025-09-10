@@ -19,8 +19,8 @@ export default function Features() {
           </h1>
           <div className='mt-10 grid grid-cols-12 gap-8'>
             <div className='desktop:col-span-8 desktop:grid-cols-2 desktop:px-16 col-span-12 grid gap-8 px-5'>
-              {FEATURES_ITEMS.map(({ icon, title, copy }, idx) => (
-                <div key={idx} className='flex flex-col items-start text-left'>
+              {FEATURES_ITEMS.map(({ id, icon, title, copy }) => (
+                <div key={id} className='flex flex-col items-start text-left'>
                   {icon}
                   <h2 className='desktop:text-2xl mb-4 text-xl font-bold'>
                     {title}
@@ -49,7 +49,7 @@ export default function Features() {
                     https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-1024.png 1024w
                   '
                   sizes='(max-width: 1024px) 70vw, 33.33vw'
-                  type='image/jpeg'
+                  type='image/png'
                 />
                 <img
                   src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-1024.png'

@@ -44,9 +44,9 @@ export default function Footer() {
         <div className='tablet:col-span-4 tablet:mx-auto col-span-12 w-fit'>
           <nav>
             <ul className='text-paragraph desktop:text-lg flex flex-col gap-4 text-base font-semibold'>
-              {NAVBAR_ITEMS.map(({ title, href }, idx) => (
+              {NAVBAR_ITEMS.map(({ id, title, href }) => (
                 <li
-                  key={idx}
+                  key={id}
                   className='group hover:text-primary transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
                 >
                   <Link href={href}>{title}</Link>

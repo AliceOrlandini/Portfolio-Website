@@ -11,8 +11,8 @@ export default function Tecnologies() {
       </div>
       <div className='desktop:my-20 my-14 flex items-center justify-center space-x-32'>
         <InfiniteLogoSlider>
-          {TECNOLOGIES_ITEMS.map(({ title, icon, link }, idx) => (
-            <a key={idx} href={link} target='_blank' rel='noreferrer'>
+          {TECNOLOGIES_ITEMS.map(({ id, title, icon, link }) => (
+            <a key={id} href={link} target='_blank' rel='noreferrer'>
               <picture>
                 <source
                   srcSet={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/technologies/${icon}.webp`}

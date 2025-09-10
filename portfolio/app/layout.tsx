@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { Raleway } from 'next/font/google';
-import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import '@/app/globals.css';
+import Navbar from '@/components/layout/navbar';
+import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/sonner';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Head from 'next/head';
-import JsonLd from '@/components/JsonLd';
+import JsonLd from '@/components/json-ld';
+import MobileNavbar from '@/components/layout/mobile-navbar';
+import DesktopNavbar from '@/components/layout/desktop-navbar';
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -88,7 +90,8 @@ export default function RootLayout({
       <body
         className={`${raleway.variable} bg-background overflow-x-hidden antialiased`}
       >
-        <Navbar />
+        <MobileNavbar />
+        <DesktopNavbar />
         {children}
         <Footer />
         <Toaster toastOptions={{ className: 'font-raleway' }} />

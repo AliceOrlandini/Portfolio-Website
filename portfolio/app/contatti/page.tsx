@@ -1,5 +1,5 @@
-import FormContacts from '@/components/FormContacts';
-import { ReCaptchaProvider } from '@/components/reCAPTCHAProvider';
+import ContactForm from '@/app/contatti/_components/contact-form';
+import { ReCaptchaProvider } from '@/components/recapthca-provider';
 import {
   IubendaProvider,
   IubendaCookieSolutionBannerConfigInterface,
@@ -60,7 +60,7 @@ export default function ContactsPage() {
                     https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-1024.png 1024w
                   '
                 sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
-                type='image/jpeg'
+                type='image/png'
               />
               <img
                 src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-1024.png'
@@ -85,7 +85,7 @@ export default function ContactsPage() {
                 requiredGdprPurposes={['functionality']}
                 className='max-w-md'
               >
-                <FormContacts />
+                <ContactForm />
               </ConsentAwareWrapper>
             </IubendaProvider>
           </ReCaptchaProvider>

@@ -22,7 +22,7 @@ import { toast } from 'sonner';
 import { sendMail } from '@/lib/api';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-export default function FormContacts() {
+export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -51,7 +51,7 @@ export default function FormContacts() {
 
     const data = {
       client: {
-        email: 'orlandinialice13@gmail.com'
+        email: process.env.NEXT_PUBLIC_FORM_SENDER_EMAIL!
       },
       user: {
         name: name,

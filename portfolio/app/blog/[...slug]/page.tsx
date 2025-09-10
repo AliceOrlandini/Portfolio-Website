@@ -1,6 +1,6 @@
 import { posts } from '#site/content';
-import FAQ from '@/components/FAQ';
-import { MDXContent } from '@/components/MDXComponents';
+import FAQ from '@/components/faq';
+import { MDXContent } from '@/components/mdx-components';
 import { formatDate, sortBlogPosts } from '@/lib/utils';
 import {
   Calendar,
@@ -86,8 +86,11 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <div className='desktop:mx-0 mx-5'>
-        <nav aria-label='breadcrumb' className='mx-auto mb-10 max-w-2xl'>
+      <div>
+        <nav
+          aria-label='breadcrumb'
+          className='tablet:mx-auto mx-5 mb-10 max-w-2xl'
+        >
           <ol className='font-raleway text-navigation flex flex-wrap items-center space-x-2'>
             <li className='flex space-x-2'>
               <Link href='/'>
@@ -109,7 +112,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </li>
           </ol>
         </nav>
-        <article>
+        <article className='desktop:mx-0 mx-5'>
           <h1 className='font-raleway desktop:text-5xl desktop:leading-14 mx-auto max-w-2xl text-4xl font-bold'>
             {post.title}
           </h1>
@@ -131,7 +134,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </article>
         <hr className='desktop:mx-20 mx-5 my-20 h-px border-0 bg-black' />
         <div>{post.faqs && <FAQ items={post.faqs} />}</div>
-        <div className='desktop:mx-20 font-raleway mt-10 flex justify-between font-semibold'>
+        <div className='desktop:mx-20 font-raleway mx-2 mt-10 flex justify-between font-semibold'>
           {prev ? (
             <Link
               href={`/blog/${prev.slugAsParams}`}

@@ -40,7 +40,7 @@ export default function CTA() {
                 https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.png 1024w
               '
               sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
-              type='image/jpeg'
+              type='image/png'
             />
             <img
               src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.png'

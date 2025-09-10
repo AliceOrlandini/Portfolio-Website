@@ -1,4 +1,4 @@
-import ArticleCard from '@/components/ArticleCard';
+import ArticleCard from '@/components/article-card';
 import { posts } from '#site/content';
 import { sortBlogPosts } from '@/lib/utils';
 
@@ -21,9 +21,10 @@ export default async function BlogPage() {
                 title={post.title}
                 description={post.description}
                 slug={post.slug}
+                alt={post.alt}
                 date={post.date}
                 image={post.image}
-                priority={idx === 0 ? true : false}
+                hasPriority={idx === 0 ? true : false}
               />
             </li>
           ))}
