@@ -70,18 +70,18 @@ export const CHARACTER_ITEMS = [
     id: 1,
     title: 'Riflessiva',
     copy: '"Pensate prima di mettere le mani sulla tastiera". Così disse un professore che ho avuto all\'Università. Da quel momento, ho deciso di progettare, studiare e comprendere prima di avventurarmi un un nuovo progetto.',
-    img: 'how-it-works-1'
+    img: 'character-1'
   },
   {
     id: 2,
     title: 'Energica',
     copy: 'Quando ho in mente un nuovo progetto non vedo l’ora di iniziarlo. Questa carica mi porta energie fresche tanto che lavorarci diventa un piacere. Non mi stanco mai di studiare, approfondire e scoprire cose nuove.',
-    img: 'how-it-works-2'
+    img: 'character-2'
   },
   {
     id: 3,
     title: 'Collaborativa',
     copy: 'Infine, è per me un piacere collaborare con persone che hanno le stesse passioni. Chiedo senza timori consigli a colleghi (e ad amici), e vedo che anche loro si affidano a me per pareri su come approcciare un problema.',
-    img: 'how-it-works-3'
+    img: 'character-3'
   }
 ];

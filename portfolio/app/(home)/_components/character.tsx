@@ -30,24 +30,24 @@ export default function Character() {
               <picture>
                 <source
                   srcSet={`
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-480.webp 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-768.webp 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.webp 1024w
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-480.webp 480w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-768.webp 768w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-1024.webp 1024w
                   `}
                   sizes='(max-width: 768px) 70vw, 33.33vw'
                   type='image/webp'
                 />
                 <source
                   srcSet={`
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-480.png 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-768.png 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.png 1024w
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-480.png 480w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-768.png 768w,
+                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-1024.png 1024w
                   `}
                   sizes='(max-width: 768px) 70vw, 33.33vw'
                   type='image/png'
                 />
                 <img
-                  src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/how-it-works/${img}-1024.png`}
+                  src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-1024.png`}
                   alt={title}
                   decoding='async'
                   loading='lazy'
