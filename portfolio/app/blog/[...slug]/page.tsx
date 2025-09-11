@@ -1,6 +1,7 @@
 import { posts } from '#site/content';
 import FAQ from '@/components/faq';
 import { MDXContent } from '@/components/mdx-components';
+import { Button } from '@/components/ui/button';
 import { formatDate, sortBlogPosts } from '@/lib/utils';
 import {
   Calendar,
@@ -136,23 +137,21 @@ export default async function PostPage({ params }: PostPageProps) {
         <div>{post.faqs && <FAQ items={post.faqs} />}</div>
         <div className='desktop:mx-20 font-raleway mx-2 mt-10 flex justify-between font-semibold'>
           {prev ? (
-            <Link
-              href={`/blog/${prev.slugAsParams}`}
-              className='bg-primary text-button-text flex flex-row items-center rounded-2xl px-7 py-4 shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
-            >
-              <MoveLeft className='mr-3' size={16} /> Precedente
-            </Link>
+            <Button asChild variant={'primary'} size={'base'}>
+              <Link href={`/blog/${prev.slugAsParams}`}>
+                <MoveLeft /> Precedente
+              </Link>
+            </Button>
           ) : (
             <div />
           )}
 
           {next ? (
-            <Link
-              href={`/blog/${next.slugAsParams}`}
-              className='bg-primary text-button-text flex flex-row items-center rounded-2xl px-7 py-4 shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
-            >
-              Successivo <MoveRight className='ml-3' size={16} />
-            </Link>
+            <Button asChild variant={'primary'} size={'base'}>
+              <Link href={`/blog/${next.slugAsParams}`}>
+                Successivo <MoveRight />
+              </Link>
+            </Button>
           ) : (
             <div />
           )}

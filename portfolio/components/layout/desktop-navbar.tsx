@@ -2,8 +2,10 @@
 import Link from 'next/link';
 import { NAVBAR_ITEMS } from '@/lib/constants';
 import { usePathname } from 'next/navigation';
-import { useEffect, useMemo, useState, useRef } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Brand from '@/app/(home)/_components/brand';
+import { Button } from '@/components/ui/button';
+import { Send } from 'lucide-react';
 
 export default function DesktopNavbar() {
   const [isStickyVisible, setIsStickyVisible] = useState(false);
@@ -42,74 +44,53 @@ export default function DesktopNavbar() {
   );
 
   return (
-    <div className='desktop:block hidden'>
+    <div className='desktop:block font-raleway hidden'>
       {/* Desktop Navbar On Top */}
-      <nav className='font-raleway flex items-center justify-between px-10 py-5'>
-        <div className='flex items-center gap-3'>
-          <Brand screen='desktop' />
-        </div>
-        <div>
-          <ul className='text-navigation flex items-center gap-14 text-base font-semibold'>
-            {NAVBAR_ITEMS.map(
-              (item: { id: number; title: string; href: string }) => {
-                return (
-                  <li
-                    key={item.id}
-                    className={`${isActive(item.href) ? 'text-primary' : ''} transition-transform duration-300 hover:scale-110 hover:cursor-pointer`}
-                  >
-                    <Link href={item.href}>{item.title}</Link>
-                  </li>
-                );
-              }
-            )}
-            <Link
-              href='/contatti'
-              className='bg-primary text-button-text rounded-2xl px-7 py-4 shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
-            >
-              <span>Contattami</span>
-            </Link>
-          </ul>
-        </div>
-      </nav>
+      <BaseNavbar isActive={isActive} />
 
       {/* Desktop Sticky Navbar */}
-      <nav
-        className={`font-raleway fixed top-0 right-0 left-0 z-50 transition-transform duration-300 ease-in-out ${isStickyVisible ? 'translate-y-0 shadow-md' : '-translate-y-full'} `}
+      <div
+        className={`fixed top-0 right-0 left-0 z-50 transition-transform duration-300 ease-in-out ${isStickyVisible ? 'translate-y-0 shadow-md' : '-translate-y-full'} `}
       >
-        <div className='bg-background flex flex-row items-center px-5 py-3'>
-          <a href='#top' className='flex items-center gap-3'>
-            <Brand compact screen='desktop' />
-          </a>
-          <div className='ml-auto'>
-            <ul className='text-navigation flex items-center gap-14 text-base font-semibold'>
-              {NAVBAR_ITEMS.map(
-                (item: { id: number; title: string; href: string }) => {
-                  return (
-                    <li
-                      key={item.id}
-                      className={`${isActive(item.href) ? 'text-primary' : ''} transition-transform duration-300 hover:scale-110 hover:cursor-pointer`}
-                    >
-                      <Link href={item.href}>{item.title}</Link>
-                    </li>
-                  );
-                }
-              )}
-              <Link
-                href='/contatti'
-                className='bg-primary text-button-text rounded-2xl px-7 py-4 shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
-              >
-                <span>Contattami</span>
-              </Link>
-            </ul>
-          </div>
-        </div>
+        <BaseNavbar isActive={isActive} />
         {pathname.startsWith('/blog/') && (
           <span
             style={{ transform: `translateX(${completion - 100}%)` }}
             className={`bg-primary absolute bottom-0 h-[0.20rem] w-full transition-transform duration-150`}
           />
         )}
-      </nav>
+      </div>
     </div>
+  );
+}
+
+type BaseNavbarProps = {
+  isActive: (href: string) => boolean;
+};
+
+function BaseNavbar({ isActive }: BaseNavbarProps) {
+  return (
+    <nav className='bg-background flex items-center justify-between px-10 py-3'>
+      <Brand compact screen='desktop' href='#top' />
+      <ul className='text-navigation flex items-center gap-14 text-base font-semibold'>
+        {NAVBAR_ITEMS.map(
+          (item: { id: number; title: string; href: string }) => {
+            return (
+              <li
+                key={item.id}
+                className={`${isActive(item.href) ? 'text-primary' : ''} transition-transform duration-300 hover:scale-110 hover:cursor-pointer`}
+              >
+                <Link href={item.href}>{item.title}</Link>
+              </li>
+            );
+          }
+        )}
+        <Button asChild variant={'primary'} size={'base'}>
+          <Link href='/contatti' aria-label='vai alla pagina contatti'>
+            Contattami <Send />
+          </Link>
+        </Button>
+      </ul>
+    </nav>
   );
 }

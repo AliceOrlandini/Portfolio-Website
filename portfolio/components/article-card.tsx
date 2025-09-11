@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { Calendar } from 'lucide-react';
 import { z } from 'zod';
+import { Button } from '@/components/ui/button';
 
 const ArticleCardSchema = z.object({
   title: z.string().min(1, 'Il titolo non può essere vuoto'),
@@ -38,7 +39,6 @@ export default function ArticleCard({
   });
   if (!result.success) {
     console.error(result.error);
-    return <p>Errore nei dati dell'articolo</p>;
   }
 
   return (
@@ -67,14 +67,17 @@ export default function ArticleCard({
         <time dateTime={date}>{formatDate(date)}</time>
       </div>
       <p>{description}</p>
-      <Link
-        aria-label='Leggi articolo'
-        href={slug}
-        className='tablet:mt-auto bg-primary text-button-text mx-auto mt-7 flex w-full flex-row items-center justify-center gap-2 rounded-2xl px-7 py-4 text-base font-semibold shadow-md transition-transform duration-300 hover:scale-105 hover:cursor-pointer'
+      <Button
+        asChild
+        variant={'primary'}
+        size={'base'}
+        className='tablet:mt-auto mx-auto mt-7 w-full'
       >
-        <span>Leggi</span>
-        <ArrowUpRight size={20} />
-      </Link>
+        <Link aria-label='Leggi articolo' href={slug}>
+          Leggi
+          <ArrowUpRight className='size-5' />
+        </Link>
+      </Button>
     </article>
   );
 }

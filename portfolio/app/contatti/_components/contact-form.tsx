@@ -21,6 +21,8 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 import { sendMail } from '@/lib/api';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { Button } from '@/components/ui/button';
+import { Send } from 'lucide-react';
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -177,12 +179,15 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <button
-          type='submit'
-          className='bg-primary flex w-full flex-row items-center justify-center rounded-2xl px-7 py-4 font-semibold text-white shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
-        >
-          {isLoading ? <Spinner /> : 'Invia'}
-        </button>
+        <Button type='submit' className='w-full'>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <>
+              Invia <Send />
+            </>
+          )}
+        </Button>
       </form>
     </Form>
   );

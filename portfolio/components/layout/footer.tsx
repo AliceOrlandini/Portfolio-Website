@@ -8,6 +8,7 @@ import {
   ScrollText,
   Cookie
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function Footer() {
   return (
@@ -45,17 +46,22 @@ export default function Footer() {
           <nav>
             <ul className='text-paragraph desktop:text-lg flex flex-col gap-4 text-base font-semibold'>
               {NAVBAR_ITEMS.map(({ id, title, href }) => (
-                <li
-                  key={id}
-                  className='group hover:text-primary transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
-                >
-                  <Link href={href}>{title}</Link>
-                  <ChevronRight className='text-paragraph group-hover:text-primary ml-2 inline-block' />
+                <li key={id}>
+                  <Button asChild variant={'ghost'} size={'none'}>
+                    <Link href={href}>
+                      {title}
+                      <ChevronRight className='group-hover:text-primary size-6' />
+                    </Link>
+                  </Button>
                 </li>
               ))}
-              <li className='group hover:text-primary transition-transform duration-300 hover:scale-110 hover:cursor-pointer'>
-                <Link href='/contatti'>Contatti</Link>
-                <ChevronRight className='text-paragraph group-hover:text-primary ml-2 inline-block' />
+              <li>
+                <Button asChild variant={'ghost'} size={'none'}>
+                  <Link href='/contatti'>
+                    Contatti
+                    <ChevronRight className='group-hover:text-primary size-6' />
+                  </Link>
+                </Button>
               </li>
             </ul>
           </nav>
@@ -86,27 +92,29 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className='font-raleway flex flex-col gap-3'>
-            <a
-              href='https://www.iubenda.com/privacy-policy/27117967'
-              target='_blank'
-              rel='noopener noreferrer'
-              title='Privacy Policy'
-              className='desktop:text-sm text-paragraph border-paragraph font-montserrat flex w-fit flex-row rounded-md border px-5 py-2 text-xs font-bold transition-transform duration-300 hover:scale-105 hover:cursor-pointer'
-            >
-              <ScrollText className='text-paragraph tablet:size-3 desktop:size-4 desktop:mr-3 my-auto mr-2 size-[10px]' />
-              Privacy Policy
-            </a>
-            <a
-              href='https://www.iubenda.com/privacy-policy/27117967/cookie-policy'
-              target='_blank'
-              rel='noopener noreferrer'
-              title='Cookie Policy'
-              className='desktop:text-sm text-paragraph border-paragraph font-montserrat flex w-fit flex-row rounded-md border px-5 py-2 text-xs font-bold transition-transform duration-300 hover:scale-105 hover:cursor-pointer'
-            >
-              <Cookie className='text-paragraph tablet:size-3 desktop:size-4 desktop:mr-3 my-auto mr-2 size-[10px]' />
-              Cookie Policy
-            </a>
+          <div className='font-raleway text-paragraph flex flex-col items-center gap-3'>
+            <Button asChild variant={'overlay'} size={'sm'}>
+              <a
+                href='https://www.iubenda.com/privacy-policy/27117967'
+                target='_blank'
+                rel='noopener noreferrer'
+                title='Privacy Policy'
+              >
+                <ScrollText className='tablet:size-3 desktop:size-4 size-[10px]' />
+                Privacy Policy
+              </a>
+            </Button>
+            <Button asChild variant={'overlay'} size={'sm'}>
+              <a
+                href='https://www.iubenda.com/privacy-policy/27117967/cookie-policy'
+                target='_blank'
+                rel='noopener noreferrer'
+                title='Cookie Policy'
+              >
+                <Cookie className='tablet:size-3 desktop:size-4 size-[10px]' />
+                Cookie Policy
+              </a>
+            </Button>
           </div>
         </div>
       </div>

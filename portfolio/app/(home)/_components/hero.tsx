@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import FlipWordsClient from '@/components/flip-words-client';
+import { Button } from '@/components/ui/button';
+import { MoveRight } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -42,11 +44,11 @@ export default function Hero() {
             parte di una squadra corse e fatto tanti progetti personali. Ma non
             spoilero nulla, ci sarà modo di approfondire tutto nel mio blog!
           </p>
-          <div className='desktop:mt-20 bg-primary text-button-text mt-10 w-fit rounded-2xl px-7 py-4 font-semibold shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'>
-            <Link href='/blog' className=''>
-              Vai agli articoli
+          <Button asChild className='mt-10' variant={'primary'} size={'base'}>
+            <Link href='/blog' aria-label='vai alla pagina degli articoli'>
+              Vai agli articoli <MoveRight />
             </Link>
-          </div>
+          </Button>
         </div>
         <div className='tablet:col-span-5 desktop:col-span-6 desktop:mt-0 col-span-12 mt-10'>
           <picture>

@@ -3,8 +3,17 @@ import Link from 'next/link';
 import { NAVBAR_ITEMS } from '@/lib/constants';
 import { usePathname } from 'next/navigation';
 import { Squash as Hamburger } from 'hamburger-react';
-import { useEffect, useMemo, useState, useRef } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useState,
+  useRef,
+  SetStateAction,
+  Dispatch
+} from 'react';
 import Brand from '@/app/(home)/_components/brand';
+import { Button } from '@/components/ui/button';
+import { Send } from 'lucide-react';
 
 export default function MobileNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,20 +85,8 @@ export default function MobileNavbar() {
   return (
     <div className='desktop:hidden'>
       {/* Mobile Navbar On Top */}
-      <div className='relative isolate z-30 w-full p-10 px-5'>
-        <div className='flex flex-row items-center'>
-          <Brand compact={isMenuOpen} screen='mobile' />
-          <div className='ml-auto'>
-            <Hamburger
-              rounded
-              toggled={isMenuOpen}
-              toggle={setIsMenuOpen}
-              size={20}
-              label='apri/chiudi menu'
-              direction='right'
-            />
-          </div>
-        </div>
+      <div className='relative isolate z-30 w-full p-5'>
+        <BaseNavbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </div>
 
       {/* Mobile Sticky Navbar */}
@@ -99,21 +96,11 @@ export default function MobileNavbar() {
         <div
           className={`bg-background h-fit max-w-screen p-5 ${isStickyVisible && !isMenuOpen ? 'shadow-md' : ''}`}
         >
-          <div className='flex flex-row items-center'>
-            <a href='#top'>
-              <Brand compact screen='mobile' />
-            </a>
-            <div className='ml-auto'>
-              <Hamburger
-                rounded
-                toggled={isMenuOpen}
-                toggle={setIsMenuOpen}
-                size={20}
-                label='apri/chiudi menu'
-                direction='right'
-              />
-            </div>
-          </div>
+          <BaseNavbar
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+            compact
+          />
         </div>
         {pathname.startsWith('/blog/') && !isMenuOpen && (
           <span
@@ -125,7 +112,7 @@ export default function MobileNavbar() {
 
       {/* Dropdown menu */}
       <nav
-        className={`bg-background font-raleway text-paragraph ${isStickyVisible ? 'fixed top-0 right-0 left-0' : 'absolute inset-x-0 top-0'} z-20 transform overflow-hidden px-5 pt-16 pb-10 font-semibold transition-all duration-500 ease-in-out ${isMenuOpen ? 'max-h-screen translate-y-0 opacity-100 shadow-md' : 'pointer-events-none max-h-0 -translate-y-10 opacity-0'} `}
+        className={`bg-background font-raleway text-paragraph ${isStickyVisible ? 'fixed top-0 right-0 left-0' : 'absolute inset-x-0 top-0'} z-20 transform overflow-hidden px-5 pt-16 pb-5 font-semibold transition-all duration-500 ease-in-out ${isMenuOpen ? 'max-h-screen translate-y-0 opacity-100 shadow-md' : 'pointer-events-none max-h-0 -translate-y-10 opacity-0'} `}
       >
         <ul className='tablet:text-lg mx-auto my-5 w-fit space-y-5 text-base'>
           {NAVBAR_ITEMS.map(
@@ -142,16 +129,19 @@ export default function MobileNavbar() {
               );
             }
           )}
+          <li>
+            <Button asChild variant={'primary'} size={'base'}>
+              <Link
+                onClick={() => setIsMenuOpen(false)}
+                href='/contatti'
+                aria-label='vai alla pagina contatti'
+              >
+                Contattami
+                <Send />
+              </Link>
+            </Button>
+          </li>
         </ul>
-        <div className='flex justify-center'>
-          <Link
-            onClick={() => setIsMenuOpen(false)}
-            href='/contatti'
-            className='bg-primary text-button-text rounded-2xl px-7 py-4 shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
-          >
-            <span>Contattami</span>
-          </Link>
-        </div>
       </nav>
 
       {/* Clickable overlay to close menu */}
@@ -164,6 +154,32 @@ export default function MobileNavbar() {
             ? 'pointer-events-auto opacity-100'
             : 'pointer-events-none opacity-0'
         }`}
+      />
+    </div>
+  );
+}
+
+type BaseNavbarProps = {
+  isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+  compact?: boolean;
+};
+
+function BaseNavbar({
+  isMenuOpen,
+  setIsMenuOpen,
+  compact = false
+}: BaseNavbarProps) {
+  return (
+    <div className='flex items-center justify-between'>
+      <Brand compact={isMenuOpen || compact} screen='mobile' href='#top' />
+      <Hamburger
+        rounded
+        toggled={isMenuOpen}
+        toggle={setIsMenuOpen}
+        size={20}
+        label='apri/chiudi menu'
+        direction='right'
       />
     </div>
   );

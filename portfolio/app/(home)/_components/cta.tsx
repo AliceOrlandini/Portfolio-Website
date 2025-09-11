@@ -1,4 +1,6 @@
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { MoveRight } from 'lucide-react';
 
 export default function CTA() {
   return (
@@ -8,19 +10,16 @@ export default function CTA() {
           <h1 className='desktop:text-5xl desktop:leading-14 text-2xl leading-8 font-bold'>
             Ti va di leggere qualche articolo?
           </h1>
-          <p className='desktop:text-lg mt-10 text-sm font-medium'>
+          <p className='desktop:text-lg mt-10 text-base font-medium'>
             In questo blog parlo di informatica, ripetizioni, tecnologie e delle
             mie esperienze. Se sei curioso di sapere di cosa tratto, dai
             un&#39;occhiata agli articoli!
           </p>
-          <div className='tablet:mt-16 mt-10'>
-            <Link
-              href='/blog'
-              className='bg-tertiary tablet:mx-0 text-paragraph mx-auto block w-fit rounded-2xl px-7 py-4 font-semibold shadow-md transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
-            >
-              Vai agli Articoli
+          <Button asChild variant={'secondary'} size={'base'} className='mt-10'>
+            <Link href='/blog' aria-label='vai alla pagina degli articoli'>
+              Vai agli Articoli <MoveRight />
             </Link>
-          </div>
+          </Button>
         </div>
         <div className='desktop:col-span-6 col-span-12'>
           <picture>
