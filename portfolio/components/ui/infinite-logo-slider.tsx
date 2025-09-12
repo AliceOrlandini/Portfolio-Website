@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
 export interface InfiniteLogoSliderProps {
   speed?: number;
@@ -11,9 +11,12 @@ interface State {
   contentWidth: number;
 }
 
-export default class InfiniteLogoSlider extends React.PureComponent<InfiniteLogoSliderProps, State> {
+export default class InfiniteLogoSlider extends React.PureComponent<
+  InfiniteLogoSliderProps,
+  State
+> {
   public static defaultProps: Partial<InfiniteLogoSliderProps> = {
-    speed: 80, // px/s
+    speed: 80 // px/s
   };
 
   private contentRef: HTMLDivElement | null = null;
@@ -29,21 +32,21 @@ export default class InfiniteLogoSlider extends React.PureComponent<InfiniteLogo
   componentDidMount() {
     requestAnimationFrame(() => {
       if (this.contentRef) {
-        const fullSetWidth = (this.contentRef.scrollWidth / 2) || 1;
+        const fullSetWidth = this.contentRef.scrollWidth / 2 || 1;
         this.setState({ contentWidth: fullSetWidth }, this.startTicker);
       }
     });
-    window.addEventListener("resize", this.handleResize);
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillUnmount() {
     cancelAnimationFrame(this.animationFrame);
-    window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   private handleResize = () => {
     if (this.contentRef) {
-      const fullSetWidth = (this.contentRef.scrollWidth / 2) || 1;
+      const fullSetWidth = this.contentRef.scrollWidth / 2 || 1;
       this.setState({ contentWidth: fullSetWidth });
     }
   };
@@ -77,21 +80,16 @@ export default class InfiniteLogoSlider extends React.PureComponent<InfiniteLogo
     const duplicated = childArray.concat(childArray);
 
     return (
-      <div
-        className={`overflow-x-hidden w-full ${className || ""}`.trim()}
-      >
+      <div className={`w-full overflow-x-hidden ${className || ''}`.trim()}>
         <div
-          ref={el => {
+          ref={(el) => {
             this.contentRef = el;
           }}
-          className="flex" 
-          style={{ willChange: "transform" }}
+          className='flex'
+          style={{ willChange: 'transform' }}
         >
           {duplicated.map((child, idx) => (
-            <div
-              key={idx}
-              className="flex-shrink-0 mr-32" 
-            >
+            <div key={idx} className='mr-32 flex-shrink-0'>
               {child}
             </div>
           ))}

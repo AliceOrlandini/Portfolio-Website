@@ -1,6 +1,7 @@
 ---
 title: Quanto costa annualmente un sito statico?
 description: Spesso coloro che vogliono realizzare un sito web si fermano solo ai costi di realizzazione e non considerano i costi annuali. In questo articolo, cerco di fare chiarezza sul costo annuale di un sito statico mettendo a confronto diverse soluzioni.
+alt: Copertina dell'articolo che rappresenta il confronto tra Aruba e Firebase Hosting
 date: 2025-05-04
 published: true
 timing: 7
@@ -41,7 +42,6 @@ faqs:
   - question: Quali sono le limitazioni di un sito statico?
     answer: I siti statici non supportano funzionalità dinamiche come login utenti o database. Per progetti che richiedono interattività avanzata, potrebbe essere più adatto un sito dinamico.
     url: https://aliceorlandini.it/blog/costo-annuale-sito-statico#limitazioni-sito-statico
-
 ---
 
 ## Introduzione <span id="introduzione"></span>
@@ -60,6 +60,7 @@ Il primo costo da considerare è quello del dominio, che è un costo fisso e ann
 Essendo l’esempio che sto considerando una pizzeria, sceglierei un dominio `.it`.
 
 Cercando su Internet i siti più conosciuti che permettono di acquistare un dominio, trovo:
+
 - **[OVHCloud](https://www.ovhcloud.com/it/domains/)**: costa 9€/anno, ma attenzione: specifica _"più l'IVA al 22%"_, quindi in totale circa 11€/anno.
 - **[Aruba](https://hosting.aruba.it/domini.aspx)**: costa 12€/anno, ma anche qui c’è la dicitura _"più l'IVA al 22%"_, quindi un dominio costa circa 15€/anno.
 - **[Hostinger](https://www.hostinger.com/domain-name-search)**: qui il prezzo è in dollari, 17$/anno, che col cambio attuale (nel momento in cui scrivo questo articolo) equivale a circa 16€/anno.
@@ -81,45 +82,53 @@ Riassumendo:
 Quindi, per adesso, solo di dominio siamo a quota **11€/anno** scegliendo OVHCloud.
 
 <picture>
-  <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/OVHCloud.webp" type="image/webp" />
+  <source
+    srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/OVHCloud.webp'
+    type='image/webp'
+  />
   <img
-    src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/OVHCloud.png"
-    alt="Logo di OVHCloud"
-    decoding="async"
-    loading="lazy"
+    src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/OVHCloud.png'
+    alt='Logo di OVHCloud'
+    decoding='async'
+    loading='lazy'
     width={300}
     height={147}
-    className="mx-auto my-10"
+    className='mx-auto my-10'
   />
 </picture>
 
 ## Costo dell'hosting <span id="costo-dell-hosting"></span>
 
-Ora veniamo al costo dell’hosting, ovvero quel costo dovuto al “noleggio” di un server sul quale far girare il proprio sito.  
+Ora veniamo al costo dell’hosting, ovvero quel costo dovuto al “noleggio” di un server sul quale far girare il proprio sito.
 
 ### Aruba Hosting Linux Basic
 
 <picture>
-  <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Aruba.webp" type="image/webp" />
+  <source
+    srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Aruba.webp'
+    type='image/webp'
+  />
   <img
-    src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Aruba.png"
-    alt="Logo di Aruba"
-    decoding="async"
-    loading="lazy"
+    src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Aruba.png'
+    alt='Logo di Aruba'
+    decoding='async'
+    loading='lazy'
     width={300}
     height={84}
-    className="mx-auto my-10"
+    className='mx-auto my-10'
   />
 </picture>
 
 Per mia esperienza, la maggior parte dei clienti (o degli sviluppatori che lavorano per loro) tende a scegliere **Aruba**, e in particolare il loro piano **[Hosting Linux Basic](https://hosting.aruba.it/hosting/linux.aspx)**.  
 Chiedendo le motivazioni, sono emersi principalmente questi motivi:
+
 - **Facilità di utilizzo**: l’interfaccia grafica guida passo passo in ciò che si deve fare e non servono competenze elevate per utilizzarlo.
 - **Assistenza in italiano**: per quanto mi riguarda, parlare in inglese non è un problema, ma so che per molti lo è, e quindi preferiscono un’assistenza interamente in italiano.
 - **Traffico e spazio di archiviazione illimitati**.
 - **Costo fisso**: non ci sono sorprese in bolletta, e il servizio si può sospendere in qualsiasi momento.
 
 Tuttavia, presenta anche numerosi svantaggi, tra cui:
+
 - **Lentezza**: ho infatti provato a caricare lo stesso sito sia su [Firebase](https://firebase.google.com/) (di cui parlerò dopo) sia su Aruba, e la differenza nei tempi di caricamento era notevole. Va considerato che Aruba utilizza _shared hosting_, ovvero il sito è caricato su un server condiviso con molti altri. Se uno di questi altri siti consuma molte risorse computazionali, anche il nostro sito ne risentirà.
 - **Non scala automaticamente**: questo significa che, in caso di un picco improvviso di traffico, il sito può diventare molto lento fino a bloccarsi. Non è possibile aumentare le performance (ad esempio aumentando CPU e RAM) se non cambiando piano, il che comporta un costo maggiore.
 
@@ -128,15 +137,18 @@ Il costo per questa soluzione è di **33€/anno**.
 ### Netlify
 
 <picture>
-  <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Netlify.webp" type="image/webp" />
+  <source
+    srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Netlify.webp'
+    type='image/webp'
+  />
   <img
-    src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Netlify.png"
-    alt="Logo di Netlify"
-    decoding="async"
-    loading="lazy"
+    src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Netlify.png'
+    alt='Logo di Netlify'
+    decoding='async'
+    loading='lazy'
     width={300}
     height={96}
-    className="mx-auto my-10"
+    className='mx-auto my-10'
   />
 </picture>
 
@@ -144,6 +156,7 @@ Il costo per questa soluzione è di **33€/anno**.
 Il **piano gratuito** offre **100 GB di banda al mese**, più che sufficienti per un sito singolo, come quello di una piccola attività locale. Tuttavia, questa banda non è legata a un singolo sito, ma viene **ripartita tra tutti i progetti associati a un unico account**.
 
 Facciamo un esempio pratico:
+
 - Supponiamo che io, sviluppatrice web, gestisca 5 siti per 5 clienti diversi, ciascuno del peso di circa 5MB.
 - I 100GB di banda saranno divisi tra questi 5 siti: se tutti ricevono lo stesso numero di visite, ciascuno avrà a disposizione circa **20GB al mese**.
 - Questo equivale, indicativamente, a **circa 4000 visite mensili per sito**.
@@ -152,8 +165,9 @@ Il problema nasce se **uno dei siti riceve un traffico maggiore degli altri**: i
 
 Una possibile soluzione è passare al **piano Pro**, che offre **1TB di banda** al mese (quindi praticamente infinita) a **240€ l’anno**. Tuttavia, questo pone un problema gestionale:  
 come suddividere equamente i **240€** tra i vari clienti?
+
 - Una divisione netta (240€ ÷ 5 clienti) darebbe **48€/anno a testa**, ma un sito con traffico molto basso, come quello di una pizzeria di paese, probabilmente **non accetterebbe di pagare quella cifra**, dato che consuma pochissime risorse.
-- La soluzione più equa sarebbe quella di **fare aprire un account Netlify separato per ogni cliente** e **farsi fornire le credenziali**, in modo da avere un piano gratuito dedicato per ciascun sito. 
+- La soluzione più equa sarebbe quella di **fare aprire un account Netlify separato per ogni cliente** e **farsi fornire le credenziali**, in modo da avere un piano gratuito dedicato per ciascun sito.
 
 La seconda scelta, sebbene percorribile, comporta **una grande complessità nella gestione di più account**, che potrebbe portare a fare confusione.
 Quindi, almeno per adesso, scarterei questa soluzione.
@@ -161,15 +175,18 @@ Quindi, almeno per adesso, scarterei questa soluzione.
 ### Vercel
 
 <picture>
-  <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Vercel.webp" type="image/webp" />
+  <source
+    srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Vercel.webp'
+    type='image/webp'
+  />
   <img
-    src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Vercel.png"
-    alt="Logo di Vercel"
-    decoding="async"
-    loading="lazy"
+    src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Vercel.png'
+    alt='Logo di Vercel'
+    decoding='async'
+    loading='lazy'
     width={250}
     height={50}
-    className="mx-auto my-10"
+    className='mx-auto my-10'
   />
 </picture>
 
@@ -178,15 +195,18 @@ Quindi, almeno per adesso, scarterei questa soluzione.
 ### Firebase Hosting
 
 <picture>
-  <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Firebase.webp" type="image/webp" />
+  <source
+    srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Firebase.webp'
+    type='image/webp'
+  />
   <img
-    src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Firebase.png"
-    alt="Logo di Firebase"
-    decoding="async"
-    loading="lazy"
+    src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/Firebase.png'
+    alt='Logo di Firebase'
+    decoding='async'
+    loading='lazy'
     width={250}
     height={68}
-    className="mx-auto my-10"
+    className='mx-auto my-10'
   />
 </picture>
 
@@ -194,6 +214,7 @@ Quindi, almeno per adesso, scarterei questa soluzione.
 Questa soluzione è particolare perché utilizza la formula **"pay as you go"**, ovvero: se il tuo sito ha zero o comunque poche visite, allora si pagheranno zero o pochi centesimi. Quando invece il business comincia ad avere buoni risultati, si inizia a pagare **solo per le risorse effettivamente utilizzate**.
 
 Anche qui, elenchiamo i principali vantaggi:
+
 - **Progetti separati con un unico account**: Firebase, consente di creare più progetti distinti all’interno dello stesso account. Questo ci permette di superare le limitazioni di Netlify perché significa che ogni progetto ha **risorse dedicate e costi separati**, evitando interferenze tra i vari siti e semplificando la gestione complessiva.
 - **Velocità**: appoggiandosi alla Google Cloud Platform, una delle infrastrutture cloud più grandi al mondo, le performance non possono che essere ottimali. Inoltre, sfrutta varie CDN proprietarie per distribuire i file del sito più velocemente.
 - **Scalabilità automatica**: non è richiesto alcun intervento umano in caso di picchi di traffico o se il sito cresce naturalmente nel tempo. In altre parole, il sito non rallenterà o bloccherà mai in caso di picchi di traffico.
@@ -201,9 +222,10 @@ Anche qui, elenchiamo i principali vantaggi:
 - **Nessuna carta iniziale**: inizialmente non è necessario collegare una carta di credito, poiché si rientra nello **Spark Plan**, che non la richiede.
 
 Tuttavia, ci sono anche degli svantaggi:
+
 - **Traffico limitato**: il piano gratuito prevede un limite di 360MB/giorno quindi se un sito pesa 5MB, le visite giornaliere saranno massimo esattamente 72. Oltre questo numero di visite giornaliere, occorre collegare una carta di credito e si comincia a pagare **0,13€/GB trasferito**. Il mio consiglio è di spostare immagini e file pesanti su una **CDN esterna**, in modo da minimizzare il traffico gestito da Firebase.
 - **Politiche in continuo cambiamento**: ho notato che le condizioni del servizio tendono a cambiare spesso. Questa guida è valida oggi, ma potrebbe non esserlo tra qualche anno.
-- **Competenze per utilizzarlo**: per utilizzare questo servizio bisogna avere familiarità con il terminale e con file JSON per la configurazione, cosa non da tutti. 
+- **Competenze per utilizzarlo**: per utilizzare questo servizio bisogna avere familiarità con il terminale e con file JSON per la configurazione, cosa non da tutti.
 
 Il costo di questa soluzione, per un sito di una pizzeria locale, si aggira tra **0€ e 1€ al mese**, quindi **un massimo di 12€/anno**, considerando che non prevedo un traffico tale da superare i limiti del piano gratuito.
 
@@ -218,15 +240,18 @@ Anche in questo caso, ho individuato alcune soluzioni valide.
 ### BunnyCDN
 
 <picture>
-  <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/BunnyCDN.webp" type="image/webp" />
+  <source
+    srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/BunnyCDN.webp'
+    type='image/webp'
+  />
   <img
-    src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/BunnyCDN.png"
-    alt="Logo di BunnyCDN"
-    decoding="async"
-    loading="lazy"
+    src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/BunnyCDN.png'
+    alt='Logo di BunnyCDN'
+    decoding='async'
+    loading='lazy'
     width={173}
     height={49}
-    className="mx-auto my-10"
+    className='mx-auto my-10'
   />
 </picture>
 
@@ -235,18 +260,21 @@ Va però considerato che è previsto un **costo minimo mensile di $1** per il se
 
 Per un sito locale, come quello di una pizzeria, il costo annuale quindi sarà di **12€/anno**.
 
-### JSDelivr 
+### JSDelivr
 
 <picture>
-  <source srcSet="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/JSDelivr.webp" type="image/webp" />
+  <source
+    srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/JSDelivr.webp'
+    type='image/webp'
+  />
   <img
-    src="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/JSDelivr.png"
-    alt="Logo di JSDelivr"
-    decoding="async"
-    loading="lazy"
+    src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/costo-annuale-sito-statico/JSDelivr.png'
+    alt='Logo di JSDelivr'
+    decoding='async'
+    loading='lazy'
     width={300}
     height={96}
-    className="mx-auto my-10"
+    className='mx-auto my-10'
   />
 </picture>
 

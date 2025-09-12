@@ -1,6 +1,7 @@
 ---
 title: Riassunto tag HTML
 description: In questo articolo mi rivolgo agli studenti del liceo che stanno studiando HTML e che necessitano di un riassunto. In fondo all'articolo ho reso disponibile un file PDF scaricabile con il riassunto completo.
+alt: Copertina dell'articolo che rappresenta vari tag HTML
 date: 2025-05-12
 published: true
 timing: 9
@@ -8,12 +9,12 @@ image: https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@4ceeba2/port
 faqs:
   - question: Come si apre e si chiude un tag HTML?
     answer: La maggior parte dei tag HTML va aperta e poi chiusa, scrivendo il nome del tag tra parentesi angolari e aggiungendo la barra in quello di chiusura.
-    url: "https://aliceorlandini.it/blog/riassunto-tag-html#tag-html"
+    url: 'https://aliceorlandini.it/blog/riassunto-tag-html#tag-html'
 ---
 
 ### Introduzione <span id="introduzione"></span>
 
-Aiuto i ragazzi a studiare Informatica da ormai **3 anni** e ho notato che gli studenti di quarta spesso fanno fatica a trovare un riassunto chiaro dei **tag [HTML](https://it.wikipedia.org/wiki/HTML) più usati** dai loro professori nelle verifiche. 
+Aiuto i ragazzi a studiare Informatica da ormai **3 anni** e ho notato che gli studenti di quarta spesso fanno fatica a trovare un riassunto chiaro dei **tag [HTML](https://it.wikipedia.org/wiki/HTML) più usati** dai loro professori nelle verifiche.
 Infatti, i riassunti che si trovano online o sono a pagamento, oppure sono pensati per l’università e contengono quindi molte più informazioni del necessario.
 
 Per questo motivo, ho deciso di elencare in questo articolo **i tag più utilizzati a scuola**, uno per uno. Poi, alla fine, ho inserito anche un **PDF scaricabile** con una tabella riassuntiva. So infatti che alcuni professori permettono di portare questo tipo di appunti alle verifiche perché sanno che i tag da ricordare sono davvero tanti.
@@ -45,8 +46,8 @@ Si tratta di alcuni tag che servono a far capire al browser (come Chrome) che il
 Quello che andiamo a scrivere è:
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   code={`<!DOCTYPE html>
   <html>
 	  <head>
@@ -76,8 +77,8 @@ Per farlo si usa il tag `<title>`, che va **aperto**, **chiuso** e, _al suo inte
 Ecco un esempio:
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   highlightLines={[4]}
   code={`<!DOCTYPE html>
   <html>
@@ -107,8 +108,8 @@ Volevano anche permettere titoli di diverse grandezze, quindi hanno deciso di us
 Quindi il tag per un titolo grande è `<h1>` e va (come al solito) **aperto e chiuso**:
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   highlightLines={[8, 9, 10, 11]}
   code={`<!DOCTYPE html>
   <html>
@@ -125,7 +126,6 @@ Quindi il tag per un titolo grande è `<h1>` e va (come al solito) **aperto e ch
   </html>`}
 />
 
-
 ### Paragrafo <span id="paragrafo"></span>
 
 Questo è facile: come si dice "paragrafo" in inglese? Beh, **"paragraph"**. Quindi il tag come sarà mai? Esatto: `<p>`.  
@@ -134,8 +134,8 @@ Anche questo va **aperto**, **chiuso**, e al suo interno ci scriviamo il testo d
 Ecco un esempio completo:
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   highlightLines={[9]}
   code={`<!DOCTYPE html>
   <html>
@@ -155,10 +155,12 @@ Come potete vedere, i tag nel `<body>` potete metterli uno sotto l’altro e ver
 ### Liste <span id="liste"></span>
 
 Di liste ne esistono due tipologie:
+
 - Liste **numerate**
 - Liste **puntate**
 
 Ormai avete imparato il giochino: come si traducono in inglese? Eccole:
+
 - **Ordered** List
 - **Unordered** List
 
@@ -186,6 +188,7 @@ Capiamolo meglio con un esempio:
 
       </ul>
     </body>
+
   </html>`}
 />
 
@@ -194,8 +197,8 @@ In questo momento abbiamo solo dichiarato che ci sono due liste: prima una **Ord
 Per inserirci degli elementi, dobbiamo usare il tag `<li>`, così:
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   highlightLines={[9, 10, 14, 15]}
   code={`<!DOCTYPE html>
   <html>
@@ -217,9 +220,11 @@ Per inserirci degli elementi, dobbiamo usare il tag `<li>`, così:
   </html>`}
 />
 
-Ecco fatto!  Il risultato sarà questo:
+Ecco fatto! Il risultato sarà questo:
+
 - Cane
 - Gatto
+
 1. Coniglio
 2. Pappagallo
 
@@ -239,6 +244,7 @@ Ad esempio, la seguente tabella:
 Ha **4 righe** e **3 colonne**.
 
 I tag che ci servono per costruirla sono:
+
 - `<tr>`: sta per **Table Row** ovvero **riga della tabella**, va aperto e chiuso.
 - `<td>`: sta per **Table Data**, cioè **il contenuto** all’interno della riga, anche questo va aperto e chiuso.
 
@@ -261,7 +267,7 @@ Per rappresentare la struttura della tabella sopra, partiamo così:
 
         <tr> <!-- Riga 2, quella del cane -->
         </tr>
-        
+
         <tr> <!-- Riga 3, quella del gatto -->
         </tr>
 
@@ -269,6 +275,7 @@ Per rappresentare la struttura della tabella sopra, partiamo così:
         </tr>
       </table>
     </body>
+
   </html>`}
 />
 
@@ -298,7 +305,7 @@ Sono però vuote. Per riempirle, ci serve il tag `<td>` in questo modo:
           <td>10kg</td>
           <td>40cm</td>
         </tr>
-        
+
         <tr> <!-- Riga 3, quella del gatto -->
           <td>Gatto</td>
           <td>4kg</td>
@@ -312,6 +319,7 @@ Sono però vuote. Per riempirle, ci serve il tag `<td>` in questo modo:
         </tr>
       </table>
     </body>
+
   </html>`}
 />
 
@@ -343,7 +351,7 @@ Per aggiungerli, basta aggiungere l'attributo `border="1"` **all’interno del t
           <td>10kg</td>
           <td>40cm</td>
         </tr>
-        
+
         <tr>
           <td>Gatto</td>
           <td>4kg</td>
@@ -357,6 +365,7 @@ Per aggiungerli, basta aggiungere l'attributo `border="1"` **all’interno del t
         </tr>
       </table>
     </body>
+
   </html>`}
 />
 
@@ -368,8 +377,8 @@ Questo tag si apre soltanto, **non ha chiusura**.
 Ne scrivo uno completo, e poi ve lo commento:
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   highlightLines={[8]}
   code={`<!DOCTYPE html>
   <html>
@@ -385,6 +394,7 @@ Ne scrivo uno completo, e poi ve lo commento:
 
 Allora, osserviamo subito che questo tag ha _della roba al suo interno_, prima del simbolo di chiusura `>`, che **non avevamo ancora visto**.  
 Infatti, quando si tratta di un’immagine, bisogna specificare degli attributi:
+
 - **La sorgente**: si usa l’attributo `src` (source) per indicare **il file dell’immagine**, che si trova **nella stessa cartella** del nostro file `esercizio.html`. È come dire: “L’immagine che voglio visualizzare è questa qui!”, e quindi scriviamo **il nome del file** con la sua estensione (di solito `.jpg` o `.png`).
 - **Il testo alternativo**: abbreviato `alt` (alternative text), è il testo che verrà **visualizzato al posto dell’immagine** se per qualche motivo non dovesse caricarsi. Inoltre, questo testo è importante per le persone non vedenti, infatti, i loro dispositivi leggono ad alta voce proprio quello che scriviamo qui.
 
@@ -393,8 +403,8 @@ Una volta riempiti questi due attributi, l’immagine verrà visualizzata nella 
 Se l’immagine dovesse essere troppo grande, si possono regolare le dimensioni aggiungendo gli attributi `width` e `height` (larghezza e altezza in inglese):
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   highlightLines={[8]}
   code={`<!DOCTYPE html>
   <html>
@@ -413,7 +423,7 @@ Io in primis mi confondono spesso ahahah: _"width"_ ha l'H finale, mentre _"heig
 
 ### Ancora <span id="ancora"></span>
 
-L'ancora serve per creare **un collegamento** a un’altra pagina a partire da quella in cui ci troviamo. Ad esempio se dalla pagina "Home" voglio passare alla pagina "Profilo", userò un'ancora. 
+L'ancora serve per creare **un collegamento** a un’altra pagina a partire da quella in cui ci troviamo. Ad esempio se dalla pagina "Home" voglio passare alla pagina "Profilo", userò un'ancora.
 
 Quindi, per prima cosa, creiamo **un altro file** nella stessa cartella del file precedente, e chiamiamolo ad esempio `seconda_pagina.html`.
 
@@ -423,8 +433,8 @@ Per fare ciò si usa il tag `<a>`, che sta per _anchor_ (_ancora_ in inglese, no
 Lo scrivo e poi lo commento:
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   highlightLines={[8, 9, 10]}
   code={`<!DOCTYPE html>
   <html>
@@ -440,16 +450,17 @@ Lo scrivo e poi lo commento:
   </html>`}
 />
 
-Questo tag si apre e si chiude, e tra i due possiamo scrivere quel testo che, passandoci sopra col mouse, apparirà cliccabile. 
+Questo tag si apre e si chiude, e tra i due possiamo scrivere quel testo che, passandoci sopra col mouse, apparirà cliccabile.
 Nel tag di apertura inseriamo l'attributo:
+
 - `href`: abbreviazione di _Hypertext REFerence_, serve per dire **“questa è la pagina che voglio raggiungere”**, infatti ci scriviamo il nome del file della seconda pagina.
 
 Una cosa che piace molto ai professori è **aprire la nuova pagina in un’altra scheda**, invece che nella stessa.  
 Farlo è semplicissimo: basta aggiungere l’attributo `target="_blank"` così:
 
 <CodeBlock
-  language="html"
-  filename="esercizio.html"
+  language='html'
+  filename='esercizio.html'
   highlightLines={[8, 9, 10]}
   code={`<!DOCTYPE html>
   <html>
@@ -473,7 +484,7 @@ Ultimo, ma non meno importante, abbiamo **il divisore**, ovvero il tag `<div>`, 
 
 Questo tag è un po’ particolare perché **“non si vede”**: non ha un risultato visivo come gli altri, ma serve per **raggruppare un insieme di elementi**.
 
-Può essere pensato come una sorta di **box invisibile**, all’interno del quale possiamo mettere altri tag (e volendo anche altri `<div>`). 
+Può essere pensato come una sorta di **box invisibile**, all’interno del quale possiamo mettere altri tag (e volendo anche altri `<div>`).
 È molto utile soprattutto quando parleremo di **stile ([CSS](https://it.wikipedia.org/wiki/CSS))**, perché permette di applicare uno stile grafico a un box e uno completamente diverso ad un altro.
 
 Visto in azione è così:
@@ -509,6 +520,7 @@ Visto in azione è così:
         </ul>
       </div>
     </body>
+
   </html>`}
 />
 
@@ -518,31 +530,31 @@ Per ora non cambia nulla a livello grafico, ma più avanti potremo dire cose tip
 ### Conclusione
 
 Per concludere, mi sento di dare alcuni **consigli pratici**:
+
 1. Quando aprite un tag, **chiudetelo subito**, sennò palese che ve lo dimenticate ahaha.
 2. Per aiutarvi a ricordarvi i tag a memoria, provate a **tradurli dall’inglese**: vedrete che dopo un po’ verrà tutto molto naturale.
-3. Se trovate dei tag che **non ho spiegato in questo articolo**, cercateli su questo sito:   [**W3Schools - HTML**](https://www.w3schools.com/html/default.asp), è davvero fatto bene!
+3. Se trovate dei tag che **non ho spiegato in questo articolo**, cercateli su questo sito: [**W3Schools - HTML**](https://www.w3schools.com/html/default.asp), è davvero fatto bene!
 
-
-**Qui trovate il PDF scaricabile** con tutti i tag: ne ho inseriti anche alcuni che **non ho spiegato** in questa guida, sperando che vi siano utili alle verifiche.  
+**Qui trovate il PDF scaricabile** con tutti i tag: ne ho inseriti anche alcuni che **non ho spiegato** in questa guida, sperando che vi siano utili alle verifiche.
 
 <a
-  href="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/riassunto-tag-html/riassunto-tag-html.pdf"
+  href='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@main/portfolio/assets/riassunto-tag-html/riassunto-tag-html.pdf'
   download
   style={{
-  border: '1px solid black',
-  borderRadius: '8px',
-  backgroundColor: 'transparent',
-  padding: '12px 20px',
-  margin: '16px auto',
-  fontWeight: 'bold',
-  textAlign: 'center',
-  display: 'block',
-  maxWidth: '200px',
-  cursor: 'pointer',
-  hover: {
-    transform: 'scale(1.05)',
-  },
-}}
+    border: '1px solid black',
+    borderRadius: '8px',
+    backgroundColor: 'transparent',
+    padding: '12px 20px',
+    margin: '16px auto',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    display: 'block',
+    maxWidth: '200px',
+    cursor: 'pointer',
+    hover: {
+      transform: 'scale(1.05)'
+    }
+  }}
 >
   Scarica il PDF
 </a>

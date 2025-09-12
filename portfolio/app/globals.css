@@ -1,18 +1,18 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @theme inline {
   --font-raleway: var(--font-raleway);
 
-  --color-primary: #703F85;
-  --color-secondary: #AC1A00;
-  --color-tertiary: #FFACFF;
-  --color-quaternary: #F4EAF4;
+  --color-primary: #703f85;
+  --color-secondary: #ac1a00;
+  --color-tertiary: #ffacff;
+  --color-quaternary: #f4eaf4;
   --color-navigation: #535353;
-  --color-title: #1D2538;
+  --color-title: #1d2538;
   --color-paragraph: #273150;
-  --color-button-text: #FFFFFF;
-  --color-background: #FCFFF0;
+  --color-button-text: #ffffff;
+  --color-background: #fcfff0;
 
   --breakpoint-small-smartphone: 480px;
   --breakpoint-large-smartphone: 640px;
