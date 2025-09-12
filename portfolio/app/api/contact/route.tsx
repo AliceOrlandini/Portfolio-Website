@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { render } from '@react-email/components';
 import { ContactEmail } from './contact-email';
 import { contactFormBodySchema } from '@/lib/schemas';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   const SMTP_EMAIL = process.env.SMTP_EMAIL;
@@ -38,7 +39,6 @@ export async function POST(request: Request) {
     return NextResponse.json('Internal Server Error', { status: 500 });
   }
 
-  const nodemailer = require('nodemailer');
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: 'smtp.gmail.com',
