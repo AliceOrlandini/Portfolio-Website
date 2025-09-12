@@ -52,7 +52,7 @@ export default function DesktopNavbar() {
       <div
         className={`fixed top-0 right-0 left-0 z-50 transition-transform duration-300 ease-in-out ${isStickyVisible ? 'translate-y-0 shadow-md' : '-translate-y-full'} `}
       >
-        <BaseNavbar isActive={isActive} />
+        <BaseNavbar isActive={isActive} showBackground />
         {pathname.startsWith('/blog/') && (
           <span
             style={{ transform: `translateX(${completion - 100}%)` }}
@@ -66,11 +66,14 @@ export default function DesktopNavbar() {
 
 type BaseNavbarProps = {
   isActive: (href: string) => boolean;
+  showBackground?: boolean;
 };
 
-function BaseNavbar({ isActive }: BaseNavbarProps) {
+function BaseNavbar({ isActive, showBackground = false }: BaseNavbarProps) {
   return (
-    <nav className='bg-background flex items-center justify-between px-10 py-3'>
+    <nav
+      className={`flex items-center justify-between px-10 py-3 ${showBackground ? 'bg-background' : ''}`}
+    >
       <Brand compact screen='desktop' href='#top' />
       <ul className='text-navigation flex items-center gap-14 text-base font-semibold'>
         {NAVBAR_ITEMS.map(

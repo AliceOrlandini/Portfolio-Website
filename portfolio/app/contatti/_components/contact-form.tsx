@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useState } from 'react';
-import { contactFormSchema } from '@/lib/schemas';
+import { contactFormSchema, contactFormBodySchema } from '@/lib/schemas';
 import { Spinner } from '@/components/ui/spinner';
 
 import {
@@ -19,7 +19,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
-import { sendMail } from '@/lib/api';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
@@ -51,28 +50,33 @@ export default function ContactForm() {
     const token = await executeRecaptcha('contact_form');
     const { name, surname, email, message } = values;
 
-    const data = {
-      client: {
-        email: process.env.NEXT_PUBLIC_FORM_SENDER_EMAIL!
-      },
-      user: {
-        name: name,
-        surname: surname,
-        email: email,
-        message: message
-      },
+    const data: z.infer<typeof contactFormBodySchema> = {
+      user: { name, surname, email, message },
       recaptchaToken: token
     };
 
     try {
-      await sendMail(data);
-      toast.success('Messaggio inviato con successo!', {
-        duration: 10000
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
+      if (!response.ok) {
+        const err = await response.json().catch(() => null);
+        console.error('Error on response:', err);
+        toast.error("Errore durante l'invio del messaggio.", {
+          duration: 10000
+        });
+        return;
+      }
+      toast.success(
+        'Messaggio inviato con successo! Verrai contattato a breve.',
+        { duration: 10000 }
+      );
     } catch (error) {
       if (error instanceof Error) {
-        console.error('[ERROR] ', error.message);
-        toast.error(`Errore durante l'invio del messaggio. ${error.message}`, {
+        console.error('Error sending message:', error);
+        toast.error("Errore durante l'invio del messaggio.", {
           duration: 10000
         });
       }
@@ -95,7 +99,7 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel className='tablet:text-base text-sm'>Nome</FormLabel>
               <FormControl>
-                <Input {...field} className='tablet:text-base text-sm' />
+                <Input {...field} className='tablet:text-base w-full text-sm' />
               </FormControl>
               <FormMessage />
             </FormItem>
