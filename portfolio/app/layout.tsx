@@ -12,6 +12,8 @@ import DesktopNavbar from '@/components/layout/desktop-navbar';
 
 const raleway = Raleway({
   subsets: ['latin'],
+  display: 'swap',
+  preload: true,
   variable: '--font-raleway',
   weight: ['200', '300', '400', '500', '600', '700', '800']
 });

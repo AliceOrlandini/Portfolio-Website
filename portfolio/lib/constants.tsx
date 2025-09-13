@@ -43,25 +43,25 @@ export const FEATURES_ITEMS = [
     id: 1,
     icon: <Cpu className='text-tertiary mb-3' />,
     title: 'Tecnologie',
-    copy: "In questi articoli mi piacerebbe fare confronti tra le varie tecnologie, ce ne sono tantissime ed è difficile capire per ogni caso d'uso quale sia la migliore. Scrivere questi articoli mi dà l'opportunità di approfondirle e sviluppare occhio critico. Parlerò sia di tecnologie che uso giornalmente, ma anche di quelle che non uso, spiegando le mie motivazioni. Sarei felice se si aprisse un dibattito, è il miglior modo per crescere e imparare di più."
+    copy: 'Scrivere di tecnologie per me è un modo per esplorare, capire e crescere. Mi piace raccontare quelle che uso ogni giorno e quelle che evito, spiegando perché. Confrontarmi con altri è la parte più bella: dal dialogo nasce sempre qualcosa di nuovo.'
   },
   {
     id: 2,
     icon: <GraduationCap className='text-tertiary mb-3' />,
     title: 'Lezioni di Informatica',
-    copy: 'Ho iniziato a fare ripetizioni ormai 3 anni fa. Nel corso di questi anni ho avuto esperienze di ogni tipo, da studenti svogliati costretti palesemente dai genitori a fare lezione, a studenti che pur avendo la sufficienza sentivano di aver bisogno di un insegnante migliore. Sono convinta che insegnare sia un atto da non prendere alla leggera perciò ho deciso di condividere ciò che ho imparato nel mio blog.'
+    copy: 'Da tre anni faccio ripetizioni e ogni studente mi ha lasciato qualcosa: chi era lì controvoglia e chi invece cercava di migliorarsi nonostante i buoni voti. Ho imparato che insegnare è un atto di cura e per questo voglio condividere esperienze e riflessioni qui nel blog.'
   },
   {
     id: 3,
     icon: <Flower className='text-tertiary mb-3' />,
     title: 'Le mie esperienze',
-    copy: "All'Università, a lavoro, facendo ripetizioni, nella squadra corse. In tutti questi ambienti ho vissuto esperienze che desidero raccontare. Ad esempio, ho svolto tutta la magistrale in Ingegneria Informatica essendo l'unica ragazza del corso, cosa che non si vive tutti i giorni. Oppure, quella volta in cui ho fatto ripetizioni e non sono stata pagata, una vera e propria truffa. Ogni esperienza mi ha aiutata a capire come funziona questo mondo e spero che le mie storie possano aiutare molte altre persone."
+    copy: 'All’università, a lavoro, nelle ripetizioni e persino in squadra corse: ogni esperienza mi ha lasciato qualcosa. Dall’essere l’unica ragazza in magistrale a tante sfide diverse, ho imparato molto e spero che i miei racconti possano essere d’aiuto ad altri.'
   },
   {
     id: 4,
     icon: <Compass className='text-tertiary mb-3' />,
     title: 'Guide e Tutorial',
-    copy: "In questo blog non mancheranno guide e tutorial. Ho sempre pensato che il miglior modo per imparare sia quello di insegnare, perciò scrivere articoli in cui spiego come ho risolto un problema mi aiuta a fissare i concetti. Inoltre, sono convinta che il mondo dell'informatica sia in continua evoluzione e che sia fondamentale tenersi aggiornati. Scrivere articoli mi aiuta a rimanere al passo con le novità."
+    copy: 'In questo blog troverai guide e tutorial: credo che il modo migliore per imparare sia insegnare. Scrivere mi aiuta a fissare i concetti e a restare aggiornata in un mondo che evolve di continuo.'
   }
 ];
 

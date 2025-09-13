@@ -5,7 +5,7 @@ import { MoveRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className='desktop:h-screen h-fit'>
+    <section className='h-fit'>
       <div className='relative'>
         <picture>
           <source
@@ -36,13 +36,10 @@ export default function Hero() {
             />
           </h1>
           <p className='text-paragraph desktop:text-lg mt-10 text-base leading-8 font-medium'>
-            La passione per l&#39;informatica è nata sui banchi di scuola quando
-            mi sono resa conto che quando arrivava l’ora di informatica dicevo{' '}
-            <em>&#34;ooh via, ora ci si rilassa&#34;</em>.<br />
-            Da lì è iniziato il mio viaggio in questo mondo, mi sono iscritta ad
-            Ingegneria Informatica a Pisa durante la quale ho lavorato, fatto
-            parte di una squadra corse e fatto tanti progetti personali. Ma non
-            spoilero nulla, ci sarà modo di approfondire tutto nel mio blog!
+            Benvenuto nel mio angolo sul web, dove condivido la mia passione per
+            l&#39;informatica, nata sui banchi di scuola quando arrivava
+            l&#39;ora di informatica e pensavo
+            <em> &#34;ooh via, ora ci si rilassa&#34;</em>.<br />
           </p>
           <Button asChild className='mt-10' variant={'primary'} size={'base'}>
             <Link href='/blog' aria-label='vai alla pagina degli articoli'>
