@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { useState } from 'react';
 import { contactFormSchema, contactFormBodySchema } from '@/lib/schemas';
 import { Spinner } from '@/components/ui/spinner';
+import { sendContactForm } from '../_actions/send-contact-form';
 
 import {
   Form,
@@ -22,6 +23,7 @@ import { toast } from 'sonner';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
+import { send } from 'node:process';
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -55,35 +57,21 @@ export default function ContactForm() {
       recaptchaToken: token
     };
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+    const response = await sendContactForm(data);
+    if (response.status !== 200) {
+      console.error('Error on response:', response.message);
+      toast.error("Errore durante l'invio del messaggio.", {
+        duration: 10000
       });
-      if (!response.ok) {
-        const err = await response.json().catch(() => null);
-        console.error('Error on response:', err);
-        toast.error("Errore durante l'invio del messaggio.", {
-          duration: 10000
-        });
-        return;
-      }
-      toast.success(
-        'Messaggio inviato con successo! Verrai contattato a breve.',
-        { duration: 10000 }
-      );
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error('Error sending message:', error);
-        toast.error("Errore durante l'invio del messaggio.", {
-          duration: 10000
-        });
-      }
-    } finally {
-      setIsLoading(false);
-      form.reset();
+      return;
     }
+
+    toast.success(
+      'Messaggio inviato con successo! Verrai contattato a breve.',
+      { duration: 10000 }
+    );
+    setIsLoading(false);
+    form.reset();
   }
 
   return (
