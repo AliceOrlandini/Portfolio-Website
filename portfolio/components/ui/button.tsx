@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
   `
-  inline-flex items-center justify-center gap-3 
+  inline-flex items-center justify-center gap-3
   whitespace-nowrap
   rounded-xl
   text-base font-semibold
@@ -29,7 +29,7 @@ const buttonVariants = cva(
           ' border-paragraph flex w-fit flex-row rounded-md border font-bold'
       },
       size: {
-        none: 'text-base has-[>svg]:px-5',
+        none: 'text-base',
         base: 'text-base px-7 py-4 has-[>svg]:px-5',
         sm: 'text-xs px-5 py-2 desktop:text-sm'
       }

@@ -50,7 +50,11 @@ export default function DesktopNavbar() {
 
       {/* Desktop Sticky Navbar */}
       <div
-        className={`fixed top-0 right-0 left-0 z-50 transition-transform duration-300 ease-in-out ${isStickyVisible ? 'translate-y-0 shadow-md' : '-translate-y-full'} `}
+        className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ease-in-out will-change-transform ${
+          isStickyVisible
+            ? 'translate-y-0 opacity-100 shadow-md'
+            : 'pointer-events-none -translate-y-[120%] opacity-0'
+        }`}
       >
         <BaseNavbar isActive={isActive} showBackground />
         {pathname.startsWith('/blog/') && (
