@@ -94,10 +94,7 @@ const components = {
     className,
     ...props
   }: React.HTMLAttributes<HTMLParagraphElement> & { className?: string }) => (
-    <p
-      className={cn('leading-7 [&:not(:first-child)]:mt-6', className)}
-      {...props}
-    />
+    <p className={cn('leading-7 not-first:mt-6', className)} {...props} />
   ),
   ul: ({
     className,
@@ -123,7 +120,7 @@ const components = {
   }: React.HTMLAttributes<HTMLQuoteElement> & { className?: string }) => (
     <blockquote
       className={cn(
-        '[&>*]:text-muted-foreground mt-6 border-l-2 pl-6 italic',
+        '*:text-muted-foreground mt-6 border-l-2 pl-6 italic',
         className
       )}
       {...props}
@@ -159,7 +156,7 @@ const components = {
   }: React.HTMLAttributes<HTMLTableCellElement> & { className?: string }) => (
     <th
       className={cn(
-        'border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
+        'border px-4 py-2 text-left font-bold [[align=center]]:text-center [[align=right]]:text-right',
         className
       )}
       {...props}
@@ -171,7 +168,7 @@ const components = {
   }: React.HTMLAttributes<HTMLTableCellElement> & { className?: string }) => (
     <td
       className={cn(
-        'border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
+        'border px-4 py-2 text-left [[align=center]]:text-center [[align=right]]:text-right',
         className
       )}
       {...props}
