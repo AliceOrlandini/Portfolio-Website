@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import styles from './flip-words.module.css';
+import styles from '@/components/ui/flip-words.module.css';
 
 export const FlipWords = ({
   words,

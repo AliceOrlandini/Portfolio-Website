@@ -1,100 +1,37 @@
 'use client';
 import React from 'react';
+import styles from './infinite-logo-slider.module.css';
 
-export interface InfiniteLogoSliderProps {
+interface InfiniteLogoSliderProps {
   speed?: number;
   className?: string;
   children: React.ReactNode;
 }
 
-interface State {
-  contentWidth: number;
-}
+const InfiniteLogoSlider = ({
+  speed = 80,
+  className = '',
+  children
+}: InfiniteLogoSliderProps) => {
+  const duration = `${2000 / speed}s`;
 
-export default class InfiniteLogoSlider extends React.PureComponent<
-  InfiniteLogoSliderProps,
-  State
-> {
-  public static defaultProps: Partial<InfiniteLogoSliderProps> = {
-    speed: 80 // px/s
-  };
-
-  private contentRef: HTMLDivElement | null = null;
-  private animationFrame: number = 0;
-  private lastTs: number = 0;
-  private translateX: number = 0;
-
-  constructor(props: InfiniteLogoSliderProps) {
-    super(props);
-    this.state = { contentWidth: 0 };
-  }
-
-  componentDidMount() {
-    requestAnimationFrame(() => {
-      if (this.contentRef) {
-        const fullSetWidth = this.contentRef.scrollWidth / 2 || 1;
-        this.setState({ contentWidth: fullSetWidth }, this.startTicker);
-      }
-    });
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentWillUnmount() {
-    cancelAnimationFrame(this.animationFrame);
-    window.removeEventListener('resize', this.handleResize);
-  }
-
-  private handleResize = () => {
-    if (this.contentRef) {
-      const fullSetWidth = this.contentRef.scrollWidth / 2 || 1;
-      this.setState({ contentWidth: fullSetWidth });
-    }
-  };
-
-  private startTicker = () => {
-    this.lastTs = performance.now();
-    this.animationFrame = requestAnimationFrame(this.tick);
-  };
-
-  private tick = (ts: number) => {
-    const { speed = 80 } = this.props;
-    const dt = (ts - this.lastTs) / 1000; // in seconds
-    this.lastTs = ts;
-
-    this.translateX -= speed * dt;
-
-    if (-this.translateX >= this.state.contentWidth) {
-      this.translateX += this.state.contentWidth;
-    }
-
-    if (this.contentRef) {
-      this.contentRef.style.transform = `translateX(${this.translateX}px)`;
-    }
-
-    this.animationFrame = requestAnimationFrame(this.tick);
-  };
-
-  render() {
-    const { className, children } = this.props;
-    const childArray = React.Children.toArray(children);
-    const duplicated = childArray.concat(childArray);
-
-    return (
-      <div className={`w-full overflow-x-hidden ${className || ''}`.trim()}>
-        <div
-          ref={(el) => {
-            this.contentRef = el;
-          }}
-          className='flex'
-          style={{ willChange: 'transform' }}
-        >
-          {duplicated.map((child, idx) => (
-            <div key={idx} className='mr-32 flex-shrink-0'>
-              {child}
-            </div>
-          ))}
+  return (
+    <div className={`w-full overflow-hidden ${className}`}>
+      <div
+        className={styles['animate-infinite-scroll']}
+        style={
+          {
+            '--animation-duration': duration
+          } as React.CSSProperties
+        }
+      >
+        <div className='flex shrink-0 gap-32 pr-32'>{children}</div>
+        <div className='flex shrink-0 gap-32 pr-32' aria-hidden='true'>
+          {children}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default InfiniteLogoSlider;
