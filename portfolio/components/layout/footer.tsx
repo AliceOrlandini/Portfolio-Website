@@ -100,7 +100,7 @@ export default function Footer() {
                 rel='noopener noreferrer'
                 title='Privacy Policy'
               >
-                <ScrollText className='tablet:size-3 desktop:size-4 size-[10px]' />
+                <ScrollText className='tablet:size-3 desktop:size-4 size-2.5' />
                 Privacy Policy
               </a>
             </Button>
@@ -111,14 +111,14 @@ export default function Footer() {
                 rel='noopener noreferrer'
                 title='Cookie Policy'
               >
-                <Cookie className='tablet:size-3 desktop:size-4 size-[10px]' />
+                <Cookie className='tablet:size-3 desktop:size-4 size-2.5' />
                 Cookie Policy
               </a>
             </Button>
           </div>
         </div>
       </div>
-      <hr className='border-gray my-4 w-full border-t-1 opacity-20' />
+      <hr className='border-gray my-4 w-full border-t opacity-20' />
       <p className='font-raleway tablet:text-base my-10 text-center text-sm font-medium text-gray-600'>
         &copy; 2025. Tutti i diritti riservati
       </p>

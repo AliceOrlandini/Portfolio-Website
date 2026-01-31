@@ -29,7 +29,7 @@ export default function Hero() {
           <h1 className='desktop:text-6xl text-title desktop:max-w-xl desktop:leading-20 text-4xl leading-12 font-bold'>
             Ciao sono Alice! In questo blog parlo
             <br />
-            di
+            di{' '}
             <FlipWordsClient
               className='-z-10 max-w-screen'
               words={['Informatica', 'Ripetizioni', 'Tecnologie', 'Esperienze']}

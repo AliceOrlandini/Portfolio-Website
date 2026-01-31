@@ -6,6 +6,7 @@ import {
   ConsentAwareWrapper,
   i18nDictionaries
 } from '@mep-agency/next-iubenda';
+import { Toaster } from 'sonner';
 
 const iubendaBannerConfig: IubendaCookieSolutionBannerConfigInterface = {
   siteId: 4020438,
@@ -88,6 +89,7 @@ export default function ContactsPage() {
           </ReCaptchaProvider>
         </div>
       </div>
+      <Toaster toastOptions={{ className: 'font-raleway' }} />
     </section>
   );
 }

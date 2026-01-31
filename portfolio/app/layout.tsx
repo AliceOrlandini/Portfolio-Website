@@ -2,13 +2,10 @@ import type { Metadata } from 'next';
 import { Raleway } from 'next/font/google';
 import '@/app/globals.css';
 import Footer from '@/components/layout/footer';
-import { Toaster } from '@/components/ui/sonner';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
+import { VercelProviders } from '@/app/vercel-providers';
 import Head from 'next/head';
 import JsonLd from '@/components/json-ld';
-import MobileNavbar from '@/components/layout/mobile-navbar';
-import DesktopNavbar from '@/components/layout/desktop-navbar';
+import dynamic from 'next/dynamic';
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -73,6 +70,11 @@ export const metadata: Metadata = {
   }
 };
 
+const MobileNavbar = dynamic(() => import('@/components/layout/mobile-navbar'));
+const DesktopNavbar = dynamic(
+  () => import('@/components/layout/desktop-navbar')
+);
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -81,6 +83,8 @@ export default function RootLayout({
   return (
     <html lang='it-IT' id='top'>
       <Head>
+        <link rel='dns-prefetch' href='https://cdn.jsdelivr.net' />
+        <link rel='preconnect' href='https://cdn.jsdelivr.net' crossOrigin='' />
         <link
           rel='preload'
           as='image'
@@ -96,9 +100,7 @@ export default function RootLayout({
         <DesktopNavbar />
         {children}
         <Footer />
-        <Toaster toastOptions={{ className: 'font-raleway' }} />
-        <SpeedInsights />
-        <Analytics />
+        <VercelProviders />
         <JsonLd
           data={{
             '@context': 'https://schema.org',

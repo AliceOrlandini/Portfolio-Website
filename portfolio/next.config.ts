@@ -1,5 +1,4 @@
 import type { NextConfig } from 'next';
-import bundleAnalyzer from '@next/bundle-analyzer';
 
 const isDev = process.argv.indexOf('dev') !== -1;
 const isBuild = process.argv.indexOf('build') !== -1;
@@ -7,10 +6,6 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
   process.env.VELITE_STARTED = '1';
   import('velite').then((m) => m.build({ watch: isDev, clean: !isDev }));
 }
-
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true'
-});
 
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
@@ -49,6 +44,4 @@ const nextConfig: NextConfig = {
   }
 };
 
-module.exports =
-  process.env.ANALYZE === 'true' ? withBundleAnalyzer(nextConfig) : nextConfig;
 export default nextConfig;
