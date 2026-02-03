@@ -86,11 +86,16 @@ export default function RootLayout({
         <link rel='dns-prefetch' href='https://cdn.jsdelivr.net' />
         <link rel='preconnect' href='https://cdn.jsdelivr.net' crossOrigin='' />
         <link
-          rel='preload'
-          as='image'
-          href='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png'
-          imageSrcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-480.png 480w, https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-768.png 768w, https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png 1024w'
-          imageSizes='(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw'
+          rel="preload"
+          as="image"
+          href="https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.webp"
+          imageSrcSet="
+            https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-480.webp 480w,
+            https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-768.webp 768w,
+            https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.webp 1024w
+          "
+          imageSizes="(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw"
+          fetchPriority="high"
         />
       </Head>
       <body

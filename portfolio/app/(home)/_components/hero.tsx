@@ -70,7 +70,7 @@ export default function Hero() {
             <img
               src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png'
               alt="Alice Orlandini con una corona d'alloro e il suo un cane a Lucca"
-              decoding='async'
+              decoding='sync'
               width={1024}
               height={1024}
               fetchPriority='high'
