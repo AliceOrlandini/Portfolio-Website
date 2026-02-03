@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
 
 @theme inline {
   --font-raleway: var(--font-raleway);

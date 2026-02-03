@@ -1,5 +1,9 @@
-import InfiniteLogoSlider from '@/components/ui/infinite-logo-slider';
 import { TECNOLOGIES_ITEMS } from '@/lib/constants';
+import dynamic from 'next/dynamic';
+
+const InfiniteLogoSlider = dynamic(
+  () => import('@/components/ui/infinite-logo-slider')
+);
 
 export default function Tecnologies() {
   return (
