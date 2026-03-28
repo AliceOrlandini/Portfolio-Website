@@ -1,28 +1,21 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import FlipWordsClient from '@/components/flip-words-client';
 import { Button } from '@/components/ui/button';
 import { MoveRight } from 'lucide-react';
+import BirdsImage from '@/public/assets/birds/birds.png';
+import HeroImage from '@/public/assets/hero/hero-1024.png';
 
 export default function Hero() {
   return (
     <section className='h-fit'>
       <div className='relative'>
-        <picture>
-          <source
-            srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/birds/birds.webp'
-            type='image/webp'
-          />
-          <img
-            src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/birds/birds.png'
-            alt='Birds'
-            decoding='async'
-            fetchPriority='high'
-            loading='eager'
-            width={119}
-            height={65}
-            className='tablet:w-28 desktop:-top-10 tablet:left-72 absolute -top-14 left-48 -z-10 w-20'
-          />
-        </picture>
+        <Image
+          src={BirdsImage}
+          alt='Birds'
+          priority
+          className='tablet:w-28 desktop:-top-10 tablet:left-72 absolute -top-14 left-48 -z-10 w-20'
+        />
       </div>
       <div className='desktop:px-32 desktop:py-20 grid grid-cols-12 items-center gap-4 px-10 py-14'>
         <div className='tablet:col-span-7 desktop:col-span-6 col-span-12 w-fit'>
@@ -48,35 +41,13 @@ export default function Hero() {
           </Button>
         </div>
         <div className='tablet:col-span-5 desktop:col-span-6 desktop:mt-0 col-span-12 mt-10'>
-          <picture>
-            <source
-              srcSet='
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-480.webp 480w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-768.webp 768w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.webp 1024w
-              '
-              sizes='(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw'
-              type='image/webp'
-            />
-            <source
-              srcSet='
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-480.png 480w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-768.png 768w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png 1024w
-              '
-              sizes='(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw'
-              type='image/png'
-            />
-            <img
-              src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/hero/hero-1024.png'
-              alt="Alice Orlandini con una corona d'alloro e il suo un cane a Lucca"
-              decoding='sync'
-              width={1024}
-              height={1024}
-              fetchPriority='high'
-              className='h-auto w-full drop-shadow-md'
-            />
-          </picture>
+          <Image
+            src={HeroImage}
+            alt="Alice Orlandini con una corona d'alloro e il suo un cane a Lucca"
+            priority
+            sizes='(max-width: 768px) 70vw, (max-width: 1024px) 33.33vw, 50vw'
+            className='h-auto w-full drop-shadow-md'
+          />
         </div>
       </div>
     </section>

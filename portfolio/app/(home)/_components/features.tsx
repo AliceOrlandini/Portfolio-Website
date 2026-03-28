@@ -1,17 +1,17 @@
 import { FEATURES_ITEMS } from '@/lib/constants';
+import WavyLoopsBottom from '@/public/assets/dividers/wavy-loops-bottom.svg';
+import WavyLoopsTop from '@/public/assets/dividers/wavy-loops-top.svg';
+import Image from 'next/image';
+import FeaturesImage from '@/public/assets/features/features-1024.png';
 
 export default function Features() {
   return (
     <>
-      <picture>
-        <img
-          src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/svg/wavy-loops-bottom.svg'
-          alt='Onda decorativa di separazione'
-          width='100vw'
-          height={10}
-          className='-mt-3 h-auto w-full'
-        />
-      </picture>
+      <Image
+        src={WavyLoopsBottom}
+        alt='Onda decorativa di separazione'
+        className='-mt-3 h-auto w-full'
+      />
       <section>
         <div className='bg-primary font-raleway w-full py-24 text-white'>
           <h1 className='desktop:text-4xl desktop:mx-16 mx-5 text-2xl font-bold'>
@@ -31,49 +31,22 @@ export default function Features() {
                 </div>
               ))}
             </div>
-            <div className='desktop:mx-0 desktop:col-span-4 col-span-12 mx-5 flex items-center justify-center'>
-              <picture>
-                <source
-                  srcSet='
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-480.webp 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-768.webp 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-1024.webp 1024w
-                  '
-                  sizes='(max-width: 1024px) 70vw, 33.33vw'
-                  type='image/webp'
-                />
-                <source
-                  srcSet='
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-480.png 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-768.png 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-1024.png 1024w
-                  '
-                  sizes='(max-width: 1024px) 70vw, 33.33vw'
-                  type='image/png'
-                />
-                <img
-                  src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/features/features-1024.png'
-                  alt='Alice Orlandini su un robot rosso nella foresta'
-                  decoding='async'
-                  loading='lazy'
-                  width='1024'
-                  height='1024'
-                  className='h-auto w-full drop-shadow-md'
-                />
-              </picture>
+            <div className='desktop:mx-0 tablet:mx-auto desktop:col-span-4 col-span-12 mx-5 flex max-w-md items-center justify-center'>
+              <Image
+                src={FeaturesImage}
+                alt='Alice Orlandini su un robot rosso nella foresta'
+                sizes='(max-width: 1024px) 70vw, 33.33vw'
+                className='h-auto w-full drop-shadow-md'
+              />
             </div>
           </div>
         </div>
       </section>
-      <picture>
-        <img
-          src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/svg/wavy-loops-top.svg'
-          alt='Onda decorativa di separazione'
-          className='-mb-3 h-auto w-full'
-          width='100vw'
-          height={10}
-        />
-      </picture>
+      <Image
+        src={WavyLoopsTop}
+        alt='Onda decorativa di separazione'
+        className='-mb-3 h-auto w-full'
+      />
     </>
   );
 }

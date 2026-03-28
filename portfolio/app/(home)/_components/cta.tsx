@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { MoveRight } from 'lucide-react';
+import ContactMe1Image from '@/public/assets/contact-me/contact-me-1-1024.png';
 
 export default function CTA() {
   return (
@@ -22,35 +24,12 @@ export default function CTA() {
           </Button>
         </div>
         <div className='desktop:col-span-6 col-span-12'>
-          <picture>
-            <source
-              srcSet='
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-480.webp 480w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-768.webp 768w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.webp 1024w
-              '
-              sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
-              type='image/webp'
-            />
-            <source
-              srcSet='
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-480.png 480w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-768.png 768w,
-                https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.png 1024w
-              '
-              sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
-              type='image/png'
-            />
-            <img
-              src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-1-1024.png'
-              alt='Contattami'
-              decoding='async'
-              loading='lazy'
-              width={1024}
-              height={1024}
-              className='tablet:w-1/2 desktop:w-full tablet:mx-auto h-full w-full max-w-xl rounded-md object-cover'
-            />
-          </picture>
+          <Image
+            src={ContactMe1Image}
+            alt='Contattami'
+            sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
+            className='tablet:w-1/2 desktop:w-full tablet:mx-auto h-full w-full max-w-xl rounded-md object-cover'
+          />
         </div>
       </div>
     </section>

@@ -10,17 +10,6 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   transpilePackages: ['@mep-agency/next-iubenda'],
-  images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.jsdelivr.net',
-        port: '',
-        pathname: '/**'
-      }
-    ]
-  },
   async headers() {
     return [
       {

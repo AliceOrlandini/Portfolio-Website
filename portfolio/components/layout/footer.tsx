@@ -1,14 +1,11 @@
 import { NAVBAR_ITEMS } from '@/lib/constants';
 import Link from 'next/link';
-import {
-  Mail,
-  LinkedinIcon,
-  GithubIcon,
-  ChevronRight,
-  ScrollText,
-  Cookie
-} from 'lucide-react';
+import { Mail, ChevronRight, ScrollText, Cookie } from 'lucide-react';
+import GithubIcon from '@/public/assets/icons/github.svg';
+import LinkedinIcon from '@/public/assets/icons/linkedin.svg';
+import LogoImage from '@/public/assets/logo/logo.png';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -16,20 +13,11 @@ export default function Footer() {
       <div className='desktop:gap-4 desktop:px-32 desktop:py-20 font-raleway mt-20 grid grid-cols-12 items-center gap-y-10 px-5'>
         <div className='tablet:col-span-4 col-span-12 w-fit'>
           <div className='flex items-center gap-4'>
-            <picture>
-              <source
-                srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.webp'
-                type='image/webp'
-              />
-              <img
-                src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/logo/logo.png'
-                alt='Logo'
-                decoding='async'
-                width={50}
-                height={50}
-                className='desktop:w-10 h-auto w-7'
-              />
-            </picture>
+            <Image
+              src={LogoImage}
+              alt='Logo'
+              className='desktop:w-10 h-auto w-7'
+            />
             <h1 className='desktop:text-2xl text-title text-xl font-bold'>
               Alice Orlandini
             </h1>
@@ -80,14 +68,26 @@ export default function Footer() {
                 href='https://www.linkedin.com/in/aliceorlandini/'
                 target='_blank'
               >
-                <LinkedinIcon className='text-paragraph hover:text-primary transition-transform duration-300 hover:scale-110 hover:cursor-pointer' />
+                <Image
+                  src={LinkedinIcon}
+                  alt='LinkedIn'
+                  className='text-paragraph hover:text-primary transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
+                  width={26}
+                  height={26}
+                />
               </a>
               <a
                 aria-label='github'
                 href='https://github.com/aliceorlandini'
                 target='_blank'
               >
-                <GithubIcon className='text-paragraph hover:text-primary transition-transform duration-300 hover:scale-110 hover:cursor-pointer' />
+                <Image
+                  src={GithubIcon}
+                  alt='GitHub'
+                  className='text-paragraph hover:text-primary transition-transform duration-300 hover:scale-110 hover:cursor-pointer'
+                  width={24}
+                  height={24}
+                />
               </a>
             </div>
           </div>
