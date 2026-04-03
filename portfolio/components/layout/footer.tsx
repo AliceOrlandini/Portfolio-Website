@@ -60,7 +60,7 @@ export default function Footer() {
               Altri Contatti
             </h2>
             <div className='flex gap-4'>
-              <a aria-label='mail' href='mailto:orlandinialice13@gmail.com'>
+              <a aria-label='mail' href='mailto:info@aliceorlandini.it'>
                 <Mail className='text-paragraph hover:text-primary transition-transform duration-300 hover:scale-110 hover:cursor-pointer' />
               </a>
               <a
@@ -120,7 +120,7 @@ export default function Footer() {
       </div>
       <hr className='border-gray my-4 w-full border-t opacity-20' />
       <p className='font-raleway tablet:text-base my-10 text-center text-sm font-medium text-gray-600'>
-        &copy; 2025. Tutti i diritti riservati
+        &copy; 2026. Tutti i diritti riservati
       </p>
     </footer>
   );

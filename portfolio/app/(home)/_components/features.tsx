@@ -34,6 +34,8 @@ export default function Features() {
             <div className='desktop:mx-0 tablet:mx-auto desktop:col-span-4 col-span-12 mx-5 flex max-w-md items-center justify-center'>
               <Image
                 src={FeaturesImage}
+                width={1024}
+                height={800}
                 alt='Alice Orlandini su un robot rosso nella foresta'
                 sizes='(max-width: 1024px) 70vw, 33.33vw'
                 className='h-auto w-full drop-shadow-md'

@@ -1,6 +1,7 @@
 'use server';
 import { render } from '@react-email/components';
-import { ContactEmail } from './contact-email';
+import { PersonalEmail } from './personal-email';
+import { UserEmail } from './user-email';
 import { contactFormBodySchema } from '@/lib/schemas';
 import { z } from 'zod';
 import nodemailer from 'nodemailer';
@@ -36,8 +37,7 @@ export async function sendContactForm(
   }
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
+    host: 'smtp.zoho.com',
     port: 465,
     secure: true,
     auth: {
@@ -46,8 +46,8 @@ export async function sendContactForm(
     }
   });
 
-  const emailHtml = await render(
-    <ContactEmail
+  const personalEmailHtml = await render(
+    <PersonalEmail
       name={name}
       surname={surname}
       email={email}
@@ -55,12 +55,24 @@ export async function sendContactForm(
     />
   );
 
+  const userEmailHtml = await render(<UserEmail />);
+
   try {
+    // Send email to SITE OWNER
     await transporter.sendMail({
-      from: SMTP_EMAIL,
+      from: `"Portfolio Website" <${SMTP_EMAIL}>`,
       to: RECEIVER_EMAIL,
-      subject: `Nuovo messaggio ricevuto da ${name} ${surname}`,
-      html: emailHtml
+      subject: `Nuovo messaggio dal form di contatto.`,
+      html: personalEmailHtml,
+      replyTo: email
+    });
+
+    // Send confirmation email to USER
+    await transporter.sendMail({
+      from: `"Alice Orlandini" <${SMTP_EMAIL}>`,
+      to: email,
+      subject: `Messaggio ricevuto!`,
+      html: userEmailHtml
     });
   } catch (error) {
     console.error('Error sending email:', error);
