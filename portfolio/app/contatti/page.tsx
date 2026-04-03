@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import ContactForm from '@/app/contatti/_components/contact-form';
+import ContactMe2Image from '@/public/assets/contact-me/contact-me-2-1024.png';
 import { ReCaptchaProvider } from '@/components/recapthca-provider';
 import {
   IubendaProvider,
@@ -44,35 +46,12 @@ export default function ContactsPage() {
               ricontatterò in meno di 24 ore! Mi fa sempre piacere ricevere
               feedback e suggerimenti, quindi non esitare a contattarmi!
             </p>
-            <picture>
-              <source
-                srcSet='
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-480.webp 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-768.webp 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-1024.webp 1024w
-                  '
-                sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
-                type='image/webp'
-              />
-              <source
-                srcSet='
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-480.png 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-768.png 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-1024.png 1024w
-                  '
-                sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
-                type='image/png'
-              />
-              <img
-                src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/contact-me/contact-me-2-1024.png'
-                alt='Contattami'
-                decoding='async'
-                loading='lazy'
-                width={1024}
-                height={1024}
-                className='mx-auto w-3/4 max-w-xl'
-              />
-            </picture>
+            <Image
+              src={ContactMe2Image}
+              alt='Contattami'
+              sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
+              className='mx-auto w-3/4 max-w-xl'
+            />
           </div>
         </div>
         <div className='desktop:mt-0 my-10 h-fit rounded-xl bg-white p-10'>

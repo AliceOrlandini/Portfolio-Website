@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {
   Accordion,
   AccordionContent,
@@ -6,6 +7,7 @@ import {
 } from '@/components/ui/accordion';
 import JsonLd from '@/components/json-ld';
 import { z } from 'zod';
+import FaqImage from '@/public/assets/faq/faq-1024.png';
 
 const FAQSchema = z.object({
   items: z.array(
@@ -58,35 +60,12 @@ export default function FAQ({ items }: FAQProps) {
             </p>
           </div>
           <div className='tablet:mx-0 tablet:mt-0 mx-auto mt-10 w-fit'>
-            <picture>
-              <source
-                srcSet='
-                  https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/faq/faq-480.webp 480w,
-                  https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/faq/faq-768.webp 768w,
-                  https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/faq/faq-1024.webp 1024w
-                '
-                sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
-                type='image/webp'
-              />
-              <source
-                srcSet='
-                  https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/faq/faq-480.png 480w,
-                  https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/faq/faq-768.png 768w,
-                  https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/faq/faq-1024.png 1024w
-                '
-                sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
-                type='image/png'
-              />
-              <img
-                src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/faq/faq-1024.png'
-                alt='Illustrazione sezione FAQ'
-                decoding='async'
-                loading='lazy'
-                width={1024}
-                height={1024}
-                className='tablet:w-1/2 mx-auto h-auto w-44 drop-shadow-md'
-              />
-            </picture>
+            <Image
+              src={FaqImage}
+              alt='Illustrazione sezione FAQ'
+              sizes='(max-width: 768px) 30vw, (max-width: 1024px) 50vw, 33.33vw'
+              className='tablet:w-1/2 mx-auto h-auto w-44 drop-shadow-md'
+            />
           </div>
         </div>
         <Accordion

@@ -1,4 +1,15 @@
+import Image from 'next/image';
 import { CHARACTER_ITEMS } from '@/lib/constants';
+import Character1 from '@/public/assets/character/character-1-1024.png';
+import Character2 from '@/public/assets/character/character-2-1024.png';
+import Character3 from '@/public/assets/character/character-3-1024.png';
+import EllipseImage from '@/public/assets/ellipse/ellipse.png';
+
+const characterImages: Record<string, any> = {
+  'character-1': Character1,
+  'character-2': Character2,
+  'character-3': Character3
+};
 
 export default function Character() {
   return (
@@ -6,20 +17,11 @@ export default function Character() {
       <h2 className='desktop:text-4xl font-raleway absolute inset-x-0 top-0 text-center text-2xl font-bold'>
         Com&#39;è il mio carattere?
       </h2>
-      <picture>
-        <source
-          srcSet='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/ellipse/ellipse.webp'
-          type='image/webp'
-        />
-        <img
-          src='https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@b3b6982/portfolio/assets/ellipse/ellipse.png'
-          alt='Ellisse decorativa di sfondo'
-          decoding='async'
-          width={768}
-          height={768}
-          className='tablet:block tablet:absolute pointer-events-none top-0 left-1/2 hidden w-[900px] -translate-x-1/2 select-none'
-        />
-      </picture>
+      <Image
+        src={EllipseImage}
+        alt='Ellisse decorativa di sfondo'
+        className='tablet:block tablet:absolute pointer-events-none top-0 left-1/2 hidden w-225 -translate-x-1/2 select-none'
+      />
       <div className='tablet:mb-0 tablet:px-6 desktop:px-8 relative mx-auto mb-20 max-w-7xl px-4'>
         <div className='tablet:grid-cols-3 tablet:gap-x-8 grid grid-cols-1 gap-y-20'>
           {CHARACTER_ITEMS.map(({ id, title, copy, img }, idx) => (
@@ -27,37 +29,14 @@ export default function Character() {
               key={id}
               className='flex flex-col items-center text-center'
             >
-              <picture>
-                <source
-                  srcSet={`
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-480.webp 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-768.webp 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-1024.webp 1024w
-                  `}
-                  sizes='(max-width: 768px) 70vw, 33.33vw'
-                  type='image/webp'
-                />
-                <source
-                  srcSet={`
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-480.png 480w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-768.png 768w,
-                    https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-1024.png 1024w
-                  `}
-                  sizes='(max-width: 768px) 70vw, 33.33vw'
-                  type='image/png'
-                />
-                <img
-                  src={`https://cdn.jsdelivr.net/gh/AliceOrlandini/Portfolio-Website@preview/portfolio/assets/character/${img}-1024.png`}
-                  alt={title}
-                  decoding='async'
-                  loading='lazy'
-                  width={1024}
-                  height={idx === 1 ? 683 : 1024}
-                  className={`mb-6 w-[250px] ${
-                    idx === 1 ? 'tablet:-mt-36 w-[350px]' : ''
-                  }`}
-                />
-              </picture>
+              <Image
+                src={characterImages[img]}
+                alt={title}
+                sizes='(max-width: 768px) 70vw, 33.33vw'
+                className={`mb-6 w-62.5 ${
+                  idx === 1 ? 'tablet:-mt-48 w-87.5' : ''
+                }`}
+              />
 
               <div className='relative mb-6 inline-flex items-center justify-center'>
                 <span className='ring-secondary/70 absolute inline-flex h-12 w-12 rounded-full ring-2 ring-offset-2 ring-offset-white' />

@@ -11,20 +11,8 @@ import {
   Text
 } from '@react-email/components';
 
-interface ContactEmailProps {
-  name: string;
-  surname: string;
-  email: string;
-  message: string;
-}
-
-export const ContactEmail = ({
-  name,
-  surname,
-  email,
-  message
-}: ContactEmailProps) => {
-  const previewText = `Nuovo messaggio ricevuto da ${name} ${surname}`;
+export const UserEmail = () => {
+  const previewText = `Messaggio inviato con successo!`;
 
   return (
     <Html>
@@ -44,11 +32,7 @@ export const ContactEmail = ({
           <Section style={{ paddingBottom: '20px' }}>
             <Row>
               <Text style={heading}>
-                Hai ricevuto un nuovo messaggio da {name} {surname}:
-              </Text>
-              <Text style={messageSection}>{message}</Text>
-              <Text style={{ ...paragraph, paddingBottom: '16px' }}>
-                Puoi rispondere a {name} al suo indirizzo email: {email}.
+                Grazie per avermi contattata! Ti risponderò al più presto.
               </Text>
             </Row>
           </Section>
@@ -69,7 +53,7 @@ export const ContactEmail = ({
   );
 };
 
-export default ContactEmail;
+export default UserEmail;
 
 const main = {
   backgroundColor: '#fcfff0',
