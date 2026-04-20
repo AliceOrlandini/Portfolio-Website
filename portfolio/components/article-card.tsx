@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Calendar } from 'lucide-react';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 const ArticleCardSchema = z.object({
   title: z.string().min(1, 'Il titolo non può essere vuoto'),
@@ -44,23 +45,20 @@ export default function ArticleCard({
   return (
     <article
       className={cn(
-        'font-raleway tablet:min-h-[600px] mt-10 flex flex-col gap-4 rounded-lg bg-white p-4 shadow-md',
+        'font-raleway tablet:min-h-150 mt-10 flex flex-col gap-4 rounded-lg bg-white p-4 shadow-md',
         className
       )}
     >
-      <picture>
-        <source srcSet={`${image}.webp`} type='image/webp' />
-        <img
-          src={`${image}.png`}
-          alt={alt}
-          decoding='async'
-          loading={hasPriority ? 'eager' : 'lazy'}
-          fetchPriority={hasPriority ? 'high' : 'low'}
-          width={500}
-          height={300}
-          className='-mt-10 rounded-lg object-fill'
-        />
-      </picture>
+      <Image
+        src={`${image}.png`}
+        alt={alt}
+        decoding='async'
+        loading={hasPriority ? 'eager' : 'lazy'}
+        fetchPriority={hasPriority ? 'high' : 'low'}
+        width={500}
+        height={300}
+        className='-mt-10 rounded-lg object-fill'
+      />
       <h2 className='tablet:min-h-14 text-xl font-bold'>{title}</h2>
       <div className='flex items-center gap-2'>
         <Calendar size={18} />

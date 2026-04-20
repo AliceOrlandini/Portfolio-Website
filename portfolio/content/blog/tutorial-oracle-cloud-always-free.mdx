@@ -1,0 +1,433 @@
+---
+title: Da zero a server gratis, la mia esperienza con Oracle Cloud Infrastructure Always Free
+description: In questo articolo voglio condividere la mia esperienza nel creare una macchina virtuale gratuita e per sempre usando Oracle Cloud Infrastructure (OCI) con il piano Always Free.
+alt: Copertina dell'articolo "Da zero a server gratis, la mia esperienza con Oracle Cloud Infrastructure Always Free"
+date: 2026-04-20
+published: true
+timing: 13
+image: /assets/tutorial-oracle-cloud-always-free/copertina
+faqs:
+  - question: Oracle Cloud Always Free è davvero gratuito per sempre?
+    answer: Sì, il piano Always Free di Oracle Cloud Infrastructure è pensato per rimanere gratuito senza limiti di tempo, finché si rispettano i limiti di utilizzo previsti (CPU, RAM e storage).
+    url: "https://www.oracle.com/cloud/free/"
+
+  - question: Serve una carta di credito per Oracle Cloud Always Free?
+    answer: Sì, durante la registrazione viene richiesta una carta di credito per verificare l’identità dell’utente, ma non vengono effettuati addebiti.
+    url: "https://www.oracle.com/cloud/free/faq/"
+
+  - question: Posso usare una carta prepagata per Oracle Cloud?
+    answer: In genere no, Oracle non accetta carte prepagate o virtuali temporanee. È richiesta una carta di credito o debito compatibile con il sistema di verifica.
+    url: "https://www.oracle.com/cloud/free/faq/"
+
+  - question: Che cos’è una VM su Oracle Cloud Infrastructure?
+    answer: Una VM (Virtual Machine) su Oracle Cloud Infrastructure è un server virtuale che puoi usare per installare sistemi operativi, applicazioni o servizi come su un computer fisico.
+    url: "https://www.oracle.com/cloud/compute/virtual-machines/"
+
+  - question: Quali risorse offre il piano Always Free di Oracle Cloud?
+    answer: Il piano Always Free include fino a 4 OCPU, 24 GB di RAM e 200 GB di storage complessivo, distribuibili tra una o più macchine virtuali.
+    url: "https://www.oracle.com/cloud/free/"
+
+  - question: Perché la creazione della VM su Oracle Cloud fallisce spesso?
+    answer: La creazione può fallire per mancanza temporanea di risorse disponibili, poiché il piano Always Free ha priorità più bassa rispetto agli utenti paganti.
+    url: "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier.htm"
+
+  - question: Cosa significa errore “Out of host capacity” su Oracle Cloud?
+    answer: Significa che al momento non ci sono risorse hardware disponibili nella regione scelta per creare la macchina virtuale, quindi bisogna riprovare più tardi.
+    url: "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier.htm"
+
+  - question: A cosa serve lo Stack in Oracle Cloud?
+    answer: Lo Stack serve a salvare la configurazione dell’infrastruttura (Infrastructure as Code con Terraform) per poterla riutilizzare o rilanciare facilmente.
+    url: "https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Concepts/resource-manager.htm"
+
+  - question: Perché usare SSH per collegarsi a una VM?
+    answer: SSH permette di accedere in modo sicuro alla macchina virtuale da remoto tramite una coppia di chiavi crittografiche senza usare password.
+    url: "https://www.ssh.com/academy/ssh"
+
+  - question: Come evitare che una VM Oracle Cloud venga deallocata?
+    answer: Non esiste una regola ufficiale pubblica, ma alcuni utenti segnalano che un utilizzo molto basso prolungato potrebbe portare alla deallocazione delle risorse.
+    url: "https://www.reddit.com/r/oraclecloud/"
+---
+
+In questa articolo voglio spiegare passo passo come ho creato una macchina virtuale **completamente gratuita** e per sempre usando Oracle Cloud Infrastructure (OCI), sfruttando il piano _Always Free_.
+
+### Registrazione
+
+Per prima cosa sono andata sul sito ufficiale [https://www.oracle.com/it/cloud/](https://www.oracle.com/it/cloud/).
+
+La schermata iniziale è questa:
+<br />
+
+<img src="/assets/tutorial-oracle-cloud-always-free/home.png" alt="Schermata di registrazione a Oracle Cloud Infrastructure" />
+
+Ho cliccato su **“Prova OCI gratuitamente”** e poi su **“Richiedi una prova gratuita”**.
+
+A questo punto verrà mostrata la schermata di registrazione:
+
+![registrazione](/assets/tutorial-oracle-cloud-always-free/registrazione.png)
+
+
+A un certo punto chiederà di verificare l’identità usando una carta di credito.  
+
+Lo so, purtroppo non si può fare altrimenti. Io l'ho caricata perché serve solo per confermare che sei una persona reale e non un bot. Ho usato questo servizio e non mi è mai stato tolto un euro. 
+
+Ah cosa importante, **non accetta carte prepagate o temporanee**, ma serve una carta di credito “vera” (ho letto su Reddit che in alcuni casi vanno anche le carte di debito, ma non sempre). 
+
+Bisogna fare anche attenzione a inserire **lo stesso indirizzo di residenza associato alla carta**, altrimenti la verifica potrebbe fallire. Nel mio caso è andato tutto liscio al primo colpo, ma comunque si può riprovare nel caso non andasse a buon fine. 
+
+Viene anche chiesto di scegliere dove posizionare il server fisico e nel mio caso ho scelto **Milano**. Attenzione che questa scelta **non può essere modificata in seguito**. Io consiglio di scegliete quella più vicina a voi o ai vostri clienti per avere meno latenza.
+
+### Creazione di un'instanza
+
+Una volta fatta tutta la registrazione ed essere entrati dentro Oracle Cloud Infrastructure, ho potuto creare la macchina virtuale.
+
+#### Informazioni base
+
+In alto a sinistra c'è un menu. Bisogna cliccarci e cercare la sezione **Compute → Instances**, poi cliccare su **Create instance**.
+
+La schermata è questa:
+
+![basic information](/assets/tutorial-oracle-cloud-always-free/basic%20information.png)
+
+Qui in realtà non c’è molto da toccare.  
+Nel mio caso avevo solo un Availability Domain (AD-1 a Milano), quindi ho lasciato tutto così com’era.
+
+Adesso viene la parte in cui bisogna un po' smanettare.
+
+Cliccare su **“Change image”**, perché vogliamo usare Ubuntu aggiornato e soprattutto l’architettura ARM (che è quella gratuita).
+
+![image and shape 1](/assets/tutorial-oracle-cloud-always-free/image%20and%20shape%201.png)  
+![select image 1](/assets/tutorial-oracle-cloud-always-free/select%20image%201.png)  
+![select image 2](/assets/tutorial-oracle-cloud-always-free/select%20image%202.png)
+
+Selezionare:
+- **Ubuntu** (ultima versione disponibile, nel mio caso 24.04)
+- Architettura **aarch64 (ARM)**
+
+Poi confermare cliccando su **“Select image”**.
+
+Appena verrà confermata, Oracle imposterà automaticamente una macchina compatibile (Ampere).
+
+![image and shape 2](/assets/tutorial-oracle-cloud-always-free/image%20and%20shape%202.png)
+
+A questo punto cliccare su **“Change shape”**:
+
+![image and shape 2](/assets/tutorial-oracle-cloud-always-free/image%20and%20shape%202.png)
+
+Qui possiamo impostare quanto deve essere potente la macchina.  
+
+La cosa bella del piano *Always Free* di Oracle Cloud Infrastructure è che dà un po’ di libertà: a disposizione ci sono fino a 4 OCPU e 24 GB di RAM, ma possono essere distribuiti come si preferisce.
+
+Nel mio caso, ho scelto di andare sul semplice con una sola VM con tutte le risorse disponibili. Quindi seleziono **VM.Standard.A1.Flex**, imposto 4 OCPU e lascio fare a lui per la RAM, che viene adattata automaticamente.
+
+![change shape](/assets/tutorial-oracle-cloud-always-free/change%20shape.png)
+
+---
+
+#### Security
+
+Qui **ho lasciato tutto com’è** perchè OCI configura già le regole base, quindi non serve toccare nulla a meno di esigenze particolari.
+
+![security](/assets/tutorial-oracle-cloud-always-free/security.png)
+
+---
+
+#### Networking
+
+Questa è una di quelle parti che, quando l'ho vista prima volta mi è sembrata super complicata ahahaha ma in realtà non è niente di che.
+Visto che era la mia prima macchina virtuale, ho selezionato **“Create a new virtual cloud network”** e ho lasciato il resto inalterato.
+
+![networking](/assets/tutorial-oracle-cloud-always-free/networking.png)
+
+In questo modo, è come se avessi detto ad Oracle di fare un bel po’ di lavoro al posto mio.
+In pratica, lui crea automaticamente tutta l’infrastruttura di rete necessaria per far funzionare la macchina. Non solo “una rete”, ma proprio tutti i pezzi che normalmente bisognerebbe configurare a mano.
+
+Infatti, dietro le quinte:
+- crea una **rete virtuale privata (VCN)**, che è come una piccola rete locale tutta tua dentro il cloud
+- dentro questa rete crea una **subnet**, cioè una “porzione” in cui verrà inserita la tua VM
+- aggiunge un **internet gateway**, che permette alla macchina di comunicare con internet (sia in entrata che in uscita)
+- imposta delle **regole firewall di base**, ad esempio per permettere l’accesso SSH
+
+Se avessi dovuto configurare tutto questo a mano, ci avrei messo decisamente più tempo (e sicuramente avrei sbagliato qualcosa ahahaha).
+
+##### Chiavi SSH
+
+A questo punto mi ha chiesto le chiavi SSH, cioè il metodo con cui poi mi collegherò alla macchina.
+
+Nell'opzione automatica, Oracle genererà una coppia di chiavi e le farà scaricare e salvare: 
+- su **Linux / macOS** nella cartella `~/.ssh/`
+- su **Windows** in `C:\Users\TUO_UTENTE\.ssh\`
+
+![chiavi ssh](/assets/tutorial-oracle-cloud-always-free/chiavi%20ssh.png)
+
+Io essendo un po' più pratica, ho preferito generare le chiavi da sola e caricare sulla piattaforma solo la **chiave pubblica**. In questo modo ho potuto generare una chiave che utilizza una passphrase che è comodo avendo MacOS e il Touch ID. 
+È la soluzione più “pulita”, ma per iniziare non è assolutamente necessaria.
+
+---
+
+#### Storage
+
+L’ultima cosa che ho dovuto configurare è lo storage, cioè lo spazio su disco della macchina.
+
+Il piano *Always Free* di Oracle Cloud Infrastructure mette a disposizione fino a **200 GB totali**, che puoi distribuire come vuoi tra le varie VM.
+
+Di default OCI assegna una dimensione di 50GB al disco della macchina, che nella maggior parte dei casi va già bene. Io però ho scelto di usare tutti i 200GB cliccando su **“Specify a custom boot volume size”** e modificando il valore:
+
+![storage](/assets/tutorial-oracle-cloud-always-free/storage.png)
+
+---
+
+#### Riepilogo
+
+Arrivata a questo punto, Oracle mi ha mostrato un riepilogo di tutto quello che ho configurato. Poi ho cliccato su **Create**.
+
+E qui arriva la parte frustrante ahaha, **la creazione fallirà quasi sicuramente** con questo errore: 
+
+> Risorse non disponibili / Out of Capacity
+
+Questo è l'unica rottura del piano *Always Free* perché ha priorità di allocazione delle risorse molto bassa, quindi quando i server sono pieni, la richiesta viene rifiutata.
+
+Comunque non mi sono scoraggiata e soprattutto **non ho rifatto tutta la configurazione ogni volta**.
+
+#### Salvare la configurazione (Stack)
+
+Per evitare di rifare tutto da zero, ho salvato questa configurazione come uno **stack**.
+
+L'opzione è in basso, indicata come **“Save as stack”**, il nome che gli ho dato è `My-Always-Free-VM`.
+
+![stack](/assets/tutorial-oracle-cloud-always-free/stack.png)
+
+In pratica ho salvato tutta la configurazione della macchina in un file [Terraform](https://developer.hashicorp.com/terraform), famoso in ambito DevOps.
+
+### Riprovare con lo stack
+
+Lo stack verrà salvato in **Developer Services → Resource Manager → Stacks**.
+
+Per riprovare basta cliccare sul nome `My-Always-Free-VM` e poi in alto a destra c'è  **Actions → Apply**:
+
+![stack apply](/assets/tutorial-oracle-cloud-always-free/stack%20apply.png)
+
+A quel punto partirà un job che proverà di nuovo a creare la macchina con le stesse impostazioni. Per controllare se è andato a buon fine basta andare nella sezione **Jobs**.
+
+<br />
+---
+
+### Automatizzazione
+
+A questo punto, dopo aver fatto qualche tentativo a distanza di qualche ora, da buon ingegnere informatico mi sono chiesta se ci fosse un modo di **automatizzare** questa cosa. 
+
+Infatti il problema è che non si sa _quando_ le risorse saranno disponibili. Potrebbe funzionare subito… oppure dopo cento tentativi. Avevo anche letto che le ore notturne (dalle 2:00 alle 7:00) aumentano la probabilità di assegnamento, ma col cavolo che mi sveglio a quelle ore per riprovare ahhaha.
+
+Proprio per questo ho deciso di automatizzare tutto e lasciare che sia uno script a riprovare per me.
+
+#### Creare una API Key
+
+Per farlo, la prima cosa che bisogna fare è permettere al mio computer di “parlare” con Oracle Cloud Infrastructure tramite API.
+
+Quindi la prima cosa da fare è creare una **API Key**.
+
+Ho cliccato sul tuo profilo (in alto a destra) → **User Settings**:
+
+![user settings](/assets/tutorial-oracle-cloud-always-free/user%20settings.png)
+
+Poi, nella sezione **Tokens and Keys** ho creato una nuova API key:
+
+![tokens and keys](/assets/tutorial-oracle-cloud-always-free/tokens%20and%20keys.png)
+
+A questo punto OCI ti farà generare una coppia di chiavi. Le ho scaricate e salvate nello stesso punto delle vecchie chiavi SSH.
+
+Subito dopo mi sono state mostrate alcune informazioni importanti (tipo OCID, fingerprint, tenancy, ecc.).  
+Ho cliccato quindi su **Copy** e le ho salvate sulle note, perché mi sarebbero servite a breve. 
+
+---
+
+#### Installare la CLI di OCI
+
+Ora ho installato la CLI (command line interface), cioè lo strumento che permette di interagire con OCI da terminale.
+
+Su Linux modo più semplice è usare lo script ufficiale:
+
+<CodeBlock
+  language="bash"
+  filename="terminal"
+  code={`bash -c "\$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"`}
+/>
+
+Su MacOS è ancora più facile perché si può installare con brew: 
+
+<CodeBlock
+  language="bash"
+  filename="brew"
+  code={`brew install oci-cli`}
+/>
+
+E poi ho seguito le istruzioni a schermo.
+
+Su Windows ci sono due opzioni:
+- usare **PowerShell** con lo script ufficiale
+- oppure installarla tramite **pip**
+
+Con PowerShell il comnado è questo: 
+
+<CodeBlock
+  language="powershell"
+  filename="powershell"
+  code={`powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.ps1 -OutFile install.ps1; .\\install.ps1"`}
+/>
+
+#### Configurazione della CLI
+
+Una volta installata la CLI, l'ho configurata con il comando:
+
+<CodeBlock
+  language="bash"
+  filename="terminal"
+  code={`oci setup config`}
+/>
+
+Mi è stato chiesto di inserire le informazioni che prima avevo salvato nelle note: 
+- **User OCID**
+- **Tenancy OCID**
+- **Region**
+- percorso (assoluto) della chiave privata della API Key
+
+Alla fine, verrà creato automaticamente un file di configurazione:
+- su **Linux / macOS** → `~/.oci/config`
+- su **Windows** → `C:\Users\TUO_UTENTE\.oci\config`
+
+Questo file contiene tutte le credenziali per usare OCI da terminale.
+
+#### Script di automazione della richiesta
+
+L’idea è semplice: invece di stare lì a cliccare **Apply** ogni volta sperando che le risorse siano disponibili, questo script prova automaticamente a creare la macchina, e se non ci riesce… aspetta e riprova.
+
+<CodeBlock
+  language="bash"
+  filename="retry.sh"
+  code={`#!/bin/bash
+set -uo pipefail
+
+# Configuration
+STACK_ID="YOUR_STACK_ID"
+DELAY=450                 # delay between attempts in seconds (7.5 min)
+MAX_ATTEMPTS=0            # 0 = infinite
+LOG_FILE="oci-retry.log"
+THROTTLE_MIN=900         # min backoff when throttled (20 min)
+THROTTLE_MAX=3600         # max backoff when throttled (1 hour)
+
+export OCI_CLI_SUPPRESS_FILE_PERMISSIONS_WARNING=True
+
+attempt=0
+throttle_backoff=$THROTTLE_MIN
+echo "Starting automation for Oracle Stack \$STACK_ID..." | tee -a "\$LOG_FILE"
+
+while true; do
+    attempt=\$((attempt + 1))
+    echo "--------------------------------------------" | tee -a "\$LOG_FILE"
+    echo "[\$(date -Iseconds)] Attempt #\$attempt (throttle_backoff=\${throttle_backoff}s)" | tee -a "\$LOG_FILE"
+
+    RAW_OUTPUT=\$(oci resource-manager job create-apply-job \\
+        --stack-id "\$STACK_ID" \\
+        --execution-plan-strategy "AUTO_APPROVED" \\
+        --wait-for-state SUCCEEDED \\
+        --wait-for-state FAILED \\
+        --wait-for-state CANCELED \\
+        --max-wait-seconds 1800 \\
+        2>&1)
+
+    # Strip any CLI status lines before the JSON object
+    JOB_JSON=\$(echo "\$RAW_OUTPUT" | awk '/^{/{flag=1} flag')
+
+    STATE=\$(echo "\$JOB_JSON" | jq -r '.data."lifecycle-state" // empty' 2>/dev/null)
+    JOB_ID=\$(echo "\$JOB_JSON" | jq -r '.data.id // empty' 2>/dev/null)
+
+    if [[ -z "\$STATE" ]]; then
+        # Handle rate limiting explicitly
+        if echo "\$RAW_OUTPUT" | grep -qiE "TooManyRequests|status.*429"; then
+            echo "Rate limited by OCI. Sleeping for \$throttle_backoff seconds." | tee -a "\$LOG_FILE"
+            sleep "\$throttle_backoff"
+            # Exponential backoff, capped
+            throttle_backoff=\$(( throttle_backoff * 2 ))
+            if [[ \$throttle_backoff -gt \$THROTTLE_MAX ]]; then
+                throttle_backoff=\$THROTTLE_MAX
+            fi
+            continue
+        fi
+
+        echo "OCI CLI error (no parseable state):" | tee -a "\$LOG_FILE"
+        echo "\$RAW_OUTPUT" | tee -a "\$LOG_FILE"
+        # Auth / stack-id / syntax errors: no point hammering. Bail out.
+        if echo "\$RAW_OUTPUT" | grep -qiE "NotAuthenticated|NotAuthorized|InvalidParameter|stack .* not found"; then
+            echo "Fatal error, aborting." | tee -a "\$LOG_FILE"
+            exit 1
+        fi
+        sleep \$(( DELAY + RANDOM % 60 ))
+        continue
+    fi
+
+    # API call succeeded: gradually decrease backoff (halve it, floor at THROTTLE_MIN)
+    if [[ \$throttle_backoff -gt \$THROTTLE_MIN ]]; then
+        throttle_backoff=\$(( throttle_backoff / 2 ))
+        if [[ \$throttle_backoff -lt \$THROTTLE_MIN ]]; then
+            throttle_backoff=\$THROTTLE_MIN
+        fi
+        echo "API call succeeded, decreasing throttle_backoff to \${throttle_backoff}s" | tee -a "\$LOG_FILE"
+    fi
+
+    echo "Job \$JOB_ID -> \$STATE" | tee -a "\$LOG_FILE"
+
+    if [[ "\$STATE" == "SUCCEEDED" ]]; then
+        echo "SUCCESS: instance created!" | tee -a "\$LOG_FILE"
+        # MacOS notification
+        # osascript -e 'display notification "Oracle VM Created Successfully!" with title "OCI Stack Alert" sound name "Crystal"'
+        exit 0
+    fi
+
+    # Pull the logs to distinguish capacity errors from real failures
+    LOGS=\$(oci resource-manager job get-job-logs --job-id "\$JOB_ID" --all 2>/dev/null \\
+           | jq -r '.data[]?.message' 2>/dev/null)
+
+    if echo "\$LOGS" | grep -qiE "Out of host capacity|TooManyRequests|LimitExceeded|capacity"; then
+        echo "Capacity/quota issue, will retry." | tee -a "\$LOG_FILE"
+    else
+        echo "Job failed for a non-capacity reason. Last log lines:" | tee -a "\$LOG_FILE"
+        echo "\$LOGS" | tail -n 20 | tee -a "\$LOG_FILE"
+        exit 2
+    fi
+
+    if [[ \$MAX_ATTEMPTS -gt 0 && \$attempt -ge \$MAX_ATTEMPTS ]]; then
+        echo "Max attempts reached, giving up." | tee -a "\$LOG_FILE"
+        exit 3
+    fi
+
+    sleep \$(( DELAY + RANDOM % 60 ))
+done`}
+/>
+
+Funziona così:
+- prende l'**OCID stack ID**, si trova in **Developer Services → Resource Manager → Stacks**, poi basta cliccare sul nome e all'interno della schermata si trova l'ID.
+- prova a lanciare la creazione tramite CLI di Oracle Cloud Infrastructure
+- controlla il risultato del tentativo
+- se la creazione fallisce perché non ci sono risorse disponibili, **aspetta e riprova**
+- se invece il problema è un errore serio (tipo credenziali sbagliate), si ferma subito
+
+Un dettaglio interessante è che se Oracle limita le richieste (per via del **rate limit**), lo script non insiste subito, ma:
+- aspetta un po’
+- poi aumenta gradualmente il tempo di attesa
+- e riprova con più calma
+
+In pratica si adatta da solo alla situazione.
+
+### Fine
+
+E a questo punto… non resta davvero altro da fare se non lasciarlo girare.
+Può volerci anche parecchio tempo, a volte giorni, quindi qui **serve solo un po’ di pazienza** e lasciare che il processo faccia il suo corso.
+
+Una cosa interessante che ho letto su Reddit è che Oracle Cloud Infrastructure potrebbe deallocare automaticamente le risorse se la macchina rimane inutilizzata per troppo tempo (ad esempio se l’utilizzo resta sotto il 10% per più di 7 giorni).
+
+Non è qualcosa che ho verificato personalmente, ma è comunque un comportamento plausibile per un piano *Always Free*.
+
+Per questo motivo sto già pensando di farmi uno script leggero (probabilmente in [Rust](https://rust-lang.org/)) da installare direttamente sulla VM, che:
+- monitora l’utilizzo delle risorse
+- e, se la macchina è troppo “ferma”, genera un piccolo carico artificiale per evitare che venga spenta o liberata
+
+L’idea è semplicemente mantenere la VM “attiva” senza sprecarla, ma senza nemmeno esagerare.
