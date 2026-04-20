@@ -4,12 +4,16 @@ import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-light';
 import markup from 'react-syntax-highlighter/dist/esm/languages/prism/markup';
 import css from 'react-syntax-highlighter/dist/esm/languages/prism/css';
 import cpp from 'react-syntax-highlighter/dist/esm/languages/prism/cpp';
+import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
+import powershell from 'react-syntax-highlighter/dist/esm/languages/prism/powershell';
 import atomDark from 'react-syntax-highlighter/dist/esm/styles/prism/atom-dark';
 import { IconCheck, IconCopy } from '@tabler/icons-react';
 
 SyntaxHighlighter.registerLanguage('html', markup);
 SyntaxHighlighter.registerLanguage('css', css);
 SyntaxHighlighter.registerLanguage('cpp', cpp);
+SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('powershell', powershell);
 
 type CodeBlockProps = {
   language: string;
