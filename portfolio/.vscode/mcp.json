@@ -1,8 +1,0 @@
-{
-  "servers": {
-    "lighthouse": {
-      "command": "npx",
-      "args": ["@danielsogl/lighthouse-mcp@latest"]
-    }
-  }
-}

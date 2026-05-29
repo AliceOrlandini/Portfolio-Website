@@ -3,7 +3,6 @@ import { Raleway } from 'next/font/google';
 import '@/app/globals.css';
 import Footer from '@/components/layout/footer';
 import { VercelProviders } from '@/app/vercel-providers';
-import Head from 'next/head';
 import JsonLd from '@/components/json-ld';
 import dynamic from 'next/dynamic';
 

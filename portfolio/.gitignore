@@ -45,3 +45,7 @@ next-env.d.ts
 
 # velite files
 .velite
+
+# ide
+.vscode/
+.claude/

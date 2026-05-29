@@ -1,11 +1,11 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { CHARACTER_ITEMS } from '@/lib/constants';
 import Character1 from '@/public/assets/character/character-1-1024.png';
 import Character2 from '@/public/assets/character/character-2-1024.png';
 import Character3 from '@/public/assets/character/character-3-1024.png';
 import EllipseImage from '@/public/assets/ellipse/ellipse.png';
 
-const characterImages: Record<string, any> = {
+const characterImages: Record<string, StaticImageData> = {
   'character-1': Character1,
   'character-2': Character2,
   'character-3': Character3
