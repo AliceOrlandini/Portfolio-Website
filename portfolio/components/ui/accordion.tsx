@@ -21,7 +21,7 @@ function AccordionItem({
       data-slot='accordion-item'
       className={cn(
         'text-paragraph rounded-lg px-10 py-2 transition-colors',
-        '[&[data-state=open]]:bg-primary [&[data-state=open]]:text-white',
+        'data-[state=open]:bg-primary data-[state=open]:text-white',
         className
       )}
       {...props}

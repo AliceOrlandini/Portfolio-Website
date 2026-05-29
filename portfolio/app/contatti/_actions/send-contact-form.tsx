@@ -1,5 +1,5 @@
 'use server';
-import { render } from '@react-email/components';
+import { render } from 'react-email';
 import { PersonalEmail } from './personal-email';
 import { UserEmail } from './user-email';
 import { contactFormBodySchema } from '@/lib/schemas';

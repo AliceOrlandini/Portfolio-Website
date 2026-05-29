@@ -1,0 +1,12 @@
+diff --git a/src/contexts/IubendaContext.tsx b/src/contexts/IubendaContext.tsx
+index e73d2957098b70144b38756dedcf3247b3b2af90..057788cc82b85161b01c1084bae1e6a2781bc160 100644
+--- a/src/contexts/IubendaContext.tsx
++++ b/src/contexts/IubendaContext.tsx
+@@ -1,6 +1,6 @@
+ 'use client';
+ 
+-import React, { createContext, ReactNode, useContext, useReducer } from 'react';
++import { createContext, ReactNode, useContext, useReducer } from 'react';
+ 
+ import IubendaBanner, {
+   BannerVersion,

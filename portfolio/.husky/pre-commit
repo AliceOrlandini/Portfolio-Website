@@ -1,0 +1,3 @@
+#!/bin/sh
+cd portfolio 2>/dev/null || cd .
+pnpm exec lint-staged

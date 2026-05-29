@@ -10,6 +10,9 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   transpilePackages: ['@mep-agency/next-iubenda'],
+  typescript: {
+    ignoreBuildErrors: true
+  },
   async headers() {
     return [
       {

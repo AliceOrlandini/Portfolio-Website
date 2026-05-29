@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { TECNOLOGIES_ITEMS } from '@/lib/constants';
 import dynamic from 'next/dynamic';
 import NextjsLogo from '@/public/assets/technologies/nextjs-logo.png';
@@ -11,12 +11,12 @@ const InfiniteLogoSlider = dynamic(
   () => import('@/components/ui/infinite-logo-slider')
 );
 
-const techImages: Record<string, any> = {
+const techImages: Record<string, StaticImageData> = {
   'nextjs-logo': NextjsLogo,
   'tailwindcss-logo': TailwindLogo,
   'supabase-logo': SupabaseLogo,
   'bunnycdn-logo': BunnyCdnLogo,
-  'firebase-logo': FirebaseLogo,
+  'firebase-logo': FirebaseLogo
 };
 
 export default function Tecnologies() {

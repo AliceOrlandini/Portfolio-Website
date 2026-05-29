@@ -9,7 +9,7 @@ import {
   Row,
   Section,
   Text
-} from '@react-email/components';
+} from 'react-email';
 
 export const UserEmail = () => {
   const previewText = `Messaggio inviato con successo!`;
@@ -80,23 +80,6 @@ const heading = {
   lineHeight: '1.3',
   fontWeight: '700',
   color: '#484848'
-};
-
-const paragraph = {
-  fontSize: '20px',
-  lineHeight: '1.4',
-  color: '#484848'
-};
-
-const messageSection = {
-  fontSize: '20px',
-  lineHeight: '1.4',
-  color: '#fcfff0',
-  padding: '24px',
-  maxWidth: '512px',
-  margin: '10px 0',
-  backgroundColor: '#703f85',
-  borderRadius: '4px'
 };
 
 const hr = {
