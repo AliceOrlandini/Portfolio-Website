@@ -1,0 +1,6 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+patchedDependencies:
+  '@mep-agency/next-iubenda@1.0.0-alpha5': patches/@mep-agency__next-iubenda@1.0.0-alpha5.patch
