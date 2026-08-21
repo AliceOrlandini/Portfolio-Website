@@ -48,9 +48,9 @@ A partire da questo mio disagio ho deciso di smettere di tirare a indovinare e s
 
 ## 2. Il problema
 
-Ho iniziato a studiare il problema e mi sono accorta che rispondere a questa domanda tutt'altro che banale per i seguenti motivi:
+Ho iniziato a studiare il problema e mi sono accorta che rispondere a questa domanda è tutt'altro che banale per i seguenti motivi:
 
-1. **L'inferno delle API ferroviarie**. Non esiste uno standard universale. Ogni nazione (e spesso ogni gestore regionale) usa le proprie API, che cambiano continuamente, non comunicando tra loro e risultando spesso incomplete. Se volete un assaggio di quanto possa essere infernale lavorare con i dati ferroviari in Italia, vi consiglio questo stupendo articolo su Medium [_"Trenitalia SHOCK: non crederete mai a queste API (Painful)"_](https://medium.com/@albigiu/trenitalia-shock-non-crederete-mai-a-queste-api-painful-14433096502c).
+1. **L'inferno delle API ferroviarie**. Non esiste uno standard universale. Ogni nazione (e spesso ogni gestore regionale) usa le proprie API, che cambiano continuamente, non comunicando tra loro e risultando spesso incomplete. Se volete un assaggio di quanto possa essere infernale lavorare con i dati ferroviari in Italia, vi consiglio questo articolo su Medium [_"Trenitalia SHOCK: non crederete mai a queste API (Painful)"_](https://medium.com/@albigiu/trenitalia-shock-non-crederete-mai-a-queste-api-painful-14433096502c).
 2. **La linea è a binario unico.** A Tassignano i treni in direzioni opposte **si incrociano**: quello che arriva da Lucca passa da quel punto _prima_ di entrare in stazione, quello che arriva da Altopascio lo passa _dopo_ essere ripartito. Lo scambio genera spesso **due** chiusure ravvicinate, separate da una brevissima finestra di riapertura (certe volte trovo il passaggio a livello chiuso, apre per 2 minuti e poi mi richiude in faccia...). Per non parlare della gestione dei ritardi, degli anticipi o di un treno in ritardo che ne rallenta un altro.
 3. **Lo storico non esiste da nessuna parte.** Nessun ente pubblica dati del tipo _"il 15/09/2026, il passaggio a livello era chiuso dalle 7:37 alle 7:39"_. Non esiste quindi nessun dataset a disposizione.
 
@@ -66,7 +66,7 @@ Se bastassero le API, il problema non esisterebbe nemmeno. La realtà è che i t
 
 Per questo, ho deciso di integrare quei dati con il mio **ground truth personale**, ovvero quello che vedo io, direttamente dal sedile dell'auto.
 
-Ho infatti pensato che, visto che da quel passaggio a livello ci devo passare ogni mattina per andare al lavoro, tanto vale approfittarne! Mi segno se le sbarre sono aperte o chiuse, quanti minuti ho aspettato in coda e da quale direzione arrivava il treno (così posso correlarlo ai dati delle API).
+Ho infatti pensato che, visto che da quel passaggio a livello ci devo passare ogni mattina per andare a lavoro, tanto vale approfittarne! Mi segno se le sbarre sono aperte o chiuse, quanti minuti ho aspettato in coda e da quale direzione arrivava il treno (così posso correlarlo ai dati delle API).
 
 Prese da sole, entrambe le sorgenti non sono sufficienti: lo storico dei dati che raccolgo dall'auto dicono _"il martedì alle 7:40 è spesso chiuso e ci mette 7 minuti a riaprirsi"_, ma non sa cosa stia succedendo **oggi**. I dati delle API invece dicono _"il regionale 18452 è a Lucca alle 7:30"_, ma non sanno quanto spesso sia in ritardo su quel tratto.
 
@@ -104,7 +104,7 @@ Trattandosi per ora di calcoli statistici e frequenze, Swift gestisce la logica 
 
 ### Interazione vocale con Siri
 
-Questo è un punto importante. Se sto guidando, non posso mettermi a _"spippolare"_ sul telefono. Ho quindi integrato gli **App Intents** per poter parlare direttamente con Siri:
+Questo è un punto importante. Se sto guidando, non posso mettermi a _spippolare_ sul telefono. Ho quindi integrato gli **App Intents** per poter parlare direttamente con Siri:
 
 - Se il passaggio è **aperto**, mi basta dire: _"Ehi Siri, registra il passaggio a livello aperto"_.
 - Se è **chiuso**, dico a Siri che mi sono fermata; a quel punto Siri mi chiede quanti minuti ho aspettato e in che direzione andava il treno.
@@ -136,9 +136,9 @@ $$\text{Finestra} = [\text{OrarioPassaggio} - \text{preClose},\; \text{OrarioPas
 
 Tutti i bucket che finiscono in questa finestra vedono schizzare la loro probabilità di chiusura al **90%**.
 
-**Perché 90% e non 100%?** È una scelta deliberata: il treno c'è sicuramente, ma l'orario esatto al secondo è pur sempre una stima influenzata da come `preClose` e `postClose` si comportano nella realtà, dati che le API pubbliche non forniscono...
+**Perché 90% e non 100%?** È una scelta deliberata: il treno c'è sicuramente, ma l'orario esatto al secondo è pur sempre una stima influenzata da come `preClose` e `postClose` si comportano nella realtà, dati che le API pubbliche non forniscono.
 
-Inoltre, grazie al polling continuo delle API, **il ritardo in tempo reale sposta dinamicamente l'intera finestra**, ad esempio, se il regionale per Lucca accumula 3 minuti di ritardo mentre è a Pistoia, l'app fa _"scivolare"_ in avanti i bucket interessati.
+Inoltre, grazie al polling continuo delle API, **il ritardo in tempo reale sposta dinamicamente l'intera finestra**, ad esempio, se il regionale per Lucca accumula 3 minuti di ritardo mentre è a Pistoia, l'app fa _scivolare_ in avanti i bucket interessati.
 
 ### Il Ground Truth
 
@@ -182,4 +182,4 @@ Se tra qualche settimana le previsioni si riveleranno accurate, avrò finalmente
 
 **Prossimamente** pubblicherò la parte 2 di questo articolo, in cui analizzerò i dati raccolti e i risultati effettivi dell'algoritmo.
 
-_**Sarà stato un successo o un clamoroso flop?**_
+_**Sarà un successo o un clamoroso flop?**_
