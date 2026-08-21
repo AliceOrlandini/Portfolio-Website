@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import 'katex/dist/katex.min.css';
 import { Raleway } from 'next/font/google';
 import '@/app/globals.css';
 import Footer from '@/components/layout/footer';

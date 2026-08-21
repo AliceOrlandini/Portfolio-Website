@@ -11,7 +11,8 @@ const eslintConfig = [
       '**/dist/**',
       '**/build/**',
       '**/coverage/**',
-      'next-env.d.ts'
+      'next-env.d.ts',
+      '**/.velite/**'
     ]
   },
   ...nextCoreWebVitals,

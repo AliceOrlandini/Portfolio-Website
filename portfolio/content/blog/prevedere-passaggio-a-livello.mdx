@@ -1,0 +1,185 @@
+---
+title: Posso prevedere quando si chiude il passaggio a livello?
+description: Racconto del prototipo che ho sviluppato per prevedere la chiusura del passaggio a livello combinando API in tempo reale e osservazioni dal vivo.
+alt: Copertina dell'articolo "Posso prevedere quando si chiude il passaggio a livello?"
+date: 2026-08-21
+published: true
+timing: 14
+image: /assets/prevedere-passaggio-a-livello/copertina
+faqs:
+  - question: Questo sistema può davvero prevedere se il passaggio a livello sarà chiuso?
+    answer: Il prototipo combina dati in tempo reale dalle API di Viaggiatreno e lo storico delle mie osservazioni per fornire una probabilità; è un'indicazione utile ma non una certezza assoluta.
+    url: https://aliceorlandini.it/blog/prevedere-passaggio-a-livello
+
+  - question: L'app sarà open source?
+    answer: L'obiettivo è rendere il progetto open source se il prototipo dimostra utilità; pubblicherò il codice su GitHub per chi vuole contribuire.
+    url: https://github.com/aliceorlandini
+
+  - question: Funziona solo per il passaggio a livello di Tassignano?
+    answer: >
+      Ho progettato l'architettura per generalizzabile: basta raccogliere dati e adattare i parametri (preClose/postClose) per altre località.
+    url: https://aliceorlandini.it/blog/prevedere-passaggio-a-livello
+
+  - question: Serve intelligenza artificiale per migliorare le previsioni?
+    answer: Per ora uso semplici statistiche locali; con abbastanza dati si potrebbe usare Machine Learning per aumentare l'accuratezza.
+    url: https://en.wikipedia.org/wiki/Machine_learning
+---
+
+## 1. Il rito del mattino
+
+C'è un piccolo dettaglio che decide il mio umore ogni mattina ed è situato in Via della Madonnina a Capannori: **il passaggio a livello** lungo la linea Firenze-Lucca-Viareggio.
+
+![Passaggio a livello a Tassignano](/assets/prevedere-passaggio-a-livello/passaggio-a-livello.webp)
+
+Per settimane ho provato a partire di casa ad orari diversi: ho provato alle 7:35: **chiuso**. Poi alle 7:40: **chiuso**. Fino al tentativo disperato delle 7:45: ovviamente **chiuso**.
+
+Il problema non è solo l'attesa in sé, ma l'effetto domino.
+Infatti, quei dieci minuti con le sbarre abbassate fanno tutta la differenza del mondo perché, più il tempo passa, più il traffico si intensifica, trasformando dieci minuti di attesa in ben 20 minuti di ritardo sull'orario di arrivo al lavoro.
+
+Il _"problema"_ di questo specifico passaggio a livello è che si trova su un tratto a **binario unico** e in quella precisa fascia oraria transitano ben 4 treni:
+
+1. Un regionale da Lucca ad Altopascio, che non si ferma alla stazione di Tassignano.
+2. Un treno nella direzione opposta, anche lui non si ferma alla stazione di Tassignano.
+3. Altri due treni che invece fanno tutte le fermate, uno verso Lucca e l'altro verso Altopascio. E dove avviene il loro scambio? Esatto, proprio a Tassignano.
+
+Conosco bene questa tratta perché l'ho fatta da pendolare per tutti e 5 anni di Università, e so quindi quanto i ritardi possano essere casuali.
+
+A partire da questo mio disagio ho deciso di smettere di tirare a indovinare e sviluppare un'applicazione che risponda ad una semplice domanda: _**mi conviene partire adesso o troverò il passaggio a livello chiuso?**"_
+
+## 2. Il problema
+
+Ho iniziato a studiare il problema e mi sono accorta che rispondere a questa domanda tutt'altro che banale per i seguenti motivi:
+
+1. **L'inferno delle API ferroviarie**. Non esiste uno standard universale. Ogni nazione (e spesso ogni gestore regionale) usa le proprie API, che cambiano continuamente, non comunicando tra loro e risultando spesso incomplete. Se volete un assaggio di quanto possa essere infernale lavorare con i dati ferroviari in Italia, vi consiglio questo stupendo articolo su Medium [_"Trenitalia SHOCK: non crederete mai a queste API (Painful)"_](https://medium.com/@albigiu/trenitalia-shock-non-crederete-mai-a-queste-api-painful-14433096502c).
+2. **La linea è a binario unico.** A Tassignano i treni in direzioni opposte **si incrociano**: quello che arriva da Lucca passa da quel punto _prima_ di entrare in stazione, quello che arriva da Altopascio lo passa _dopo_ essere ripartito. Lo scambio genera spesso **due** chiusure ravvicinate, separate da una brevissima finestra di riapertura (certe volte trovo il passaggio a livello chiuso, apre per 2 minuti e poi mi richiude in faccia...). Per non parlare della gestione dei ritardi, degli anticipi o di un treno in ritardo che ne rallenta un altro.
+3. **Lo storico non esiste da nessuna parte.** Nessun ente pubblica dati del tipo _"il 15/09/2026, il passaggio a livello era chiuso dalle 7:37 alle 7:39"_. Non esiste quindi nessun dataset a disposizione.
+
+## 3. L'idea
+
+La soluzione che ho progettato incrocia due diverse sorgenti di verità.
+
+La prima è lo **stato della linea in tempo reale** che recupero dalle API pubbliche di Viaggiatreno. Esse mi dicono quali treni stanno per transitare, in che direzione viaggiano, se hanno la fermata a Tassignano, dove si trovano adesso e con quanti minuti di ritardo (o anticipo) stanno procedendo.
+
+**Questo però non basta.**
+
+Se bastassero le API, il problema non esisterebbe nemmeno. La realtà è che i treni fanno un po' come gli pare ahahah. Il ritardo spesso viene recuperato all'improvviso, altre volte rallentano in entrata di stazione, seguendo pattern che le API non mostrano.
+
+Per questo, ho deciso di integrare quei dati con il mio **ground truth personale**, ovvero quello che vedo io, direttamente dal sedile dell'auto.
+
+Ho infatti pensato che, visto che da quel passaggio a livello ci devo passare ogni mattina per andare al lavoro, tanto vale approfittarne! Mi segno se le sbarre sono aperte o chiuse, quanti minuti ho aspettato in coda e da quale direzione arrivava il treno (così posso correlarlo ai dati delle API).
+
+Prese da sole, entrambe le sorgenti non sono sufficienti: lo storico dei dati che raccolgo dall'auto dicono _"il martedì alle 7:40 è spesso chiuso e ci mette 7 minuti a riaprirsi"_, ma non sa cosa stia succedendo **oggi**. I dati delle API invece dicono _"il regionale 18452 è a Lucca alle 7:30"_, ma non sanno quanto spesso sia in ritardo su quel tratto.
+
+Insieme diventano una **_predizione_**. Il mio obiettivo ideale sarebbe quello di trovare un pattern ricorrente che si affini man mano che raccolgo dati e restituisca una percentuale di affidabilità precisa.
+
+_E se ve lo state chiedendo, no, per il momento niente AI o Machine Learning. Per quello servirebbero migliaia di dati che semplicemente non ho (alla fine ci passo solo una volta al giorno), quindi si procede con la cara, vecchia, buona statistica ahahah._
+
+## 4. Scelte progettuali
+
+Le scelte di architettura che ho preso si basano su cinque pilastri.
+
+### App nativa in SwiftUI
+
+Volevo un'app nativa per iOS (io ho un iPhone) con un'interfaccia ridotta all'osso per essere consultata a colpo d'occhio. Alla fine è un prototipo, voglio prima capire se il tutto funziona prima di dedicare tempo ed energie all'aspetto grafico.
+
+### Architettura Local-First
+
+Niente database cloud, niente Firebase e soprattutto zero server da mantenere (e pagare soprattutto ahaha).
+Per la persistenza dei dati ho usato **SwiftData**: tutti i dati e gli orari registrati restano in locale sul dispositivo.
+E per le analisi avanzate? Ho inserito un tasto nell'app che genera un dump del DB per inviarmelo via AirDrop sul Mac e studiarmelo comodamente in Python.
+
+![Importa ed esporta snapshot del database](/assets/prevedere-passaggio-a-livello/importa-esporta.webp)
+
+### Snapshots automatizzati delle API
+
+Ogni 60 secondi l'app effettua in background una chiamata asincrona alle API di Viaggiatreno (per le stazioni di Tassignano, Lucca e Altopascio) per consultare il tabellone nella finestra compresa tra -15 e +30 minuti da adesso.
+
+Salvo tutto ciò che c'è a disposizione: numeri di treno, ritardi, anticipi, direzioni e orari di passaggio teorici ed effettivi.
+
+![Stato dei treni (tabellone Viaggiatreno)](/assets/prevedere-passaggio-a-livello/stato-treno.png)
+
+### Predizione locale
+
+Trattandosi per ora di calcoli statistici e frequenze, Swift gestisce la logica di predizione **direttamente sul dispositivo** senza alcun problema. L'app elabora la probabilità di chiusura basandosi sui dati storici accumulati, restituendo la **percentuale di affidabilità** sulla schermata principale.
+
+### Interazione vocale con Siri
+
+Questo è un punto importante. Se sto guidando, non posso mettermi a _"spippolare"_ sul telefono. Ho quindi integrato gli **App Intents** per poter parlare direttamente con Siri:
+
+- Se il passaggio è **aperto**, mi basta dire: _"Ehi Siri, registra il passaggio a livello aperto"_.
+- Se è **chiuso**, dico a Siri che mi sono fermata; a quel punto Siri mi chiede quanti minuti ho aspettato e in che direzione andava il treno.
+
+In questo modo non stacco mai le mani dal volante ed è tutto è perfettamente sicuro.
+
+![Interazione Siri per registrare lo stato del passaggio a livello](/assets/prevedere-passaggio-a-livello/siri-aperto.webp)
+
+## 5. La predizione
+
+La domanda a cui l'app deve rispondere è molto semplice: _"Con che probabilità trovo le sbarre giù nei prossimi minuti?"_.
+
+Per farlo, l'algoritmo non ragiona su un singolo istante, ma divide il tempo in **9 bucket da 5 minuti**, coprendo un orizzonte temporale complessivo di 45 minuti:
+
+![Divisione in bucket temporali per la predizione](/assets/prevedere-passaggio-a-livello/buckets.webp)
+
+Per popolare questi bucket e calcolare le probabilità, l'algoritmo combina i due ingredienti discussi precedentemente.
+
+### I treni di adesso
+
+Quando un treno si avvicina a Tassignano, le sbarre non si chiudono nell'esatto secondo in cui transita. Esiste una _"finestra"_ attorno al momento del passaggio effettivo, definita da due parametri:
+
+- `preClose`: L'intervallo di tempo in cui le sbarre scendono _prima_ dell'arrivo del treno per ragioni di sicurezza. A Tassignano si sta fermi per **buoni 5-6 minuti** prima che il treno passi.
+- `postClose`: Il tempo a rialzare le sbarre dopo che l'ultimo vagone è passato (di solito poca roba, **circa 1 minuto**).
+
+Ogni treno in transito genera quindi una finestra temporale:
+
+$$\text{Finestra} = [\text{OrarioPassaggio} - \text{preClose},\; \text{OrarioPassaggio} + \text{postClose}]$$
+
+Tutti i bucket che finiscono in questa finestra vedono schizzare la loro probabilità di chiusura al **90%**.
+
+**Perché 90% e non 100%?** È una scelta deliberata: il treno c'è sicuramente, ma l'orario esatto al secondo è pur sempre una stima influenzata da come `preClose` e `postClose` si comportano nella realtà, dati che le API pubbliche non forniscono...
+
+Inoltre, grazie al polling continuo delle API, **il ritardo in tempo reale sposta dinamicamente l'intera finestra**, ad esempio, se il regionale per Lucca accumula 3 minuti di ritardo mentre è a Pistoia, l'app fa _"scivolare"_ in avanti i bucket interessati.
+
+### Il Ground Truth
+
+Il secondo ingrediente è la mia osservazione diretta sul campo, ma con una rilevanza ben diversa a seconda di cosa trovo:
+
+- **Se trovo aperto:** Ottengo un dato binario (in quel preciso timestamp si passava).
+- **Se trovo chiuso:** Qui il dato diventa preziosissimo. Ottengo a tutti gli effetti un **timestamp di inizio e un timestamp di fine** dell'intervallo di chiusura.
+
+Questo mi permette di confrontare l'intervallo reale con i bucket previsti dall'algoritmo. Se l'app aveva stimato rossi i bucket [07:35-07:40] e [07:40-07:45], ma io sono rimasta ferma dalle 07:37 alle 07:43, posso misurare al secondo quanto la finestra teorica definita da `preClose` e `postClose` si sia sovrapposta alla realtà, correggendo il tiro per le volte successive.
+
+### Flusso e Risultato visivo
+
+Dal punto di vista grafico il risultato finale è questo:
+
+![Card di sintesi con probabilità di chiusura](/assets/prevedere-passaggio-a-livello/predizione.webp)
+
+In alto, una card riassuntiva mostra lo stato di sintesi in tempo reale (in questo caso avvisa di una _"Possibile chiusura 17:19-17:39"_ prevista tra 9 minuti).
+
+La sintesi del flusso è quella riportata in figura.
+
+![Diagramma di flusso del sistema di raccolta dati e predizione](/assets/prevedere-passaggio-a-livello/diagramma-di-flusso.webp)
+
+## 6. Dove sono adesso
+
+L’app **funziona**, è installata sul mio telefono e sta già facendo il suo dovere ogni mattina.
+
+Ora entra in gioco la parte che non posso in alcun modo accelerare: **raccogliere i dati**. L'algoritmo ha bisogno di imparare sul campo, mattina dopo mattina, chiusura dopo chiusura.
+
+### Perché pubblicare questa prima parte prima di avere risultati concreti?
+
+Per i **feedback**.  
+Ho deciso di condividere il progetto adesso perché invito chiunque leggerà questo articolo a darmi idee, critiche, consigli di architettura o spunti per migliorare il sistema.
+
+Il mio sogno (se l'app darà segnali di funzionare abbastanza bene ahaha) è quello di rilasciare l'app **open source** a disposizione di tutti. L'idea sarebbe quella di renderla un framework generale personalizzabile per _qualsiasi_ passaggio a livello che ognuno di noi si trova ad affrontare ogni giorno nel proprio tragitto. Per arrivarci, però, ho bisogno di capire se l’idea piace e come farla evolvere, grazie al confronto.
+
+### In conclusione...
+
+Questo articolo non ha un gran finale ma è un **work in progress**. La struttura tecnologica c'è e fa il suo lavoro; adesso servono semplicemente le mattine al volante.
+
+Se tra qualche settimana le previsioni si riveleranno accurate, avrò finalmente la risposta con cui è nato tutto questo progetto.
+
+**Prossimamente** pubblicherò la parte 2 di questo articolo, in cui analizzerò i dati raccolti e i risultati effettivi dell'algoritmo.
+
+_**Sarà stato un successo o un clamoroso flop?**_
